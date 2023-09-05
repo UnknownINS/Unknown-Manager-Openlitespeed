@@ -1,6 +1,6 @@
 # Easy Manager Openlitespeed Ubuntu
 
-![Screenshot](https://github.com/UnknownINS/Easy-Manager-Openlitespeed/tree/main/assets/ols-wp-cache.png)
+![Screenshot](https://github.com/UnknownINS/Easy-Manager-Openlitespeed/blob/main/assets/ols-wp-cache.png?raw=true)
 
 
 Easy Manager Openlitespeed ubuntu
