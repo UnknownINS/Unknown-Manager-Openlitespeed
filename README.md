@@ -1,7 +1,8 @@
 # Easy Manager Openlitespeed Ubuntu
 
-![Screenshot](https://github.com/UnknownINS/Easy-Manager-Openlitespeed/blob/main/assets/ols-wp-cache.png?raw=true)
-
+<p align="center">
+  <img width="725" height="375" src="https://github.com/UnknownINS/Easy-Manager-Openlitespeed/blob/main/assets/ols-wp-cache.png?raw=true">
+</p>
 
 Easy Manager Openlitespeed ubuntu
 
