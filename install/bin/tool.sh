@@ -112,7 +112,7 @@ configAutoBackup(){
 
 backupDriverNow(){
 
-  if [ $RCLONE_NAME == '' ]; then
+  if [ $RCLONE_NAME == "" ]; then
     textRed "You Have Not Configured WebServer"
     echo ''
     exit
