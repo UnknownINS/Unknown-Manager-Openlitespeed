@@ -386,12 +386,9 @@ updateWebserver(){
 
   textYellow "----------------> UPDATE DPKG"
 
-  echo ""
   sudo dpkg --configure -a &> /dev/null
 
-  textYellow "----------------> UPDATE OPENLITESPEED"
   echo ""
-  sudo apt upgrade openlitespeed -y &> /dev/null
 
   textYellow "----------------> UPDATE WP CLI"
   echo ""
@@ -404,6 +401,11 @@ updateWebserver(){
   sudo apt update -y &> /dev/null
 
   sudo apt upgrade -y &> /dev/null
+
+    textYellow "----------------> UPDATE OPENLITESPEED"
+    echo ""
+    sudo apt upgrade openlitespeed -y &> /dev/null
+
 
   textYellow "----------------> AUTO CLEAN"
   echo ""
