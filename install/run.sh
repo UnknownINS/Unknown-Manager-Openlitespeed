@@ -1,5 +1,5 @@
 #!/bin/bash
-export APP_INSTALL=/usr/local/unknown
+export APP_INSTALL=/usr/local/EasyOLS
 source $APP_INSTALL/constain.sh
 source $APP_INSTALL/bin/color.sh
 source $APP_INSTALL/bin/welcome.sh
