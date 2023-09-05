@@ -1,7 +1,5 @@
 # Easy Manager Openlitespeed Ubuntu
 
-![Screenshot](https://github.com/UnknownINS/Easy-Manager-Openlitespeed/tree/main/assets/ols-wp-cache.png)
-
 Easy Manager Openlitespeed ubuntu
 
 Install command 
