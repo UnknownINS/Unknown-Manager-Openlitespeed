@@ -1,2 +1,2 @@
-# Easy-Manager-Openlitespeed
-Easy Manager Openlitespeed
+# Easy Manager Openlitespeed Ubuntu
+Easy Manager Openlitespeed on ubuntu 20
