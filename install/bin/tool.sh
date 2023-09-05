@@ -149,7 +149,7 @@ installCrontabAutoBackup(){
         if [[ mycron =~ "backup.sh" ]]; then
            echo ''
           else
-          echo "0 1 * * * /usr/local/EasyOLS/backup.sh &> /dev/null " >> mycron
+          echo "0 1 * * * /usr/local/unknown/backup.sh &> /dev/null " >> mycron
         fi
 
         sudo crontab mycron

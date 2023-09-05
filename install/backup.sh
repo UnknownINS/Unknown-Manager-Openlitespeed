@@ -1,5 +1,5 @@
 #!/bin/bash
-export APP_INSTALL=/usr/local/EasyOLS
+export APP_INSTALL=/usr/local/unknown
 source $APP_INSTALL/constain.sh
 source $APP_INSTALL/bin/color.sh
 source $APP_INSTALL/bin/openlitespeed.sh

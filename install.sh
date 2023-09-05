@@ -13,14 +13,14 @@ echo "##########################################################################
 echo "";
 echo "----------------> INSTALL SETUP"
 
-rm -rf /usr/local/EasyOLS &> /dev/null
+rm -rf /usr/local/unknown &> /dev/null
 
-mkdir -p /usr/local/EasyOLS &> /dev/null
+mkdir -p /usr/local/unknown &> /dev/null
 
-cp -rf install/* /usr/local/EasyOLS &> /dev/null
+cp -rf install/* /usr/local/unknown &> /dev/null
 
-chmod -R +x /usr/local/EasyOLS  &> /dev/null
+chmod -R +x /usr/local/unknown  &> /dev/null
 
-ln -s /usr/local/EasyOLS/run.sh /usr/local/bin/EasyOLS &> /dev/null
+ln -s /usr/local/unknown/run.sh /usr/local/bin/unknown &> /dev/null
 
-echo "----------------> Install Success.Use command 'EasyOLS' for use.Thank you"
+echo "----------------> Install Success.Use command 'unknown' for use.Thank you"
