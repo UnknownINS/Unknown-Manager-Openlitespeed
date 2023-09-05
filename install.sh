@@ -23,8 +23,4 @@ chmod -R +x /usr/local/unknown  &> /dev/null
 
 ln -s /usr/local/unknown/run.sh /usr/local/bin/unknown &> /dev/null
 
-cd ../ || exit
-
-rm -rf unknown
-
 echo "----------------> Install Success.Use command 'unknown' for use.Thank you"
