@@ -147,12 +147,11 @@ installCrontabAutoBackup(){
         if [[ mycron =~ "backup.sh" ]]; then
            echo ''
           else
-          echo "0 5 * * * /usr/local/unknown/backup.sh &> /dev/null " >> mycron
+            updateCrontab="$mycron
+            0 5 * * * /usr/local/unknown/backup.sh &> /dev/null"
+            sudo crontab $updateCrontab
         fi
-
-        sudo crontab mycron
-
-        rm mycron
+        
 }
 
 
@@ -166,6 +165,7 @@ configAutoJob(){
       if [ $status == 'y' ]; then
         installCrontabAutoBackup
       fi
+      echo ''
 
       read -p "----------------> Install Auto Renews SSL/HTTPS (y/n) : " status
 
