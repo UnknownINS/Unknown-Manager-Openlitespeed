@@ -186,8 +186,6 @@ configAutoJob(){
 
       touch crontab.txt
 
-      echo $cronJobUpdate >> crontab.txt
-
       read -p "----------------> Install Auto Backup (y/n) : " status
 
       if [ $status == 'y' ]; then
@@ -215,8 +213,9 @@ configAutoJob(){
           "
           fi
       fi
-
-        echo $cronJobUpdate >> crontab.txt
+      cat > crontab.txt  << EOF
+      $contentConf
+EOF
 
         sudo crontab $UNKNOWN_DIR/crontab.txt
 
