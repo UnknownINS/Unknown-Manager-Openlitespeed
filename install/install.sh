@@ -8,18 +8,8 @@ mkdir -p $UNKNOWN_DIR
 
 cd "$UNKNOWN_DIR" || exit
 
-textBlue "----------------> UPDATE SYSTEM"
 
-sudo apt-get purge needrestart -y &> /dev/null
-
-sudo apt autoremove -y &> /dev/null
-
-sudo apt update &> /dev/null
-sudo apt install snapd -y  &> /dev/null
-sudo apt install zip unzip -y &> /dev/null
-
-echo "";
-
+updateSystem
 
 textBlue "----------------> INSTALL MARIADB"
 
@@ -84,7 +74,27 @@ systemctl restart lsws
 
 }
 
+
+updateSystem(){
+
+	textBlue "----------------> UPDATE SYSTEM"
+
+sudo apt-get purge needrestart -y &> /dev/null
+
+sudo apt autoremove -y &> /dev/null
+
+sudo apt update &> /dev/null
+
+sudo apt install snapd -y  &> /dev/null
+
+sudo apt install zip unzip -y &> /dev/null
+
+echo "";
+}
+
 installToolSupport(){
+
+updateSystem
 
 echo "";
 
