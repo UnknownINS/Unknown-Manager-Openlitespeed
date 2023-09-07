@@ -20,6 +20,7 @@ Install command
 
     use command `Unknown` and `UnknownAuto`
 
+
 <p align="center">
-  <img width="1460" height="834" src="https://github.com/UnknownINS/Unknown-Manager-Openlitespeed/blob/main/assets/screenshort.png?raw=true">
+  <img width="830" height="470" src="https://github.com/UnknownINS/Unknown-Manager-Openlitespeed/blob/main/assets/screenshort.png?raw=true">
 </p>
