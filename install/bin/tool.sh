@@ -1,7 +1,7 @@
 #!/bin/bash
 
 chownProtectDomain(){
-	
+  
 textBlue "----> $1"
 
   chown -R root:root $UNKNOWN_DIR/$1
@@ -179,12 +179,7 @@ configAutoJob(){
       textYellow "----------------> CONFIG AUTO WEBSERVER"
       echo ''
 
-
       cronJobUpdate=$(crontab -l)
-
-      cd $UNKNOWN_DIR || exit
-
-      touch crontab.txt
 
       read -p "----------------> Install Auto Backup (y/n) : " status
 
@@ -194,8 +189,8 @@ configAutoJob(){
            echo ''
           else
           cronJobUpdate="$cronJobUpdate
-          0 5 * * * /usr/local/unknown/backup.sh &> /dev/null
-          "
+0 5 * * * /usr/local/unknown/backup.sh &> /dev/null
+"
         fi
 
       fi
@@ -209,17 +204,17 @@ configAutoJob(){
             echo ''
           else
           cronJobUpdate="$cronJobUpdate
-          0 1 * * * certbot renew &> /dev/null
-          "
+0 1 * * * certbot renew &> /dev/null
+"
           fi
       fi
-      cat > crontab.txt  << EOF
-      $contentConf
+      cat > $APP_INSTALL/crontab.txt  << EOF
+$cronJobUpdate
 EOF
 
-        sudo crontab $UNKNOWN_DIR/crontab.txt
+        sudo crontab $APP_INSTALL/crontab.txt
 
-        rm crontab.txt
+        rm $APP_INSTALL/crontab.txt
 
         echo ''
 
