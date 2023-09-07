@@ -26,8 +26,6 @@ sudo rm -rf $LSWS_DIR &> /dev/null
 
 sudo apt autoclean -y &> /dev/null
 
-sudo rm -rf $UNKNOWN_DIR &> /dev/null
-
 echo "";
 
 sudo apt --fix-broken install &> /dev/null
