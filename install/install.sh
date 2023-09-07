@@ -91,6 +91,10 @@ sudo apt install snapd -y  &> /dev/null
 
 sudo apt install zip unzip -y &> /dev/null
 
+sudo apt autoremove -y &> /dev/null
+
+sudo apt autoclean -y &> /dev/null
+
 echo "";
 }
 
