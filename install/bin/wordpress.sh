@@ -91,8 +91,6 @@ WPUpdateWebsite(){
 	
     textYellow "----------------> UPDATE WEBSITE"
 
-    chown -R nobody:nogroup $UNKNOWN_DIR &> /dev/null
-
     echo ""
 
     ALLDOMAIN=$(dir $UNKNOWN_DIR)
@@ -108,7 +106,7 @@ WPUpdateWebsite(){
         cd $UNKNOWN_DIR/$i/html || exit
         
         wp core update  --allow-root &> /dev/null
-        
+
         wp plugin update --all  --allow-root &> /dev/null
 
       fi
