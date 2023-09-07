@@ -108,6 +108,8 @@ WPUpdateWebsite(){
         cd $UNKNOWN_DIR/$i/html || exit
         
         wp core update  --allow-root &> /dev/null
+        
+        wp plugin update --all  --allow-root &> /dev/null
 
       fi
 
