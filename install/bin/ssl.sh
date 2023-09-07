@@ -7,7 +7,7 @@ autoRenewSSL(){
   if [[ mycron =~ "certbot renew" ]]; then
       textRed "Command already exists"
     else
-    echo "0 1 15 */1 * certbot renew &> /dev/null " >> mycron
+    echo "0 1 * * * certbot renew &> /dev/null " >> mycron
   fi
 
   sudo crontab mycron
