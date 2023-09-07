@@ -19,3 +19,7 @@ Install command
 3. [ ] Step 3
 
     use command `Unknown` and `UnknownAuto`
+
+<p align="center">
+  <img width="1460" height="834" src="https://github.com/UnknownINS/Unknown-Manager-Openlitespeed/blob/main/assets/screenshort.png?raw=true">
+</p>
