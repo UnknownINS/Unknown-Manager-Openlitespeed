@@ -192,7 +192,7 @@ configAutoJob(){
 
       if [ $status == 'y' ]; then
         
-        if [ $cronJobUpdate =~ "backup.sh" ]; then
+        if [[ "$cronJobUpdate" =~ "backup.sh" ]]; then
            echo ''
           else
           cronJobUpdate="$cronJobUpdate
@@ -207,7 +207,7 @@ configAutoJob(){
 
        if [ $status == 'y' ]; then
               
-          if [ $cronJobUpdate =~ "certbot renew" ]; then
+          if [[ $cronJobUpdate =~ "certbot renew" ]]; then
             echo ''
           else
           cronJobUpdate="$cronJobUpdate
