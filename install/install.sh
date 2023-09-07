@@ -20,9 +20,6 @@ sudo apt install zip unzip -y &> /dev/null
 
 echo "";
 
-textBlue "----------------> INSTALL SSL/HTTPS"
-sudo snap install --classic certbot &> /dev/null
-echo "";
 
 textBlue "----------------> INSTALL MARIADB"
 
@@ -34,31 +31,8 @@ if [ "$UP" -ne 1 ]; then
 	sudo systemctl start mariadb &> /dev/null
 fi
 
-echo ''
 
-textBlue "----------------> INSTALL LIBRARY WEBSERVER"
-
-sudo -v ; curl https://rclone.org/install.sh | sudo bash &> /dev/null
-
-echo ""
-
-textBlue "----------------> INSTALL WORDPRESS TOOL"
-
-sudo apt install php8.1-cli php8.1-common php8.1-curl php8.1-mbstring php8.1-mysql php8.1-xml -y &> /dev/null
-
-curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar &> /dev/null
-
-chmod +x wp-cli.phar
-
-sudo mv wp-cli.phar /usr/local/bin/wp &> /dev/null
-
-sudo wp cli update &> /dev/null
-
-sudo apt autoremove -y &> /dev/null
-
-sudo apt autoclean -y &> /dev/null
-
-echo "";
+installToolSupport
 
 
 textBlue "----------------> INSTALL OPENLITESPEED"
@@ -107,5 +81,45 @@ echo "ADMIN OPENLITESPEED : $GET_IP_NAME:7080"
 
 echo ''
 systemctl restart lsws
+
+}
+
+installToolSupport(){
+
+echo "";
+
+textBlue "----------------> INSTALL SSL/HTTPS"
+sudo snap install --classic certbot &> /dev/null
+echo "";
+
+
+
+echo ''
+
+textBlue "----------------> INSTALL LIBRARY WEBSERVER"
+
+sudo -v ; curl https://rclone.org/install.sh | sudo bash &> /dev/null
+
+echo ""
+
+
+textBlue "----------------> INSTALL WORDPRESS TOOL"
+
+sudo apt install php8.1-cli php8.1-common php8.1-curl php8.1-mbstring php8.1-mysql php8.1-xml -y &> /dev/null
+
+curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar &> /dev/null
+
+chmod +x wp-cli.phar
+
+sudo mv wp-cli.phar /usr/local/bin/wp &> /dev/null
+
+sudo wp cli update &> /dev/null
+
+sudo apt autoremove -y &> /dev/null
+
+sudo apt autoclean -y &> /dev/null
+
+echo "";
+
 
 }

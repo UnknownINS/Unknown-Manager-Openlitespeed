@@ -59,7 +59,7 @@ textGreen "14) Uninstall MariaDb                           15) Install SSL/HTTPS
 
 textGreen "16) Config Auto Job                             17) Backup Google Driver Now";
 
-textGreen "18) Renews SSL/HTTPS NOW";
+textGreen "18) Renews SSL/HTTPS NOW                        19) Install Only Tool Support";
 
 echo "";
 
@@ -106,6 +106,8 @@ case $NUMBER_ACTION in
   17) backupDriverNow;;
 
   18) renewSSLNow;;
+
+  19) installToolSupport;;
 
   *) defaultAction;;
 
