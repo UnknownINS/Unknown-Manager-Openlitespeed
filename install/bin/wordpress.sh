@@ -101,6 +101,8 @@ WPUpdateWebsite(){
 
         textBlue "----------------> $i"
 
+       chown -R nobody:nogroup $UNKNOWN_DIR/$i/html
+
         echo ""
 
         cd $UNKNOWN_DIR/$i/html || exit
@@ -113,7 +115,6 @@ WPUpdateWebsite(){
 
     done
 
-    chownProtect
 
   textMagenta "_________________ UPDATE WEBSITE SUCCESS ________________"
 

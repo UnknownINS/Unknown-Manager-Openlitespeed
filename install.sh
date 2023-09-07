@@ -25,6 +25,6 @@ ln -s /usr/local/unknown/Unknown.sh /usr/local/bin/Unknown &> /dev/null
 
 ln -s /usr/local/unknown/UnknownAuto.sh /usr/local/bin/UnknownAuto &> /dev/null
 
-echo "----------------> Install Success.Use command 'unknown' for use.Thank you"
+echo "----------------> Install Success.Use command 'Unknown' and 'UnknownAuto' for use.Thank you"
 
 echo ''
