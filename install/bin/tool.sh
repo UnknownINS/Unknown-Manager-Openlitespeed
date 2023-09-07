@@ -21,6 +21,7 @@ textBlue "----> $1"
   chown root:root index.php
 
   echo ""
+
 }
 
 chownProtect(){
@@ -140,20 +141,58 @@ backupDriverNow(){
 
 }
 
+
+
+autoRenewSSL(){
+
+  mycron=$(crontab -l)
+
+  if [[ mycron =~ "certbot renew" ]]; then
+      textRed "Command already exists"
+    else
+    printf "0 1 * * * certbot renew &> /dev/null\n" >> mycron
+  fi
+
+  sudo crontab mycron
+
+  rm mycron
+}
+
+
+installCrontabAutoBackup(){
+
+        mycron=$(crontab -l)
+        if [[ mycron =~ "backup.sh" ]]; then
+           echo ''
+          else
+          printf "0 5 * * * /usr/local/unknown/backup.sh &> /dev/null\n" >> mycron
+        fi
+
+        sudo crontab mycron
+
+        rm mycron
+}
+
+
 configAutoJob(){
 
       textYellow "----------------> CONFIG AUTO WEBSERVER"
       echo ''
 
-      cronJobUpdate=''
 
-      mycron=$(crontab -l)
+      cronJobUpdate=$(crontab -l)
+
+      cd $UNKNOWN_DIR || exit
+
+      touch crontab.txt
+
+      echo $cronJobUpdate >> crontab.txt
 
       read -p "----------------> Install Auto Backup (y/n) : " status
 
       if [ $status == 'y' ]; then
         
-        if [[ mycron =~ "backup.sh" ]]; then
+        if [ $cronJobUpdate =~ "backup.sh" ]; then
            echo ''
           else
           cronJobUpdate="$cronJobUpdate
@@ -168,7 +207,7 @@ configAutoJob(){
 
        if [ $status == 'y' ]; then
               
-          if [[ mycron =~ "certbot renew" ]]; then
+          if [ $cronJobUpdate =~ "certbot renew" ]; then
             echo ''
           else
           cronJobUpdate="$cronJobUpdate
@@ -177,12 +216,12 @@ configAutoJob(){
           fi
       fi
 
-        echo $cronJobUpdate >> mycron
+        echo $cronJobUpdate >> crontab.txt
 
-        sudo crontab mycron
+        sudo crontab $UNKNOWN_DIR/crontab.txt
 
-        rm mycron
+        rm crontab.txt
 
-      echo ''
+        echo ''
 
 }
