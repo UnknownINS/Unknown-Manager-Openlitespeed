@@ -140,8 +140,6 @@ backupDriverNow(){
 
 }
 
-
-
 configAutoJob(){
 
       textYellow "----------------> CONFIG AUTO WEBSERVER"
@@ -179,10 +177,12 @@ configAutoJob(){
           fi
       fi
 
+        echo $cronJobUpdate >> mycron
+
         sudo crontab mycron
 
         rm mycron
-        
+
       echo ''
 
 }
