@@ -8,7 +8,14 @@ Unknown Manager Openlitespeed ubuntu
 
 Install command
 
-`git clone https://github.com/UnknownINS/Unknown-Manager-Openlitespeed.git && cd Unknown-Manager-Openlitespeed && bash install.sh
-`
+1. [ ] Step 1
 
-after install you can remove folder Unknown-Manager-Openlitespeed
+    `git clone https://github.com/UnknownINS/Unknown-Manager-Openlitespeed.git && cd Unknown-Manager-Openlitespeed && bash install.sh
+    `
+2. [ ] Step 2
+
+    After install you can remove folder Unknown-Manager-Openlitespeed
+
+3. [ ] Step 3
+
+    use command `Unknown` and `UnknownAuto`

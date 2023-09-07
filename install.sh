@@ -21,7 +21,7 @@ cp -rf install/* /usr/local/unknown &> /dev/null
 
 chmod -R +x /usr/local/unknown  &> /dev/null
 
-ln -s /usr/local/unknown/run.sh /usr/local/bin/Unknown &> /dev/null
+ln -s /usr/local/unknown/Unknown.sh /usr/local/bin/Unknown &> /dev/null
 
 ln -s /usr/local/unknown/UnknownAuto.sh /usr/local/bin/UnknownAuto &> /dev/null
 
