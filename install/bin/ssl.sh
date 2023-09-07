@@ -7,11 +7,12 @@ autoRenewSSL(){
   if [[ mycron =~ "certbot renew" ]]; then
       textRed "Command already exists"
     else
-    updateCrontab="$mycron
-    0 1 * * * certbot renew &> /dev/null"
-
-    sudo crontab $updateCrontab
+    printf "0 1 * * * certbot renew &> /dev/null " >> mycron
   fi
+
+  sudo crontab mycron
+
+  rm mycron
 }
 
 installSslForDomain(){
