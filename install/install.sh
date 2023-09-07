@@ -77,13 +77,15 @@ systemctl restart lsws
 
 updateSystem(){
 
-	textBlue "----------------> UPDATE SYSTEM"
+textBlue "----------------> UPDATE SYSTEM"
 
 sudo apt-get purge needrestart -y &> /dev/null
 
 sudo apt autoremove -y &> /dev/null
 
-sudo apt update &> /dev/null
+sudo apt update -y &> /dev/null
+
+sudo apt upgrade -y &> /dev/null
 
 sudo apt install snapd -y  &> /dev/null
 
