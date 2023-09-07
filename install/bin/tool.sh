@@ -172,7 +172,25 @@ configAutoJob() {
 "
     fi
   fi
-  cat >$APP_INSTALL/crontab.txt <<EOF
+
+  echo ''
+
+  read -p "----------------> Install Auto Update and Protect Website Wordpress (y/n) : " status
+
+  if [ $status == 'y' ]; then
+
+    if [[ "$cronJobUpdate" =~ "UnknownAuto 7 && UnknownAuto 12" ]]; then
+      echo ''
+    else
+      cronJobUpdate="$cronJobUpdate
+0 2 * * * UnknownAuto 7 && UnknownAuto 12 &> /dev/null
+"
+    fi
+
+  fi
+  echo ''
+
+  cat > $APP_INSTALL/crontab.txt <<EOF
 $cronJobUpdate
 EOF
 

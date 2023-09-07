@@ -43,7 +43,7 @@ textGreen "8 ) Create Website Wordpress                    9 ) Restart WebServer
 
 textGreen "10) Update WebServer                            11) Mysql Config"
 
-textGreen "12) Protect WebServer                           13) Reset Password WebAdmin";
+textGreen "12) Protect Website                             13) Reset Password WebAdmin";
 
 textGreen "14) Uninstall MariaDb                           15) Install SSL/HTTPS for Domain";
 
