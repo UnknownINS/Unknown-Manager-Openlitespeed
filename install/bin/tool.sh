@@ -45,8 +45,6 @@ echo ""
 
   done
   
-  textMagenta "_____________ CHOWN PROTECT SUCCESS ____________"
-
   cd $UNKNOWN_DIR || exit
 
   echo ''

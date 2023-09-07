@@ -91,6 +91,8 @@ WPUpdateWebsite(){
 	
     textYellow "----------------> UPDATE WEBSITE"
 
+    chown -R nobody:nogroup $UNKNOWN_DIR &> /dev/null
+
     echo ""
 
     ALLDOMAIN=$(dir $UNKNOWN_DIR)
@@ -110,6 +112,8 @@ WPUpdateWebsite(){
       fi
 
     done
+
+    chownProtect
 
   textMagenta "_________________ UPDATE WEBSITE SUCCESS ________________"
 
