@@ -4,7 +4,7 @@ echo ""
 echo "##############################################################################"
 echo "#                                                                            #"
 echo "#                                                                            #"
-echo "#                     WELCOME to Easy OLS WEBSERVER                          #"
+echo "#                    WELCOME to UNKNOWN OLS WEBSERVER                        #"
 echo "#                                                                            #"
 echo "#                     Copyright (C)  2023 UNKNOWN.                           #"
 echo "#                                                                            #"
@@ -24,3 +24,5 @@ chmod -R +x /usr/local/unknown  &> /dev/null
 ln -s /usr/local/unknown/run.sh /usr/local/bin/unknown &> /dev/null
 
 echo "----------------> Install Success.Use command 'unknown' for use.Thank you"
+
+echo ''
