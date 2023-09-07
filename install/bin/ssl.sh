@@ -1,20 +1,5 @@
 #!/bin/bash
 
-autoRenewSSL(){
-
-  mycron=$(crontab -l)
-
-  if [[ mycron =~ "certbot renew" ]]; then
-      textRed "Command already exists"
-    else
-    printf "0 1 * * * certbot renew &> /dev/null\n" >> mycron
-  fi
-
-  sudo crontab mycron
-
-  rm mycron
-}
-
 installSslForDomain(){
 
     textYellow "----------------> INSTALL SSL/HTTPS FOR DOMAIN"

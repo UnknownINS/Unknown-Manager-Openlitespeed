@@ -141,39 +141,48 @@ backupDriverNow(){
 }
 
 
-installCrontabAutoBackup(){
-
-        mycron=$(crontab -l)
-        if [[ mycron =~ "backup.sh" ]]; then
-           echo ''
-          else
-          printf "0 5 * * * /usr/local/unknown/backup.sh &> /dev/null\n" >> mycron
-        fi
-
-        sudo crontab mycron
-
-        rm mycron
-}
-
 
 configAutoJob(){
 
       textYellow "----------------> CONFIG AUTO WEBSERVER"
       echo ''
 
+      cronJobUpdate=''
+
+      mycron=$(crontab -l)
+
       read -p "----------------> Install Auto Backup (y/n) : " status
 
       if [ $status == 'y' ]; then
-        installCrontabAutoBackup
+        
+        if [[ mycron =~ "backup.sh" ]]; then
+           echo ''
+          else
+          cronJobUpdate="$cronJobUpdate
+          0 5 * * * /usr/local/unknown/backup.sh &> /dev/null
+          "
+        fi
+
       fi
       echo ''
 
       read -p "----------------> Install Auto Renews SSL/HTTPS (y/n) : " status
 
        if [ $status == 'y' ]; then
-              autoRenewSSL
+              
+          if [[ mycron =~ "certbot renew" ]]; then
+            echo ''
+          else
+          cronJobUpdate="$cronJobUpdate
+          0 1 * * * certbot renew &> /dev/null
+          "
+          fi
       fi
 
+        sudo crontab mycron
+
+        rm mycron
+        
       echo ''
 
 }
