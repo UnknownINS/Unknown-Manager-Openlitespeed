@@ -41,7 +41,7 @@ wpCreateWebsite() {
 
   echo ""
 
-  createDatabase $inputDomain &>/dev/null
+  createDatabase $inputDomain
 
   mkdir -p $UNKNOWN_DIR/$inputDomain/html
 
