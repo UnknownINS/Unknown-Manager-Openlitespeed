@@ -115,6 +115,7 @@ esac
 
 }
 
-StartApp
-
-exit
+while [ $NUMBER_ACTION -ne 0 ]
+  do
+    StartApp
+done
