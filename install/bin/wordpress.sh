@@ -41,7 +41,7 @@ wpCreateWebsite() {
 
   echo ""
 
-  nameDatabase=$(sed "s/./_/g" <<< "$inputDomain")
+  nameDatabase=$(sed "s/\./_/g" <<< "$inputDomain")
 
   createDatabase $nameDatabase &>/dev/null
 
@@ -145,7 +145,7 @@ wpDeleteWebsite(){
 
     rm -rf $LSWS_VHOSTS/$inputDomain &> /dev/null
 
-    nameDatabase=$(sed "s/./_/g" <<< "$inputDomain")
+    nameDatabase=$(sed "s/\./_/g" <<< "$inputDomain")
 
     deleteDatabase $nameDatabase
 
