@@ -47,7 +47,7 @@ configAutoJob() {
 
   echo ''
 
-  read -p "----------------> Install Auto Update and Protect Website Wordpress (y/n) : " status
+  read -p "----------------> Install Auto Update and Security Website (y/n) : " status
 
   if [ $status == 'y' ]; then
 
