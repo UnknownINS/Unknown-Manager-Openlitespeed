@@ -362,7 +362,7 @@ restartWebserver(){
   systemctl restart mariadb &> /dev/null
   systemctl restart lsws &> /dev/null
 
-  textMagenta "_____________ RESTART WEBSERVER SUCCESS ____________"
+  textMagenta "----------------> RESTART WEBSERVER SUCCESS"
 
   echo ''
 }
@@ -416,7 +416,7 @@ updateWebserver(){
   
   echo "";
 
-  textMagenta "_____________ UPDATE WEBSERVER SUCCESS ____________"
+  textMagenta "----------------> UPDATE WEBSERVER SUCCESS"
 
   echo "";
 

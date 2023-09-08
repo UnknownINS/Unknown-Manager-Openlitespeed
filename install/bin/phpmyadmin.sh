@@ -4,10 +4,10 @@ installPhpmyadmin() {
 
   if [ -d "$UNKNOWN_DIR/localhost/html/sqlAdminManager" ]; then
     echo ''
-    textMagenta "____________________ EXITS PHPMYADMIN ____________________"
+    textMagenta "----------------> EXITS PHPMYADMIN"
     echo ''
   else
-    textYellow "_______________________ DOWNLOAD PHPMYADMIN _______________________"
+    textYellow "----------------> DOWNLOAD PHPMYADMIN"
     mkdir -p "$UNKNOWN_DIR/localhost/html"
     cd "$UNKNOWN_DIR/localhost/html" || exit
     curl -o phpmyadmin.zip https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-all-languages.zip
@@ -17,7 +17,7 @@ installPhpmyadmin() {
     echo ""
     restartWebserver
     chown -R nobody:nogroup "$UNKNOWN_DIR/localhost/html/sqlAdminManager"
-    textMagenta "____________________ SUCCESS INSTALL _____________________"
+    textMagenta "----------------> SUCCESS INSTALL"
     echo "URL PHPMYADMIN : http://$GET_IP_NAME/sqlAdminManager"
     cd "$UNKNOWN_DIR" || exit
   fi

@@ -58,7 +58,7 @@ export MYSQL_PASSWORD=$MYSQL_PASSWORD
 export RCLONE_NAME=$RCLONE_NAME
 EOF
 
-  textMagenta "_________________ CONFIG SUCCESS ________________"
+  textMagenta "----------------> CONFIG SUCCESS"
 
   echo ''
 

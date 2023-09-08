@@ -80,7 +80,7 @@ backupDriver() {
 
   rm -rf $BACKUP_DIR/$GETDAY &>/dev/null
 
-  textMagenta "_________________ END UPLOAD GOOGLE DRIVE ________________"
+  textMagenta "----------------> END UPLOAD GOOGLE DRIVE"
 
   echo ''
 

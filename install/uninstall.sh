@@ -30,7 +30,7 @@ echo "";
 
 sudo apt --fix-broken install &> /dev/null
 
-textMagenta "_____________ UNINSTALL WEBSERVER SUCCESS ____________"
+textMagenta "----------------> UNINSTALL WEBSERVER SUCCESS"
 
 echo ''
 }

@@ -58,7 +58,7 @@ installWebServer() {
 
   echo ""
 
-  textMagenta "_________________ INSTALL WEBSERVER SUCCESS ________________"
+  textMagenta "----------------> INSTALL WEBSERVER SUCCESS"
 
   echo ''
 

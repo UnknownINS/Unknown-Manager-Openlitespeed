@@ -28,7 +28,7 @@ MariadbSecure() {
 
   echo ""
 
-  textMagenta "_____________ MARIADB SECURITY SUCCESS ____________"
+  textMagenta "----------------> MARIADB SECURITY SUCCESS"
 
   echo ''
 }
@@ -51,7 +51,7 @@ uninstallMariaDb() {
 
   sudo apt --fix-broken install &>/dev/null
 
-  textMagenta "_____________ UNINSTALL MARIADB SUCCESS ____________"
+  textMagenta "----------------> UNINSTALL MARIADB SUCCESS"
   echo ''
 
 }

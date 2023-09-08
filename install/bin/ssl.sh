@@ -21,7 +21,7 @@ installSslForDomain() {
 
   echo ''
 
-  textMagenta "_________________ INSTALL AUTO RENEW SSL/HTTPS SUCCESS ________________"
+  textMagenta "----------------> INSTALL AUTO RENEW SSL/HTTPS SUCCESS"
 
   echo ''
 
@@ -34,6 +34,6 @@ renewSSLNow() {
   textYellow "----------------> RENEW SSL/HTTPS"
   echo ''
   certbot renew
-  textMagenta "_________________ RENEW SSL/HTTPS SUCCESS ________________"
+  textMagenta "----------------> RENEW SSL/HTTPS SUCCESS"
   echo ''
 }

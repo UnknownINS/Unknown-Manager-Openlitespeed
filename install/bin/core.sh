@@ -6,7 +6,7 @@ uninstallUnknownOLS() {
 
   sudo rm -rf $APP_INSTALL &>/dev/null
 
-  textMagenta "_____________ UNINSTALL SUCCESS ____________"
+  textMagenta "----------------> UNINSTALL SUCCESS"
 
   echo ''
 
@@ -27,7 +27,7 @@ updateUnknownOLS(){
 
   echo ''
 
-  textMagenta "_____________ UPDATE SUCCESS ____________"
+  textMagenta "----------------> UPDATE SUCCESS"
 
   echo ''
 

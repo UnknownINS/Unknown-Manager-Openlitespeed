@@ -85,7 +85,7 @@ wpCreateWebsite() {
 
   cd $UNKNOWN_DIR || exit
 
-  textMagenta "_________________ CREATE WEBSITE SUCCESS ________________"
+  textMagenta "----------------> CREATE WEBSITE SUCCESS"
 
   echo ""
 
@@ -120,7 +120,7 @@ wpUpdateWebsite() {
 
   done
 
-  textMagenta "_________________ UPDATE WEBSITE SUCCESS ________________"
+  textMagenta "----------------> UPDATE WEBSITE SUCCESS"
 
   echo ''
 
