@@ -50,7 +50,7 @@ getAllDomain() {
   for i in $ALLDOMAIN; do
 
     if [ $i != "localhost" ]; then
-      textYellow "----> $1"
+      textYellow "----> $i"
       echo ''
     fi
 
