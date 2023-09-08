@@ -8,9 +8,12 @@ installWebServer() {
 
   cd "$UNKNOWN_DIR" || exit
 
-  updateSystem
+  installLibraryWebServer
+
 
   textBlue "----------------> INSTALL MARIADB"
+
+  echo ''
 
   UP=$(pgrep mariadb | wc -l)
 
@@ -19,7 +22,6 @@ installWebServer() {
     sudo systemctl start mariadb &>/dev/null
   fi
 
-  installLibraryWebServer
 
   textBlue "----------------> INSTALL OPENLITESPEED"
 
