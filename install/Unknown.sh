@@ -67,6 +67,7 @@ textMagenta "----------------> UNKNOWN OLS";
 
 textGreen "23) Uninstall Unknown OLS.                      24) Update UNKNOWN OLS.";
 
+echo ''
 
 read -p "----------------> ENTER NUMBER ACTION : " NUMBER_ACTION
 
