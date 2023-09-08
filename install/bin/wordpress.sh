@@ -37,13 +37,11 @@ wpCreateWebsite() {
     exit
   fi
 
-  nameDatabase=${inputDomain/"."/"_"}
-
   textYellow "----------------> CREATE DATABASE FOR WEBSITE"
 
   echo ""
 
-  createDatabase $nameDatabase &>/dev/null
+  createDatabase $inputDomain &>/dev/null
 
   mkdir -p $UNKNOWN_DIR/$inputDomain/html
 
@@ -59,7 +57,7 @@ wpCreateWebsite() {
 
   echo ""
 
-  wp core config --dbhost=localhost --dbname=$nameDatabase --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --allow-root &>/dev/null
+  wp core config --dbhost=localhost --dbname=$inputDomain --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --allow-root &>/dev/null
 
   textYellow "----------------> WORDPRESS CORE INSTALL"
 
@@ -145,9 +143,7 @@ wpDeleteWebsite(){
 
     rm -rf $LSWS_VHOSTS/$inputDomain &> /dev/null
 
-    nameDatabase=${inputDomain/"."/"_"}
-
-    deleteDatabase $nameDatabase
+    deleteDatabase $inputDomain
 
     textYellow "----------------> UPDATE HTTP/HTTPS CONFIG"
 
