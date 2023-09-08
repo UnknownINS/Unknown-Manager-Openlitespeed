@@ -42,7 +42,7 @@ textGreen "4 ) Insert Phpmyadmin.                          5 ) Config Auto Backu
 
 textGreen "6 ) Backup Local.                               7 ) Update WebServer."
 
-textBlue "----------------> WebSite";
+textBlue "----------------> WebSite Manager";
 
 textGreen "8 ) Create New Website.                         9 ) Delete WebSite."
 
