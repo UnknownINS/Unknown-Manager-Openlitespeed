@@ -52,10 +52,24 @@ uninstallMariaDb() {
 }
 
 createDatabase() {
+  if [ $MYSQL_USER == '' || $MYSQL_PASSWORD == '' ]; then
+
+  textRed "Please Config WebServer.Please try again later"
+  echo ''
+  exit
+  fi
   $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "CREATE DATABASE $1;"
 }
 
 deleteDatabase() {
+  
+    if [ $MYSQL_USER == '' || $MYSQL_PASSWORD == '' ]; then
+
+    textRed "Please Config WebServer.Please try again later"
+    echo ''
+    exit
+    fi
+
   $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "DROP DATABASE $1;"
 }
 
