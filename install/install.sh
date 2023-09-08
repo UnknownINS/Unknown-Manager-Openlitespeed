@@ -10,7 +10,6 @@ installWebServer() {
 
   installLibraryWebServer
 
-
   textBlue "----------------> INSTALL MARIADB"
 
   echo ''
@@ -25,7 +24,7 @@ installWebServer() {
 
   textBlue "----------------> INSTALL OPENLITESPEED"
 
-  wget -O - https://repo.litespeed.sh &>/dev/null | sudo bash &>/dev/null
+  wget -O - https://repo.litespeed.sh | sudo bash &>/dev/null
 
   sudo apt update -y &>/dev/null
 

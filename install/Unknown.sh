@@ -41,7 +41,7 @@ textGreen "6 ) Backup Local.                               7 ) Update Website."
 
 textGreen "8 ) Create New Website.                         9 ) Delete WebSite."
 
-textGreen "10 ) Restart WebServer.                         11) Update WebServer."
+textGreen "10) Restart WebServer.                          11) Update WebServer."
 
 textGreen "12) Mysql Config.                               13) Security Website."
 
