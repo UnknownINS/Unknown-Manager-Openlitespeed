@@ -16,7 +16,7 @@ welcome
 
 killAptGet
 
-exitApp(){
+exitConsole(){
   NUMBER_ACTION=0 &> /dev/null
 }
 
@@ -31,25 +31,25 @@ echo ''
 StartApp(){
 
 echo "";
-textGreen "0 ) Exit App                                    1 ) Install WebServer"
+textGreen "0 ) Exit App.                                   1 ) Install WebServer."
 
-textGreen "2 ) Uninstall WebServer                         3 ) Config WebServer"
+textGreen "2 ) Uninstall WebServer.                        3 ) Config WebServer."
 
-textGreen "4 ) Insert Phpmyadmin                           5 ) Config Auto Backup"
+textGreen "4 ) Insert Phpmyadmin.                          5 ) Config Auto Backup."
 
-textGreen "6 ) Backup VPS.                                 7 ) Update Website Wordpress"
+textGreen "6 ) Backup Local.                               7 ) Update Website."
 
-textGreen "8 ) Create Website Wordpress                    9 ) Restart WebServer"
+textGreen "8 ) Create New Website.                         9 ) Restart WebServer."
 
-textGreen "10) Update WebServer                            11) Mysql Config"
+textGreen "10) Update WebServer.                           11) Mysql Config."
 
-textGreen "12) Protect Website                             13) Reset Password WebAdmin";
+textGreen "12) Security Website.                           13) Reset Password WebAdmin";
 
-textGreen "14) Uninstall MariaDb                           15) Install SSL/HTTPS for Domain";
+textGreen "14) Uninstall MariaDb.                          15) Install SSL/HTTPS for Domain";
 
-textGreen "16) Config Auto Job                             17) Backup Google Driver Now";
+textGreen "16) Config Auto Job.                            17) Backup Google Driver Now";
 
-textGreen "18) Renews SSL/HTTPS NOW                        19) Install Only Tool Support";
+textGreen "18) Renews SSL/HTTPS NOW                        19) Install Library WebServer";
 
 echo "";
 
@@ -59,11 +59,11 @@ echo "";
 
 case $NUMBER_ACTION in
 
-  0) exitApp;;
+  0) exitConsole;;
 
-  1) installApp;;
+  1) installWebServer;;
 
-  2) uninstallApp;;
+  2) uninstallWebServer;;
 
   3) configWebServer;;
 
@@ -71,11 +71,11 @@ case $NUMBER_ACTION in
 
   5) configAutoBackup;;
 
-  6) backupVPS;;
+  6) backupLocal;;
 
-  7) WPUpdateWebsite;;
+  7) wpUpdateWebsite;;
 
-  8) WPCreateWebsite;;
+  8) wpCreateWebsite;;
 
   9) restartWebserver;;
 
@@ -83,9 +83,9 @@ case $NUMBER_ACTION in
 
   11) MariadbSecure;;
 
-  12) chownProtect;;
+  12) securityWebServer;;
 
-  13) resetWebadminPassword;;
+  13) resetAdminPassword;;
 
   14) uninstallMariaDb;;
 
@@ -93,11 +93,11 @@ case $NUMBER_ACTION in
 
   16) configAutoJob;;
 
-  17) backupDriverNow;;
+  17) backupDriver;;
 
   18) renewSSLNow;;
 
-  19) installToolSupport;;
+  19) installLibraryWebServer;;
 
   *) defaultAction;;
 

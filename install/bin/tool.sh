@@ -1,6 +1,6 @@
 #!/bin/bash
 
-chownProtectDomain() {
+securityDomain() {
 
   textBlue "----> $1"
 
@@ -24,7 +24,7 @@ chownProtectDomain() {
 
 }
 
-chownProtect() {
+securityWebServer() {
 
   ALLDOMAIN=$(dir $UNKNOWN_DIR)
 
@@ -40,8 +40,7 @@ chownProtect() {
 
       chown -R nobody:nogroup $UNKNOWN_DIR/$i
     else
-      chownProtectDomain $i
-
+      securityDomain $i
     fi
 
   done
@@ -60,87 +59,10 @@ killAptGet() {
   sudo rm /var/lib/dpkg/lock* &>/dev/null
 }
 
-backupVPS() {
-
-  verifyMariadb
-
-  GETDAY=$(date +"%F")
-
-  textYellow "----------------> BACKUP VPS"
-
-  rm -rf $BACKUP_DIR/$GETDAY
-
-  echo ''
-
-  textYellow "----------------> START BACKUP DATABASE MYSQL"
-
-  echo ''
-
-  mkdir -p "$BACKUP_DIR/$GETDAY/mysql"
-
-  backupDatabase $BACKUP_DIR/$GETDAY/mysql
-
-  textYellow "----------------> END BACKUP DATABASE MYSQL"
-
-  echo ''
-
-  textYellow "----------------> START BACKUP CODE"
-
-  zip -r $BACKUP_DIR/$GETDAY/backup.zip $UNKNOWN_DIR -q
-
-  echo ''
-
-  textYellow "----------------> BACKUP SUCCESS"
-
-  echo ''
-
-}
-
-configAutoBackup() {
-
-  textYellow "----------------> CONFIG AUTO BACKUP"
-
-  echo ''
-
-  rclone config
-
-  echo ''
-}
-
-backupDriverNow() {
-
-  if [ ! $RCLONE_NAME ]; then
-    textRed "You Have Not Configured WebServer"
-    exit
-  fi
-
-  GETDAY=$(date +"%F")
-
-  rm -rf $BACKUP_DIR/$GETDAY &>/dev/null
-
-  backupVPS
-
-  echo ''
-
-  textYellow "----------------> START UPLOAD GOOGLE DRIVE"
-
-  echo ''
-
-  rclone --transfers=1 move $BACKUP_DIR/$GETDAY "$RCLONE_NAME:$GET_IP_NAME/$GETDAY" &>/dev/null
-
-  echo ''
-
-  rm -rf $BACKUP_DIR/$GETDAY &>/dev/null
-
-  textMagenta "_________________ END UPLOAD GOOGLE DRIVE ________________"
-
-  echo ''
-
-}
-
 configAutoJob() {
 
   textYellow "----------------> CONFIG AUTO WEBSERVER"
+
   echo ''
 
   cronJobUpdate=$(crontab -l)
@@ -190,7 +112,7 @@ configAutoJob() {
   fi
   echo ''
 
-  cat > $APP_INSTALL/crontab.txt <<EOF
+  cat >$APP_INSTALL/crontab.txt <<EOF
 $cronJobUpdate
 EOF
 

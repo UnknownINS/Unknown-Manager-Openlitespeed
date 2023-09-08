@@ -14,11 +14,9 @@ killAptGet
 
 case $1 in
 
-0) exitApp ;;
+1) installWebServer ;;
 
-1) installApp ;;
-
-2) uninstallApp ;;
+2) uninstallWebServer ;;
 
 3) configWebServer ;;
 
@@ -26,11 +24,11 @@ case $1 in
 
 5) configAutoBackup ;;
 
-6) backupVPS ;;
+6) backupLocal ;;
 
-7) WPUpdateWebsite ;;
+7) wpUpdateWebsite ;;
 
-8) WPCreateWebsite ;;
+8) wpCreateWebsite ;;
 
 9) restartWebserver ;;
 
@@ -38,9 +36,9 @@ case $1 in
 
 11) MariadbSecure ;;
 
-12) chownProtect ;;
+12) securityWebServer ;;
 
-13) resetWebadminPassword ;;
+13) resetAdminPassword ;;
 
 14) uninstallMariaDb ;;
 
@@ -48,10 +46,10 @@ case $1 in
 
 16) configAutoJob ;;
 
-17) backupDriverNow ;;
+17) backupDriver ;;
 
 18) renewSSLNow ;;
 
-19) installToolSupport ;;
+19) installLibraryWebServer ;;
 
 esac

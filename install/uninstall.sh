@@ -1,6 +1,6 @@
 #!/bin/bash
 
-uninstallApp(){
+uninstallWebServer(){
 
 cd "/" || exit
 

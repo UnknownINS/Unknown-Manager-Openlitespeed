@@ -1,7 +1,7 @@
 #!/bin/bash
 export LSWS_DIR=/usr/local/lsws
 
-export UNKNOWN_DIR=/home/unknown;
+export UNKNOWN_DIR=/home/unknown
 
 export LSWS_CONFIG=$LSWS_DIR/conf
 
@@ -15,58 +15,52 @@ export MYSQL_DUMP=/usr/bin/mysqldump
 
 export BACKUP_DIR=/home/backup
 
-mkdir -p $BACKUP_DIR &> /dev/null
+mkdir -p $BACKUP_DIR &>/dev/null
 
-mkdir -p $UNKNOWN_DIR &> /dev/null
+mkdir -p $UNKNOWN_DIR &>/dev/null
 
-
-setVariablesSystem(){
+setVariablesSystem() {
 
   if [ -f ~/.constain ]; then
-     source ~/.constain
-    else
-
+    source ~/.constain
+  else
     touch ~/.constain
-
     chmod 777 ~/.constain
-
-    cat > ~/.constain  << EOF
+    cat >~/.constain <<EOF
 export MYSQL_USER=''
 export MYSQL_PASSWORD=''
 export RCLONE_NAME=''
 EOF
-
   fi
-
 }
 
-configWebServer(){
+configWebServer() {
 
-echo "----------------> CONFIG WEBSERVER"
+  echo "----------------> CONFIG WEBSERVER"
 
-echo "";
+  echo ""
 
-read -p "----------------> INPUT MARIADB USER : " MYSQL_USER
+  read -p "----------------> INPUT MARIADB USER : " MYSQL_USER
 
-echo "";
+  echo ""
 
-read -p "----------------> INPUT MARIADB PASSWORD : " MYSQL_PASSWORD
+  read -p "----------------> INPUT MARIADB PASSWORD : " MYSQL_PASSWORD
 
-echo "";
+  echo ""
 
-read -p "----------------> INPUT RCLONE NAME : " RCLONE_NAME
+  read -p "----------------> INPUT RCLONE NAME : " RCLONE_NAME
 
-echo "";
+  echo ""
 
-cat > ~/.constain  << EOF
+  cat >~/.constain <<EOF
 export MYSQL_USER=$MYSQL_USER
 export MYSQL_PASSWORD=$MYSQL_PASSWORD
 export RCLONE_NAME=$RCLONE_NAME
 EOF
 
-textMagenta "_________________ CONFIG SUCCESS ________________"
+  textMagenta "_________________ CONFIG SUCCESS ________________"
 
-echo ''
+  echo ''
 
-exit
+  exit
 }

@@ -368,7 +368,7 @@ restartWebserver(){
 }
 
 
-resetWebadminPassword(){
+resetAdminPassword(){
 
   textYellow "----------------> RESET WEB ADMIN"
 
@@ -391,6 +391,7 @@ updateWebserver(){
   echo ""
 
   textYellow "----------------> UPDATE WP CLI"
+
   echo ""
 
   sudo wp cli update -y &> /dev/null
@@ -405,7 +406,6 @@ updateWebserver(){
     textYellow "----------------> UPDATE OPENLITESPEED"
     echo ""
     sudo apt upgrade openlitespeed -y &> /dev/null
-
 
   textYellow "----------------> AUTO CLEAN"
   echo ""

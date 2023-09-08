@@ -3,8 +3,10 @@ source $APP_INSTALL/bin/color.sh
 source $APP_INSTALL/bin/welcome.sh
 source $APP_INSTALL/bin/template.sh
 source $APP_INSTALL/bin/openlitespeed.sh
-source $APP_INSTALL/bin/mysql.sh
+source $APP_INSTALL/bin/phpmyadmin.sh
+source $APP_INSTALL/bin/database.sh
 source $APP_INSTALL/bin/ssl.sh
+source $APP_INSTALL/bin/backup.sh
 source $APP_INSTALL/bin/tool.sh
 source $APP_INSTALL/bin/wordpress.sh
 source $APP_INSTALL/install.sh

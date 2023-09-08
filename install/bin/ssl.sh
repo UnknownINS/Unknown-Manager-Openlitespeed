@@ -1,28 +1,39 @@
 #!/bin/bash
 
-installSslForDomain(){
+verifyCertbot(){
+  if [ ! -f '/snap/bin/certbot' ]; then
+    echo "SSL/HTTP Not Install.Please try again later"
+     exit
+  fi
 
-    textYellow "----------------> INSTALL SSL/HTTPS FOR DOMAIN"
+}
+installSslForDomain() {
 
-    echo ''
+  verifyCertbot
 
-    read -p "----------------> Enter Domain : " domain
+  textYellow "----------------> INSTALL SSL/HTTPS FOR DOMAIN"
 
-    certbot certonly --non-interactive --agree-tos -m admin@gmail.com --webroot -w $UNKNOWN_DIR/$domain/html -d $domain
+  echo ''
 
-    echo ''
+  read -p "----------------> Enter Domain : " domain
 
-    textMagenta "_________________ INSTALL AUTO RENEW SSL/HTTPS SUCCESS ________________"
+  certbot certonly --non-interactive --agree-tos -m admin@gmail.com --webroot -w $UNKNOWN_DIR/$domain/html -d $domain
 
-    echo ''
+  echo ''
+
+  textMagenta "_________________ INSTALL AUTO RENEW SSL/HTTPS SUCCESS ________________"
+
+  echo ''
 
 }
 
-renewSSLNow(){
+renewSSLNow() {
 
-    textYellow "----------------> RENEW SSL/HTTPS"
-    echo ''
-    certbot renew
-    textMagenta "_________________ RENEW SSL/HTTPS SUCCESS ________________"
-    echo ''
+  verifyCertbot
+
+  textYellow "----------------> RENEW SSL/HTTPS"
+  echo ''
+  certbot renew
+  textMagenta "_________________ RENEW SSL/HTTPS SUCCESS ________________"
+  echo ''
 }

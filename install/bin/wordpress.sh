@@ -1,35 +1,34 @@
 #!/bin/bash
 
-WPCreateWebsite(){
+wpCreateWebsite() {
 
   verifyExitOpenLiteSpeed
 
   verifyMariadb
 
+  verifyCertbot
+
   echo ''
 
   read -p "----------------> Enter Domain : " inputDomain
-
 
   validate="^([a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]\.)+[a-zA-Z]{2,}$"
 
   if [[ -z "$inputDomain" ]]; then
 
-      textRed "You must enter a domain"
+    textRed "You must enter a domain"
 
-      echo ''
+    echo ''
 
-       exit
+    exit
   fi
 
-
-
   if [[ "$inputDomain" =~ $validate ]]; then
-  echo ''
+    echo ''
   else
-      textRed "Not valid $inputDomain name."
-      echo ''
-      exit
+    textRed "Not valid $inputDomain name."
+    echo ''
+    exit
   fi
 
   nameDatabase=${inputDomain/"."/"_"}
@@ -38,7 +37,7 @@ WPCreateWebsite(){
 
   echo ""
 
-  createDatabase $nameDatabase &> /dev/null
+  createDatabase $nameDatabase &>/dev/null
 
   mkdir -p $UNKNOWN_DIR/$inputDomain/html
 
@@ -48,19 +47,19 @@ WPCreateWebsite(){
 
   echo ""
 
-  wp core download --allow-root &> /dev/null
+  wp core download --allow-root &>/dev/null
 
   textYellow "----------------> WORDPRESS CORE CONFIG"
 
   echo ""
 
-  wp core config --dbhost=localhost --dbname=$nameDatabase --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --allow-root &> /dev/null
+  wp core config --dbhost=localhost --dbname=$nameDatabase --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --allow-root &>/dev/null
 
   textYellow "----------------> WORDPRESS CORE INSTALL"
 
   echo ""
 
-  wp core install --url=$inputDomain --title="News Website" --admin_name=admin --admin_password=123456789 --admin_email=admin@gmail.com --allow-root &> /dev/null
+  wp core install --url=$inputDomain --title="News Website" --admin_name=admin --admin_password=123456789 --admin_email=admin@gmail.com --allow-root &>/dev/null
 
   chown -R nobody:nogroup $UNKNOWN_DIR/$inputDomain/html
 
@@ -71,10 +70,10 @@ WPCreateWebsite(){
   createVirtualHost $inputDomain
 
   updateHTTPConfig
-  
+
   textYellow "----------------> INSTALL SSL/HTTPS"
 
-  certbot certonly --non-interactive --agree-tos -m admin@gmail.com --webroot -w $UNKNOWN_DIR/$inputDomain/html -d $inputDomain &> /dev/null
+  certbot certonly --non-interactive --agree-tos -m admin@gmail.com --webroot -w $UNKNOWN_DIR/$inputDomain/html -d $inputDomain &>/dev/null
 
   echo ""
 
@@ -87,34 +86,33 @@ WPCreateWebsite(){
   restartWebserver
 }
 
-WPUpdateWebsite(){
-	
-    textYellow "----------------> UPDATE WEBSITE"
+wpUpdateWebsite() {
 
-    echo ""
+  textYellow "----------------> UPDATE WEBSITE"
 
-    ALLDOMAIN=$(dir $UNKNOWN_DIR)
+  echo ""
 
-    for i in $ALLDOMAIN ; do
+  ALLDOMAIN=$(dir $UNKNOWN_DIR)
 
-       if [[ $i != "localhost" ]]; then
+  for i in $ALLDOMAIN; do
 
-        textBlue "----------------> $i"
+    if [[ $i != "localhost" ]]; then
 
-       chown -R nobody:nogroup $UNKNOWN_DIR/$i/html
+      textBlue "----------------> $i"
 
-        echo ""
+      chown -R nobody:nogroup $UNKNOWN_DIR/$i/html
 
-        cd $UNKNOWN_DIR/$i/html || exit
-        
-        wp core update  --allow-root &> /dev/null
+      echo ""
 
-        wp plugin update --all  --allow-root &> /dev/null
+      cd $UNKNOWN_DIR/$i/html || exit
 
-      fi
+      wp core update --allow-root &>/dev/null
 
-    done
+      wp plugin update --all --allow-root &>/dev/null
 
+    fi
+
+  done
 
   textMagenta "_________________ UPDATE WEBSITE SUCCESS ________________"
 
