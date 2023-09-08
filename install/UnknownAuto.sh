@@ -13,7 +13,6 @@ setVariablesSystem
 killApt
 
 case $1 in
-
 1) installWebServer ;;
 
 2) uninstallWebServer ;;
@@ -30,28 +29,32 @@ case $1 in
 
 8) wpCreateWebsite ;;
 
-9) restartWebserver ;;
+9) wpDeleteWebsite ;;
 
-10) updateWebserver ;;
+10) restartWebserver ;;
 
-11) MariadbSecure ;;
+11) updateWebserver ;;
 
-12) securityWebServer ;;
+12) MariadbSecure ;;
 
-13) resetAdminPassword ;;
+13) securityWebServer ;;
 
-14) uninstallMariaDb ;;
+14) resetAdminPassword ;;
 
-15) installSslForDomain ;;
+15) uninstallMariaDb ;;
 
-16) configAutoJob ;;
+16) installSslForDomain ;;
 
-17) backupDriver ;;
+17) configAutoJob ;;
 
-18) renewSSLNow ;;
+18) backupDriver ;;
 
-19) installLibraryWebServer ;;
+19) renewSSLNow ;;
 
-20) uninstallUnknownOLS;;
+20) installLibraryWebServer ;;
+
+21) uninstallUnknownOLS ;;
+
+22) updateUnknownOLS ;;
 
 esac
