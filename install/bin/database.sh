@@ -8,7 +8,7 @@ verifyMariadb() {
   fi
 
   if [ $MYSQL_USER == '' || $MYSQL_PASSWORD == '' ]; then
-  textRed "Please Config WebServer.Please try again later"
+  textRed "You Have Not Configured WebServer"
   echo ''
   exit
   fi
