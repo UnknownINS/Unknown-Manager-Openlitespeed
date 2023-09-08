@@ -14,6 +14,8 @@ configAutoJob() {
     cronJobUpdate=''
   fi
 
+  echo ''
+
   read -p "----------------> Install Auto Backup (y/n) : " status
 
   if [ $status == 'y' ]; then
