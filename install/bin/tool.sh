@@ -149,11 +149,11 @@ configAutoJob() {
 
   if [ $status == 'y' ]; then
 
-    if [[ "$cronJobUpdate" =~ "autoBackup.sh" ]]; then
+    if [[ "$cronJobUpdate" =~ "UnknownAuto 17" ]]; then
       echo ''
     else
       cronJobUpdate="$cronJobUpdate
-0 5 * * * /usr/local/unknown/autoBackup.sh &> /dev/null
+0 5 * * * UnknownAuto 17 &> /dev/null
 "
     fi
 
