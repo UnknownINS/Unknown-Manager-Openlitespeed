@@ -7,7 +7,7 @@ verifyMariadb() {
     exit
   fi
 
-  if [ $MYSQL_USER == '' || $MYSQL_PASSWORD == '' ]; then
+  if [ $MYSQL_USER == '' -o $MYSQL_PASSWORD == '' ]; then
   textRed "You Have Not Configured WebServer"
   echo ''
   exit
@@ -58,12 +58,12 @@ uninstallMariaDb() {
 
 createDatabase() {
   verifyMariadb
-  $MYSQL_BIN --user=$MYSQL_USER -p`$MYSQL_PASSWORD` -e "CREATE DATABASE $1;"
+  $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "CREATE DATABASE $1;"
 }
 
 deleteDatabase() {
   verifyMariadb
-  $MYSQL_BIN --user=$MYSQL_USER -p`$MYSQL_PASSWORD` -e "DROP DATABASE $1;"
+  $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "DROP DATABASE $1;"
 }
 
 
