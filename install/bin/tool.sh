@@ -123,3 +123,16 @@ EOF
   echo ''
 
 }
+
+uninstallUnknownOLS() {
+
+  echo ''
+
+  sudo rm -rf $APP_INSTALL &>/dev/null
+
+  textMagenta "_____________ UNINSTALL SUCCESS ____________"
+
+  echo ''
+
+  exit
+}

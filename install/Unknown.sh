@@ -43,13 +43,15 @@ textGreen "8 ) Create New Website.                         9 ) Restart WebServer
 
 textGreen "10) Update WebServer.                           11) Mysql Config."
 
-textGreen "12) Security Website.                           13) Reset Password WebAdmin";
+textGreen "12) Security Website.                           13) Reset Password WebAdmin.";
 
-textGreen "14) Uninstall MariaDb.                          15) Install SSL/HTTPS for Domain";
+textGreen "14) Uninstall MariaDb.                          15) Install SSL/HTTPS for Domain.";
 
-textGreen "16) Config Auto Job.                            17) Backup Google Driver Now";
+textGreen "16) Config Auto Job.                            17) Backup Google Driver Now.";
 
-textGreen "18) Renews SSL/HTTPS NOW                        19) Install Library WebServer";
+textGreen "18) Renews SSL/HTTPS NOW.                       19) Install Library WebServer.";
+
+textGreen "20) Uninstall Unknown OLS.";
 
 echo "";
 
@@ -98,6 +100,8 @@ case $NUMBER_ACTION in
   18) renewSSLNow;;
 
   19) installLibraryWebServer;;
+
+  20) uninstallUnknownOLS;;
 
   *) defaultAction;;
 

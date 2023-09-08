@@ -52,4 +52,6 @@ case $1 in
 
 19) installLibraryWebServer ;;
 
+20) uninstallUnknownOLS;;
+
 esac
