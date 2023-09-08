@@ -34,8 +34,6 @@ echo ""
 
 textYellow "----------------> WebServer";
 
-echo ""
-
 textGreen "0 ) Exit App.                                   1 ) Install WebServer."
 
 textGreen "2 ) Uninstall WebServer.                        3 ) Config WebServer."
@@ -44,11 +42,7 @@ textGreen "4 ) Insert Phpmyadmin.                          5 ) Config Auto Backu
 
 textGreen "6 ) Backup Local.                               7 ) Update WebServer."
 
-echo ""
-
 textBlue "----------------> WebSite";
-
-echo ""
 
 textGreen "8 ) Create New Website.                         9 ) Delete WebSite."
 
@@ -58,11 +52,7 @@ textGreen "12) Mysql Config.                               13) Security Website.
 
 textGreen "14) Reset Password WebAdmin.                    15) Uninstall MariaDb.";
 
-echo ""
-
 textYellow "----------------> Tool";
-
-echo ""
 
 textGreen "16) Install SSL/HTTPS for Domain.               17) Config Auto Job.";
 
@@ -72,15 +62,10 @@ textGreen "20) Install Library WebServer.                  21) Show All Domain."
 
 textGreen "22) Restore Remote.";
 
-echo ""
 
 textMagenta "----------------> UNKNOWN OLS";
 
-echo ""
-
 textGreen "23) Uninstall Unknown OLS.                      24) Update UNKNOWN OLS.";
-
-echo "";
 
 
 read -p "----------------> ENTER NUMBER ACTION : " NUMBER_ACTION
