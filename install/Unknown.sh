@@ -51,9 +51,9 @@ textGreen "16) Install SSL/HTTPS for Domain.               17) Config Auto Job."
 
 textGreen "18) Backup Google Driver Now.                   19) Renews SSL/HTTPS NOW.";
 
-textGreen "20) Install Library WebServer.                  21) Uninstall Unknown OLS.";
+textGreen "20) Install Library WebServer.                  21) Show All Domain.";
 
-textGreen "22) Update UNKNOWN OLS.";
+textGreen "22) Uninstall Unknown OLS.                      23) Update UNKNOWN OLS.";
 
 echo "";
 
@@ -105,9 +105,11 @@ case $NUMBER_ACTION in
 
   20) installLibraryWebServer;;
 
-  21) uninstallUnknownOLS;;
+  21) getAllDomain;;
 
-  22) updateUnknownOLS;;
+  22) uninstallUnknownOLS;;
+
+  23) updateUnknownOLS;;
 
   *) defaultAction;;
 

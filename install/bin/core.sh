@@ -13,13 +13,13 @@ uninstallUnknownOLS() {
   exit
 }
 
-updateUnknownOLS(){
+updateUnknownOLS() {
 
   cd /usr/local || exit
 
   sudo rm -rf $APP_INSTALL &>/dev/null
 
-  git clone https://github.com/UnknownINS/Unknown-Manager-Openlitespeed.git && cd Unknown-Manager-Openlitespeed && bash install.sh &> /dev/null
+  git clone https://github.com/UnknownINS/Unknown-Manager-Openlitespeed.git && cd Unknown-Manager-Openlitespeed && bash install.sh &>/dev/null
 
   cd /usr/local || exit
 
@@ -39,4 +39,21 @@ killApt() {
   sudo rm /var/lib/apt/lists/lock &>/dev/null
   sudo rm /var/cache/apt/archives/lock &>/dev/null
   sudo rm /var/lib/dpkg/lock* &>/dev/null
+}
+
+getAllDomain() {
+
+  ALLDOMAIN=$(dir $UNKNOWN_DIR)
+
+  cd $UNKNOWN_DIR || exit
+
+  for i in $ALLDOMAIN; do
+
+    if [ $i != "localhost" ]; then
+      textYellow "----> $1"
+      echo ''
+    fi
+
+  done
+
 }

@@ -53,8 +53,10 @@ case $1 in
 
 20) installLibraryWebServer ;;
 
-21) uninstallUnknownOLS ;;
+21) getAllDomain ;;
 
-22) updateUnknownOLS ;;
+22) uninstallUnknownOLS ;;
+
+23) updateUnknownOLS ;;
 
 esac
