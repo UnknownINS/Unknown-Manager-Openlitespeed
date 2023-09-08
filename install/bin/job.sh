@@ -22,7 +22,7 @@ configAutoJob() {
       echo ''
     else
       cronJobUpdate="$cronJobUpdate
-0 5 * * * UnknownAuto 17 &> /dev/null
+0 5 * * * UnknownAuto 18 &> /dev/null
 "
     fi
 
