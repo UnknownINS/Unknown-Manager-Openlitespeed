@@ -30,22 +30,39 @@ echo ''
 
 StartApp(){
 
-echo "";
+echo ""
+
+textYellow "----------------> WebServer";
+
+echo ""
+
 textGreen "0 ) Exit App.                                   1 ) Install WebServer."
 
 textGreen "2 ) Uninstall WebServer.                        3 ) Config WebServer."
 
 textGreen "4 ) Insert Phpmyadmin.                          5 ) Config Auto Backup."
 
-textGreen "6 ) Backup Local.                               7 ) Update Website."
+textGreen "6 ) Backup Local.                               7 ) Update WebServer."
+
+echo ""
+
+textBlue "----------------> WebSite";
+
+echo ""
 
 textGreen "8 ) Create New Website.                         9 ) Delete WebSite."
 
-textGreen "10) Restart WebServer.                          11) Update WebServer."
+textGreen "10) Restart WebServer.                          11) Update Website"
 
 textGreen "12) Mysql Config.                               13) Security Website."
 
 textGreen "14) Reset Password WebAdmin.                    15) Uninstall MariaDb.";
+
+echo ""
+
+textYellow "----------------> Tool";
+
+echo ""
 
 textGreen "16) Install SSL/HTTPS for Domain.               17) Config Auto Job.";
 
@@ -53,9 +70,18 @@ textGreen "18) Backup Google Driver Now.                   19) Renews SSL/HTTPS 
 
 textGreen "20) Install Library WebServer.                  21) Show All Domain.";
 
-textGreen "22) Uninstall Unknown OLS.                      23) Update UNKNOWN OLS.";
+textGreen "22) Restore Remote.";
+
+echo ""
+
+textMagenta "----------------> UNKNOWN OLS";
+
+echo ""
+
+textGreen "23) Uninstall Unknown OLS.                      24) Update UNKNOWN OLS.";
 
 echo "";
+
 
 read -p "----------------> ENTER NUMBER ACTION : " NUMBER_ACTION
 
@@ -77,7 +103,7 @@ case $NUMBER_ACTION in
 
   6) backupLocal;;
 
-  7) wpUpdateWebsite;;
+  7) updateWebserver;;
 
   8) wpCreateWebsite;;
 
@@ -85,7 +111,7 @@ case $NUMBER_ACTION in
 
   10) restartWebserver;;
 
-  11) updateWebserver;;
+  11) wpUpdateWebsite;;
 
   12) MariadbSecure;;
 
@@ -107,9 +133,11 @@ case $NUMBER_ACTION in
 
   21) getAllDomain;;
 
-  22) uninstallUnknownOLS;;
+  22) restoreRemote;;
 
-  23) updateUnknownOLS;;
+  23) uninstallUnknownOLS;;
+
+  24) updateUnknownOLS;;
 
   *) defaultAction;;
 

@@ -67,6 +67,12 @@ deleteDatabase() {
 }
 
 
+importDatabase() {
+  verifyMariadb
+  $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD $1 < $2
+}
+
+
 backupDatabase() {
 
   mkdir -p $1

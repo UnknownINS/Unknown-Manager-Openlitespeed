@@ -23,11 +23,7 @@ wpCreateWebsite() {
     exit
   fi
 
-  if [ -d $UNKNOWN_DIR/$inputDomain ]; then
-    textRed "Domain exist."
-    echo ''
-    exit
-  fi
+  verifyExitDir $UNKNOWN_DIR/$inputDomain
 
   if [[ "$inputDomain" =~ $validate ]]; then
     echo ''

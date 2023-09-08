@@ -57,3 +57,14 @@ getAllDomain() {
   done
 
 }
+
+
+verifyExitDir(){
+
+   if [ -d $1 ]; then
+      textRed "Folder exist."
+      echo ''
+      exit
+    fi
+
+}

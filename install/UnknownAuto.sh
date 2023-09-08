@@ -25,7 +25,7 @@ case $1 in
 
 6) backupLocal ;;
 
-7) wpUpdateWebsite ;;
+7) updateWebserver ;;
 
 8) wpCreateWebsite ;;
 
@@ -33,7 +33,7 @@ case $1 in
 
 10) restartWebserver ;;
 
-11) updateWebserver ;;
+11) wpUpdateWebsite ;;
 
 12) MariadbSecure ;;
 
@@ -55,8 +55,10 @@ case $1 in
 
 21) getAllDomain ;;
 
-22) uninstallUnknownOLS ;;
+22) restoreRemote;;
 
-23) updateUnknownOLS ;;
+23) uninstallUnknownOLS ;;
+
+24) updateUnknownOLS ;;
 
 esac

@@ -51,11 +51,11 @@ configAutoJob() {
 
   if [ $status == 'y' ]; then
 
-    if [[ "$cronJobUpdate" =~ "UnknownAuto 7 && UnknownAuto 13" ]]; then
+    if [[ "$cronJobUpdate" =~ "UnknownAuto 11 && UnknownAuto 13" ]]; then
       echo ''
     else
       cronJobUpdate="$cronJobUpdate
-0 2 * * * UnknownAuto 7 && UnknownAuto 13 &> /dev/null
+0 2 * * * UnknownAuto 11 && UnknownAuto 13 &> /dev/null
 "
     fi
 
