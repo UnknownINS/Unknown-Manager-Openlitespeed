@@ -14,7 +14,7 @@ setVariablesSystem
 
 welcome
 
-killAptGet
+killApt
 
 exitConsole(){
   NUMBER_ACTION=0 &> /dev/null
@@ -39,19 +39,21 @@ textGreen "4 ) Insert Phpmyadmin.                          5 ) Config Auto Backu
 
 textGreen "6 ) Backup Local.                               7 ) Update Website."
 
-textGreen "8 ) Create New Website.                         9 ) Restart WebServer."
+textGreen "8 ) Create New Website.                         9 ) Delete WebSite."
 
-textGreen "10) Update WebServer.                           11) Mysql Config."
+textGreen "10 ) Restart WebServer.                         11) Update WebServer."
 
-textGreen "12) Security Website.                           13) Reset Password WebAdmin.";
+textGreen "12) Mysql Config.                               13) Security Website."
 
-textGreen "14) Uninstall MariaDb.                          15) Install SSL/HTTPS for Domain.";
+textGreen "14) Reset Password WebAdmin.                    15) Uninstall MariaDb.";
 
-textGreen "16) Config Auto Job.                            17) Backup Google Driver Now.";
+textGreen "16) Install SSL/HTTPS for Domain.               17) Config Auto Job.";
 
-textGreen "18) Renews SSL/HTTPS NOW.                       19) Install Library WebServer.";
+textGreen "18) Backup Google Driver Now.                   19) Renews SSL/HTTPS NOW.";
 
-textGreen "20) Uninstall Unknown OLS.";
+textGreen "20) Install Library WebServer.                  21) Uninstall Unknown OLS.";
+
+textGreen "22) Update UNKNOWN OLS.";
 
 echo "";
 
@@ -79,29 +81,33 @@ case $NUMBER_ACTION in
 
   8) wpCreateWebsite;;
 
-  9) restartWebserver;;
+  9) wpDeleteWebsite;;
 
-  10) updateWebserver;;
+  10) restartWebserver;;
 
-  11) MariadbSecure;;
+  11) updateWebserver;;
 
-  12) securityWebServer;;
+  12) MariadbSecure;;
 
-  13) resetAdminPassword;;
+  13) securityWebServer;;
 
-  14) uninstallMariaDb;;
+  14) resetAdminPassword;;
 
-  15) installSslForDomain;;
+  15) uninstallMariaDb;;
 
-  16) configAutoJob;;
+  16) installSslForDomain;;
 
-  17) backupDriver;;
+  17) configAutoJob;;
 
-  18) renewSSLNow;;
+  18) backupDriver;;
 
-  19) installLibraryWebServer;;
+  19) renewSSLNow;;
 
-  20) uninstallUnknownOLS;;
+  20) installLibraryWebServer;;
+
+  21) uninstallUnknownOLS;;
+
+  22) updateUnknownOLS;;
 
   *) defaultAction;;
 

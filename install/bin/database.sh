@@ -55,6 +55,11 @@ createDatabase() {
   $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "CREATE DATABASE $1;"
 }
 
+deleteDatabase() {
+  $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "DROP DATABASE $1;"
+}
+
+
 backupDatabase() {
 
   mkdir -p $1

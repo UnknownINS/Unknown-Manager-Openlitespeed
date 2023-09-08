@@ -119,3 +119,35 @@ wpUpdateWebsite() {
   echo ''
 
 }
+
+wpDeleteWebsite(){
+
+    verifyExitOpenLiteSpeed
+
+    verifyMariadb
+    echo ''
+
+    read -p "----------------> Input Domain : " inputDomain
+
+    echo ''
+
+    textYellow "----------------> DELETE WEBSITE"
+
+    echo ''
+
+    rm -rf $UNKNOWN_DIR/$inputDomain &> /dev/null
+
+    rm -rf $LSWS_VHOSTS/$inputDomain &> /dev/null
+
+    nameDatabase=${inputDomain/"."/"_"}
+
+    deleteDatabase $nameDatabase
+
+    textYellow "----------------> UPDATE HTTP/HTTPS CONFIG"
+
+    updateHTTPConfig
+
+    echo ''
+
+    restartWebserver
+}

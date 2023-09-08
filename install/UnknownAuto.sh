@@ -10,7 +10,7 @@ cd "$UNKNOWN_DIR" || exit
 
 setVariablesSystem
 
-killAptGet
+killApt
 
 case $1 in
 
