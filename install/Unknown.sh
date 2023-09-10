@@ -32,7 +32,7 @@ StartApp(){
 
 echo ""
 
-textYellow "----------------> WebServer";
+textYellow "----------------> WEBSERVER";
 
 textGreen "0 ) Exit App.                                   1 ) Install WebServer."
 
@@ -42,7 +42,7 @@ textGreen "4 ) Insert Phpmyadmin.                          5 ) Config Auto Backu
 
 textGreen "6 ) Backup Local.                               7 ) Update WebServer."
 
-textBlue "----------------> WebSite Manager";
+textBlue "----------------> MANAGER WEBSITE";
 
 textGreen "8 ) Create New Website.                         9 ) Delete WebSite."
 
@@ -52,7 +52,7 @@ textGreen "12) Mysql Config.                               13) Security Website.
 
 textGreen "14) Reset Password WebAdmin.                    15) Uninstall MariaDb.";
 
-textYellow "----------------> Tool";
+textYellow "----------------> TOOLTOOL";
 
 textGreen "16) Install SSL/HTTPS for Domain.               17) Config Auto Job.";
 
@@ -63,7 +63,7 @@ textGreen "20) Install Library WebServer.                  21) Show All Domain."
 textGreen "22) Restore Remote.";
 
 
-textMagenta "----------------> UNKNOWN OLS";
+textMagenta "----------------> ABOUT AUTO";
 
 textGreen "23) Uninstall Unknown OLS.                      24) Update UNKNOWN OLS.";
 
