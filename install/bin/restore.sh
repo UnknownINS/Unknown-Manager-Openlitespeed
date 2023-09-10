@@ -67,7 +67,7 @@ restoreRemote(){
 
     cp -r $getFileName/* ./
 
-    rm -rf $getFileName/*
+    rm -rf $getFileName
 
     importDatabase $nameDatabase $UNKNOWN_DIR/$inputDomain/html/$baseNameSQL
 
