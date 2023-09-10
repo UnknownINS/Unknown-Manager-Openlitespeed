@@ -7,7 +7,7 @@ export LSWS_CONFIG=$LSWS_DIR/conf
 
 export LSWS_VHOSTS=$LSWS_CONFIG/vhosts
 
-export GET_IP_NAME=$(curl http://ipinfo.io/ip &> /dev/null)
+export GET_IP_NAME=$(curl -s http://ipinfo.io/ip)
 
 echo $GET_IP_NAME
 
