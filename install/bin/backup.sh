@@ -46,7 +46,7 @@ backupLocal() {
 
   textYellow "----------------> START BACKUP CODE"
 
-  zip -r $BACKUP_DIR/$GETDAY/backup.zip $UNKNOWN_DIR -q
+  zip -r $BACKUP_DIR/$GETDAY/backup.zip $UNKNOWN_DIR/* -q
 
   echo ''
 
