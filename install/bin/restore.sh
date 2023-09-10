@@ -59,16 +59,15 @@ restoreRemote(){
 
     mv /home/$baseNameSQL $UNKNOWN_DIR/$inputDomain/html
 
-
     unzip $baseNameCode &> /dev/null
 
     rm $baseNameCode &> /dev/null
 
-    getFileName=${baseNameCode%.*}  &> /dev/null
+    getFileName=${baseNameCode%.*}
 
-    cp -r getFileName/* ./  &> /dev/null
+    cp -r getFileName/* ./
 
-    rm -rf getFileName/* &> /dev/null
+    rm -rf getFileName/*
 
     importDatabase $nameDatabase $UNKNOWN_DIR/$inputDomain/html/$baseNameSQL
 
