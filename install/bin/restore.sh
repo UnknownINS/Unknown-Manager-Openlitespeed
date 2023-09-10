@@ -95,7 +95,6 @@ restoreRemote(){
     wp config set DB_NAME "$nameDatabase" --allow-root
     wp config set DB_USER "$MYSQL_USER" --allow-root
     wp config set DB_PASSWORD "$MYSQL_PASSWORD" --allow-root
-
     wp search-replace $oldDomain $inputDomain --all-tables --allow-root
 
     textMagenta "----------------> RESTORE REMOTE SUCCESS"
