@@ -30,7 +30,7 @@ restoreRemote(){
 
   cd /home || exit
 
-  basenameBackup=$(basename $urlCodeBackup)
+  baseNameBackup=$(basename $urlCodeBackup)
 
   curl -o code_restore.zip $urlCodeBackup
 
@@ -58,9 +58,11 @@ restoreRemote(){
 
     rm code_restore.zip &> /dev/null
 
-    cp -rf $basenameBackup/* ./  &> /dev/null
+    echo $baseNameBackup
 
-    rm -rf $basenameBackup/* &> /dev/null
+    cp -rf $baseNameBackup/* ./  &> /dev/null
+
+    rm -rf $baseNameBackup/* &> /dev/null
 
     importDatabase $nameDatabase $UNKNOWN_DIR/$inputDomain/html/sql_restore.sql
 
