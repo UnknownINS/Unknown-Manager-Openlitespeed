@@ -58,7 +58,8 @@ restoreRemote(){
 
     rm code_restore.zip &> /dev/null
 
-    cp -rf $basenameBackup ./  &> /dev/null
+    cp -rf $basenameBackup/* ./  &> /dev/null
+
     rm -rf $basenameBackup/* &> /dev/null
 
     importDatabase $nameDatabase $UNKNOWN_DIR/$inputDomain/html/sql_restore.sql
