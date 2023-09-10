@@ -53,6 +53,16 @@ restoreRemote(){
 
     nameDatabase=$(sed "s/\./_/g" <<< "$inputDomain")
 
+    if [ -z $nameDatabase ]; then
+      textRed "Domain please check again"
+      echo ''
+    fi
+
+    if [ -z $oldDomain ]; then
+      textRed "Domain please check again"
+      echo ''
+    fi
+
     createDatabase $nameDatabase &>/dev/null
 
     mkdir -p $UNKNOWN_DIR/$inputDomain/html
