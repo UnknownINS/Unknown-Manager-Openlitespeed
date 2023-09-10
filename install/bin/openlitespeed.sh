@@ -384,6 +384,8 @@ resetAdminPassword(){
 
 updateWebserver(){
 
+  updateSystem
+
   textYellow "----------------> UPDATE DPKG"
 
   sudo dpkg --configure -a &> /dev/null
@@ -395,13 +397,6 @@ updateWebserver(){
   echo ""
 
   sudo wp cli update -y &> /dev/null
-
-  textYellow "----------------> UPDATE SYSTEM"
-  echo ""
-
-  sudo apt update -y &> /dev/null
-
-  sudo apt upgrade -y &> /dev/null
 
     textYellow "----------------> UPDATE OPENLITESPEED"
     echo ""

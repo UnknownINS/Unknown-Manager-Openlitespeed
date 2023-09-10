@@ -68,3 +68,38 @@ verifyExitDir(){
     fi
 
 }
+
+updateSystem() {
+
+  textBlue "----------------> UPDATE SYSTEM"
+
+  sudo apt-get purge needrestart -y &>/dev/null
+
+  sudo apt autoremove -y &>/dev/null
+
+  sudo apt update -y
+
+  textBlue "----------------> UPGRADE SYSTEM"
+
+  echo ''
+
+  sudo apt upgrade -y
+
+  textBlue "----------------> INSTALL DEFAULT SYSTEM"
+
+  echo ''
+
+  sudo apt install snapd -y &>/dev/null
+
+  sudo apt install zip unzip -y &>/dev/null
+
+  textBlue "----------------> AUTO CLEAN SYSTEM"
+
+  echo ''
+
+  sudo apt autoremove -y &>/dev/null
+
+  sudo apt autoclean -y &>/dev/null
+
+  echo ""
+}
