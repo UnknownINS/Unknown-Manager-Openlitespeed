@@ -7,7 +7,9 @@ export LSWS_CONFIG=$LSWS_DIR/conf
 
 export LSWS_VHOSTS=$LSWS_CONFIG/vhosts
 
-export GET_IP_NAME=$(curl http://ipinfo.io/ip) &> /dev/null
+export GET_IP_NAME=$(curl http://ipinfo.io/ip &> /dev/null)
+
+echo $GET_IP_NAME
 
 export MYSQL_BIN=/usr/bin/mysql
 
