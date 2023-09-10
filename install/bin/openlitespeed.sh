@@ -408,8 +408,6 @@ updateWebserver(){
   sudo apt autoremove -y &> /dev/null
 
   sudo apt autoclean -y &> /dev/null
-  
-  echo "";
 
   textMagenta "----------------> UPDATE WEBSERVER SUCCESS"
 

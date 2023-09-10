@@ -95,8 +95,6 @@ updateSystem() {
 
   textBlue "----------------> AUTO CLEAN SYSTEM"
 
-  echo ''
-
   sudo apt autoremove -y &>/dev/null
 
   sudo apt autoclean -y &>/dev/null
