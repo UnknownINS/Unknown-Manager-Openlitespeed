@@ -9,8 +9,6 @@ export LSWS_VHOSTS=$LSWS_CONFIG/vhosts
 
 export GET_IP_NAME=$(curl -sS http://ipinfo.io/ip)
 
-echo $GET_IP_NAME
-
 export MYSQL_BIN=/usr/bin/mysql
 
 export MYSQL_DUMP=/usr/bin/mysqldump
