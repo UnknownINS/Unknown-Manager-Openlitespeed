@@ -77,9 +77,16 @@ restoreRemote(){
 
     rm $UNKNOWN_DIR/$inputDomain/html/$baseNameSQL &> /dev/null
 
+    textYellow "----------------> UPDATE CONFIG WEBSITE"
+
+    echo ''
+
     wp search-replace $oldDomain $inputDomain --all-tables --allow-root
 
-    wp core config --dbhost=localhost --dbname=$nameDatabase --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --allow-root &>/dev/null
+    wp core config set DB_HOST localhost --raw
+    wp core config set DB_NAME $nameDatabase --raw
+    wp core config set DB_USER $MYSQL_USER --raw
+    wp core config set DB_PASSWORD $MYSQL_PASSWORD --raw
 
     textMagenta "----------------> RESTORE REMOTE SUCCESS"
 
