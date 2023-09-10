@@ -81,12 +81,12 @@ restoreRemote(){
 
     echo ''
 
-    wp search-replace $oldDomain $inputDomain --all-tables --allow-root
-
     wp core config set DB_HOST localhost --raw
     wp core config set DB_NAME $nameDatabase --raw
     wp core config set DB_USER $MYSQL_USER --raw
     wp core config set DB_PASSWORD $MYSQL_PASSWORD --raw
+
+    wp search-replace $oldDomain $inputDomain --all-tables --allow-root
 
     textMagenta "----------------> RESTORE REMOTE SUCCESS"
 
