@@ -41,7 +41,7 @@ textGreen "2 ) Uninstall WebServer.                        3 ) Config WebServer.
 textGreen "4 ) Insert Phpmyadmin.                          5 ) Config Auto Backup."
 
 textGreen "6 ) Backup Local.                               7 ) Update WebServer."
-
+echo ''
 textBlue "----------------> MANAGER WEBSITE";
 
 textGreen "8 ) Create New Website.                         9 ) Delete WebSite."
@@ -52,7 +52,8 @@ textGreen "12) Mysql Config.                               13) Security Website.
 
 textGreen "14) Reset Password WebAdmin.                    15) Uninstall MariaDb.";
 
-textYellow "----------------> TOOLTOOL";
+echo ''
+textYellow "----------------> TOOL";
 
 textGreen "16) Install SSL/HTTPS for Domain.               17) Config Auto Job.";
 
@@ -62,7 +63,7 @@ textGreen "20) Install Library WebServer.                  21) Show All Domain."
 
 textGreen "22) Restore Remote.";
 
-
+echo ''
 textMagenta "----------------> ABOUT AUTO";
 
 textGreen "23) Uninstall Unknown OLS.                      24) Update UNKNOWN OLS.";
