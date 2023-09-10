@@ -20,23 +20,28 @@ restoreRemote(){
 
   read -p "----------------> URL Database Backup (.sql) : " urlDatabase
 
-  echo ''
 
   verifyExitDir $UNKNOWN_DIR/$inputDomain
-
-  textYellow "----------------> DOWNLOAD REMOTE"
 
   echo ''
 
   cd /home || exit
 
+  textYellow "----------------> DOWNLOAD CODE BACKUP"
+
+  echo ''
+
   baseNameCode=$(basename $urlCodeBackup)
 
   baseNameSQL=$(basename $urlDatabase)
 
-  curl -o $urlCodeBackup
+  wget $urlCodeBackup
 
-  curl -o $urlDatabase
+  textYellow "----------------> DOWNLOAD SQL BACKUP"
+
+  echo ''
+
+  wget $urlDatabase
 
   textYellow "----------------> INSTALL BACKUP"
 
@@ -52,7 +57,7 @@ restoreRemote(){
 
     mv /home/$baseNameCode $UNKNOWN_DIR/$inputDomain/html
 
-    mv /home/sql_restore.sql $UNKNOWN_DIR/$inputDomain/html
+    mv /home/$baseNameSQL $UNKNOWN_DIR/$inputDomain/html
 
     unzip $baseNameCode &> /dev/null
 
@@ -60,7 +65,7 @@ restoreRemote(){
 
     importDatabase $nameDatabase $UNKNOWN_DIR/$inputDomain/html/$baseNameSQL
 
-    rm $UNKNOWN_DIR/$inputDomain/html/sql_restore.sql
+    rm $UNKNOWN_DIR/$inputDomain/html/$baseNameSQL
 
     textMagenta "----------------> RESTORE REMOTE SUCCESS"
 
