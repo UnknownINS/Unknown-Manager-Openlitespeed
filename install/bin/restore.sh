@@ -34,6 +34,10 @@ restoreRemote(){
 
   curl -o sql_restore.sql $urlDatabase
 
+  textYellow "----------------> INSTALL BACKUP"
+
+  echo ''
+
     nameDatabase=$(sed "s/\./_/g" <<< "$inputDomain")
 
     createDatabase $nameDatabase &>/dev/null
@@ -59,5 +63,4 @@ restoreRemote(){
     textMagenta "----------------> RESTORE REMOTE SUCCESS"
 
     echo ''
-
 }
