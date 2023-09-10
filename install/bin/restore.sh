@@ -10,7 +10,11 @@ restoreRemote(){
 
   echo ''
 
-  read -p "----------------> Domain Name : " inputDomain
+  read -p "----------------> New Domain Name : " inputDomain
+
+  echo ''
+
+  read -p "----------------> Old Domain Name : " oldDomain
 
   echo ''
 
@@ -65,13 +69,17 @@ restoreRemote(){
 
     getFileName=${baseNameCode%.*}
 
-    cp -r $getFileName/* ./
+    cp -r $getFileName/* ./ &> /dev/null
 
-    rm -rf $getFileName
+    rm -rf $getFileName &> /dev/null
 
     importDatabase $nameDatabase $UNKNOWN_DIR/$inputDomain/html/$baseNameSQL
 
-    rm $UNKNOWN_DIR/$inputDomain/html/$baseNameSQL
+    rm $UNKNOWN_DIR/$inputDomain/html/$baseNameSQL &> /dev/null
+
+    wp search-replace $oldDomain $inputDomain --all-tables --allow-root
+
+    wp core config --dbhost=localhost --dbname=$nameDatabase --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --allow-root &>/dev/null
 
     textMagenta "----------------> RESTORE REMOTE SUCCESS"
 

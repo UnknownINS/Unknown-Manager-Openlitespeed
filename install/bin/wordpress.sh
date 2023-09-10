@@ -61,7 +61,7 @@ wpCreateWebsite() {
 
   echo ""
 
-  wp core install --url=$inputDomain --title="News Website" --admin_name=admin --admin_password=123456789 --admin_email=admin@gmail.com --allow-root &>/dev/null
+  wp core install --url=$inputDomain --title="News Website" --admin_name=admin --admin_password=123456789 --admin_email=root@localhost --allow-root &>/dev/null
 
   chown -R nobody:nogroup $UNKNOWN_DIR/$inputDomain/html
 
