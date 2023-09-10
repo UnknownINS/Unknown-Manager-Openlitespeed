@@ -91,10 +91,10 @@ restoreRemote(){
 
     echo ''
 
-    wp config set DB_HOST localhost --raw --allow-root
-    wp config set DB_NAME $nameDatabase --raw --allow-root
-    wp config set DB_USER $MYSQL_USER --raw --allow-root
-    wp config set DB_PASSWORD $MYSQL_PASSWORD --raw --allow-root
+    wp config set DB_HOST "localhost" --allow-root
+    wp config set DB_NAME "$nameDatabase" --allow-root
+    wp config set DB_USER "$MYSQL_USER" --allow-root
+    wp config set DB_PASSWORD "$MYSQL_PASSWORD" --allow-root
 
     wp search-replace $oldDomain $inputDomain --all-tables --allow-root
 
