@@ -66,7 +66,7 @@ textGreen "22) Restore Remote.                             23) Permission Public
 echo ''
 textMagenta "----------------> ABOUT AUTO";
 
-textGreen "23) Uninstall Unknown OLS.                      24) Update UNKNOWN OLS.";
+textGreen "24) Uninstall Unknown OLS.                      25) Update UNKNOWN OLS.";
 
 echo ''
 
