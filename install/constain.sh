@@ -21,7 +21,7 @@ mkdir -p $UNKNOWN_DIR &>/dev/null
 
 export RESTORE_DIR=/home/restore
 
-rm -rf $RESTORE_DIR/*
+rm -rf $RESTORE_DIR/* &> /dev/null
 
 mkdir -p $RESTORE_DIR &>/dev/null
 
