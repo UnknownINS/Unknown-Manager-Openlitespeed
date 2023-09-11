@@ -19,6 +19,12 @@ mkdir -p $BACKUP_DIR &>/dev/null
 
 mkdir -p $UNKNOWN_DIR &>/dev/null
 
+export RESTORE_DIR=/home/restore
+
+rm -rf $RESTORE_DIR/*
+
+mkdir -p $RESTORE_DIR &>/dev/null
+
 setVariablesSystem() {
 
   if [ -f ~/.constain ]; then
