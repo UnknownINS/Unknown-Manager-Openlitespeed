@@ -86,10 +86,6 @@ restoreRemote() {
 
   rm $UNKNOWN_DIR/$inputDomain/html/$baseNameSQL &>/dev/null
 
-  rm index.html &> /dev/null
-
-  chown -R nobody:nogroup $UNKNOWN_DIR/$inputDomain/html &> /dev/null
-
   textYellow "----------------> UPDATE CONFIG WEBSITE"
   echo ''
 
@@ -100,11 +96,16 @@ restoreRemote() {
   wp search-replace $oldDomain $inputDomain --all-tables --allow-root &>/dev/null
 
   textYellow "----------------> INSTALL VIRTUALHOST"
+
   echo ''
 
   createVirtualHost $inputDomain
 
   updateHTTPConfig
+
+  rm index.html &>/dev/null
+
+  chown -R nobody:nogroup $UNKNOWN_DIR/$inputDomain/html &>/dev/null
 
   textYellow "----------------> INSTALL SSL/HTTPS"
 
