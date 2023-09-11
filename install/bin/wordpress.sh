@@ -165,7 +165,7 @@ wpGetListUser() {
 
   cd $UNKNOWN_DIR/$inputDomain/html || exit
 
-  wp user list
+  wp user list --allow-root
 
   echo ''
 
@@ -188,7 +188,7 @@ wpResetPassword() {
 
   cd $UNKNOWN_DIR/$inputDomain/html || exit
 
-  wp user update $userLogin --user_pass=$passWord
+  wp user update $userLogin --user_pass=$passWord  --allow-root
 
   echo ''
 
