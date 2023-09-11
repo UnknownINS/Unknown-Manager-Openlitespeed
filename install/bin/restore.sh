@@ -1,6 +1,6 @@
 #!/bin/bash
 
-restoreRemote(){
+restoreRemote() {
 
   echo ''
 
@@ -20,10 +20,9 @@ restoreRemote(){
 
   read -p "----------------> URL Code Backup (.zip) : " urlCodeBackup
 
-    echo ''
+  echo ''
 
   read -p "----------------> URL Database Backup (.sql) : " urlDatabase
-
 
   verifyExitDir $UNKNOWN_DIR/$inputDomain
 
@@ -51,53 +50,66 @@ restoreRemote(){
 
   echo ''
 
-    nameDatabase=$(sed "s/\./_/g" <<< "$inputDomain")
+  nameDatabase=$(sed "s/\./_/g" <<<"$inputDomain")
 
-    if [ -z $nameDatabase ]; then
-      textRed "Domain please check again"
-      echo ''
-    fi
-
-    if [ -z $oldDomain ]; then
-      textRed "Domain please check again"
-      echo ''
-    fi
-
-    createDatabase $nameDatabase &>/dev/null
-
-    mkdir -p $UNKNOWN_DIR/$inputDomain/html
-
-    cd $UNKNOWN_DIR/$inputDomain/html || exit
-
-    mv /home/$baseNameCode $UNKNOWN_DIR/$inputDomain/html
-
-    mv /home/$baseNameSQL $UNKNOWN_DIR/$inputDomain/html
-
-    unzip $baseNameCode &> /dev/null
-
-    rm $baseNameCode &> /dev/null
-
-    getFileName=${baseNameCode%.*}
-
-    cp -r $getFileName/* ./ &> /dev/null
-
-    rm -rf $getFileName &> /dev/null
-
-    importDatabase $nameDatabase $UNKNOWN_DIR/$inputDomain/html/$baseNameSQL
-
-    rm $UNKNOWN_DIR/$inputDomain/html/$baseNameSQL &> /dev/null
-
-    textYellow "----------------> UPDATE CONFIG WEBSITE"
-
+  if [ -z $nameDatabase ]; then
+    textRed "Domain please check again"
     echo ''
+  fi
 
-    wp config set DB_HOST "localhost" --allow-root &> /dev/null
-    wp config set DB_NAME "$nameDatabase" --allow-root &> /dev/null
-    wp config set DB_USER "$MYSQL_USER" --allow-root &> /dev/null
-    wp config set DB_PASSWORD "$MYSQL_PASSWORD" --allow-root &> /dev/null
-    wp search-replace $oldDomain $inputDomain --all-tables --allow-root  &> /dev/null
-
-    textMagenta "----------------> RESTORE REMOTE SUCCESS"
-
+  if [ -z $oldDomain ]; then
+    textRed "Domain please check again"
     echo ''
+  fi
+
+  createDatabase $nameDatabase &>/dev/null
+
+  mkdir -p $UNKNOWN_DIR/$inputDomain/html
+
+  cd $UNKNOWN_DIR/$inputDomain/html || exit
+
+  mv /home/$baseNameCode $UNKNOWN_DIR/$inputDomain/html
+
+  mv /home/$baseNameSQL $UNKNOWN_DIR/$inputDomain/html
+
+  unzip $baseNameCode &>/dev/null
+
+  rm $baseNameCode &>/dev/null
+
+  getFileName=${baseNameCode%.*}
+
+  cp -r $getFileName/* ./ &>/dev/null
+
+  rm -rf $getFileName &>/dev/null
+
+  importDatabase $nameDatabase $UNKNOWN_DIR/$inputDomain/html/$baseNameSQL
+
+  rm $UNKNOWN_DIR/$inputDomain/html/$baseNameSQL &>/dev/null
+
+  textYellow "----------------> UPDATE CONFIG WEBSITE"
+
+  echo ''
+
+  wp config set DB_HOST "localhost" --allow-root &>/dev/null
+  wp config set DB_NAME "$nameDatabase" --allow-root &>/dev/null
+  wp config set DB_USER "$MYSQL_USER" --allow-root &>/dev/null
+  wp config set DB_PASSWORD "$MYSQL_PASSWORD" --allow-root &>/dev/null
+  wp search-replace $oldDomain $inputDomain --all-tables --allow-root &>/dev/null
+
+  textYellow "----------------> INSTALL VIRTUALHOST"
+  echo ''
+
+  createVirtualHost $inputDomain
+
+  updateHTTPConfig
+
+  textYellow "----------------> INSTALL SSL/HTTPS"
+
+  certbot certonly --non-interactive --agree-tos -m root@localhost --webroot -w $UNKNOWN_DIR/$inputDomain/html -d $inputDomain &>/dev/null
+
+  echo ''
+
+  textMagenta "----------------> RESTORE REMOTE SUCCESS"
+
+  echo ''
 }

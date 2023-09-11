@@ -75,7 +75,7 @@ wpCreateWebsite() {
 
   textYellow "----------------> INSTALL SSL/HTTPS"
 
-  certbot certonly --non-interactive --agree-tos -m admin@gmail.com --webroot -w $UNKNOWN_DIR/$inputDomain/html -d $inputDomain &>/dev/null
+  certbot certonly --non-interactive --agree-tos -m root@localhost --webroot -w $UNKNOWN_DIR/$inputDomain/html -d $inputDomain &>/dev/null
 
   echo ""
 
