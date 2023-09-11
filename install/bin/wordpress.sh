@@ -143,7 +143,7 @@ wpDeleteWebsite(){
 
     nameDatabase=$(sed "s/\./_/g" <<< "$inputDomain")
 
-    deleteDatabase $nameDatabase
+    deleteDatabase $nameDatabase &> /dev/null
 
     textYellow "----------------> UPDATE HTTP/HTTPS CONFIG"
 
