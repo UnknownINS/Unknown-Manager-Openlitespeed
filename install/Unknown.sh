@@ -63,10 +63,12 @@ textGreen "20) Install Library WebServer.                  21) Show All Domain."
 
 textGreen "22) Restore Remote.                             23) Permission Public Domain.";
 
+textGreen "24) List User Domain.                           25) Reset password Domain";
+
 echo ''
 textMagenta "----------------> ABOUT AUTO";
 
-textGreen "24) Uninstall Unknown OLS.                      25) Update UNKNOWN OLS.";
+textGreen "26) Uninstall Unknown OLS.                      27) Update UNKNOWN OLS.";
 
 echo ''
 
@@ -124,9 +126,13 @@ case $NUMBER_ACTION in
 
   23) chownNobodyDomain;;
 
-  24) uninstallUnknownOLS;;
+  24) wpGetListUser;;
 
-  25) updateUnknownOLS;;
+  25) wpResetPassword;;
+
+  26) uninstallUnknownOLS;;
+
+  27) updateUnknownOLS;;
 
   *) defaultAction;;
 

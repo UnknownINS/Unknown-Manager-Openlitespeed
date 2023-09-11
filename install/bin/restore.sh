@@ -102,7 +102,7 @@ restoreRemote() {
   createVirtualHost $inputDomain
 
   updateHTTPConfig
-  
+
   cd $UNKNOWN_DIR/$inputDomain/html || exit
 
   rm index.html &>/dev/null

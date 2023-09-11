@@ -55,12 +55,16 @@ case $1 in
 
 21) getAllDomain ;;
 
-22) restoreRemote;;
+22) restoreRemote ;;
 
-23) chownNobodyDomain;;
+23) chownNobodyDomain ;;
 
-24) uninstallUnknownOLS ;;
+24) wpGetListUser ;;
 
-25) updateUnknownOLS ;;
+25) wpResetPassword ;;
+
+26) uninstallUnknownOLS ;;
+
+27) updateUnknownOLS ;;
 
 esac

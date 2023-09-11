@@ -37,7 +37,7 @@ wpCreateWebsite() {
 
   echo ""
 
-  nameDatabase=$(sed "s/\./_/g" <<< "$inputDomain")
+  nameDatabase=$(sed "s/\./_/g" <<<"$inputDomain")
 
   createDatabase $nameDatabase &>/dev/null
 
@@ -122,35 +122,74 @@ wpUpdateWebsite() {
 
 }
 
-wpDeleteWebsite(){
+wpDeleteWebsite() {
 
-    verifyExitOpenLiteSpeed
+  verifyExitOpenLiteSpeed
 
-    verifyMariadb
+  verifyMariadb
 
-    echo ''
+  echo ''
 
-    read -p "----------------> Input Domain : " inputDomain
+  read -p "----------------> Input Domain : " inputDomain
 
-    echo ''
+  echo ''
 
-    textYellow "----------------> DELETE WEBSITE"
+  textYellow "----------------> DELETE WEBSITE"
 
-    echo ''
+  echo ''
 
-    rm -rf $UNKNOWN_DIR/$inputDomain &> /dev/null
+  rm -rf $UNKNOWN_DIR/$inputDomain &>/dev/null
 
-    rm -rf $LSWS_VHOSTS/$inputDomain &> /dev/null
+  rm -rf $LSWS_VHOSTS/$inputDomain &>/dev/null
 
-    nameDatabase=$(sed "s/\./_/g" <<< "$inputDomain")
+  nameDatabase=$(sed "s/\./_/g" <<<"$inputDomain")
 
-    deleteDatabase $nameDatabase &> /dev/null
+  deleteDatabase $nameDatabase &>/dev/null
 
-    textYellow "----------------> UPDATE HTTP/HTTPS CONFIG"
+  textYellow "----------------> UPDATE HTTP/HTTPS CONFIG"
 
-    updateHTTPConfig
+  updateHTTPConfig
 
-    echo ''
+  echo ''
 
-    restartWebserver
+  restartWebserver
+}
+
+wpGetListUser() {
+
+  echo ''
+
+  read -p "----------------> Input Domain : " inputDomain
+
+  echo ''
+
+  cd $UNKNOWN_DIR/$inputDomain/html || exit
+
+  wp user list
+
+  echo ''
+
+}
+
+wpResetPassword() {
+  echo ''
+
+  read -p "----------------> Input Domain : " inputDomain
+
+  echo ''
+
+  read -p "----------------> Input User Login : " userLogin
+
+  echo ''
+
+  read -p "----------------> Input PassWord : " passWord
+
+  echo ''
+
+  cd $UNKNOWN_DIR/$inputDomain/html || exit
+
+  wp user update $userLogin --user_pass=$passWord
+
+  echo ''
+
 }
