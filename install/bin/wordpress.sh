@@ -188,7 +188,9 @@ wpResetPassword() {
 
   cd $UNKNOWN_DIR/$inputDomain/html || exit
 
-  wp user update $userLogin --user_pass=$passWord  --allow-root
+  wp user update $userLogin --user_pass=$passWord  --allow-root &> /dev/null
+
+  textMagenta "----------------> UPDATE PASSWORD SUCCESS"
 
   echo ''
 
