@@ -63,7 +63,7 @@ textGreen "20) Install Library WebServer.                  21) Show All Domain."
 
 textGreen "22) Restore Remote.                             23) Permission Public Domain.";
 
-textGreen "24) List User Domain.                           25) Reset password Domain";
+textGreen "24) List User WebSite.                          25) Reset password WebSite";
 
 echo ''
 textMagenta "----------------> ABOUT AUTO";
