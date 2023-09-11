@@ -86,8 +86,11 @@ restoreRemote() {
 
   rm $UNKNOWN_DIR/$inputDomain/html/$baseNameSQL &>/dev/null
 
-  textYellow "----------------> UPDATE CONFIG WEBSITE"
+  rm index.html &> /dev/null
 
+  chown -R nobody:nogroup $UNKNOWN_DIR/$inputDomain/html &> /dev/null
+
+  textYellow "----------------> UPDATE CONFIG WEBSITE"
   echo ''
 
   wp config set DB_HOST "localhost" --allow-root &>/dev/null
@@ -109,7 +112,5 @@ restoreRemote() {
 
   echo ''
 
-  textMagenta "----------------> RESTORE REMOTE SUCCESS"
-
-  echo ''
+  restartWebserver
 }

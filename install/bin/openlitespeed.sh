@@ -359,10 +359,10 @@ cd $UNKNOWN_DIR || exit
 
 restartWebserver(){
 
+  textYellow "----------------> RESTART WEBSERVER"
+
   systemctl restart mariadb &> /dev/null
   systemctl restart lsws &> /dev/null
-
-  textMagenta "----------------> RESTART WEBSERVER SUCCESS"
 
   echo ''
 }
