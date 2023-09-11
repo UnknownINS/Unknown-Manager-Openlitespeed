@@ -61,7 +61,7 @@ textGreen "18) Backup Google Driver Now.                   19) Renews SSL/HTTPS 
 
 textGreen "20) Install Library WebServer.                  21) Show All Domain.";
 
-textGreen "22) Restore Remote.";
+textGreen "22) Restore Remote.                             23) Permission Public Domain.";
 
 echo ''
 textMagenta "----------------> ABOUT AUTO";
@@ -122,9 +122,11 @@ case $NUMBER_ACTION in
 
   22) restoreRemote;;
 
-  23) uninstallUnknownOLS;;
+  23) chownNobodyDomain;;
 
-  24) updateUnknownOLS;;
+  24) uninstallUnknownOLS;;
+
+  25) updateUnknownOLS;;
 
   *) defaultAction;;
 

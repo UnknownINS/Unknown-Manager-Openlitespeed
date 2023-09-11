@@ -127,6 +127,7 @@ wpDeleteWebsite(){
     verifyExitOpenLiteSpeed
 
     verifyMariadb
+
     echo ''
 
     read -p "----------------> Input Domain : " inputDomain
