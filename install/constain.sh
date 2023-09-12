@@ -40,6 +40,16 @@ EOF
   fi
 }
 
+verifyConstainDatabase(){
+
+  if [ $MYSQL_USER == '' -o $MYSQL_PASSWORD == '' ]; then
+
+    echo textRed "Please config MariaDb"
+    echo ''
+    exit
+  fi
+}
+
 configWebServer() {
 
   echo "----------------> CONFIG WEBSERVER"

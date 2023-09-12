@@ -8,6 +8,8 @@ wpCreateWebsite() {
 
   verifyCertbot
 
+  verifyConstainDatabase
+
   echo ''
 
   read -p "----------------> Enter Domain : " inputDomain
@@ -65,6 +67,8 @@ wpCreateWebsite() {
 
   chown -R nobody:nogroup $UNKNOWN_DIR/$inputDomain/html
 
+  rm index.html
+
   textYellow "----------------> INSTALL VIRTUALHOST"
 
   echo ""
@@ -89,6 +93,12 @@ wpCreateWebsite() {
 }
 
 wpUpdateWebsite() {
+
+  verifyExitOpenLiteSpeed
+
+  verifyMariadb
+
+  verifyConstainDatabase
 
   textYellow "----------------> UPDATE WEBSITE"
 
@@ -128,6 +138,8 @@ wpDeleteWebsite() {
 
   verifyMariadb
 
+  verifyConstainDatabase
+
   echo ''
 
   read -p "----------------> Input Domain : " inputDomain
@@ -157,6 +169,12 @@ wpDeleteWebsite() {
 
 wpGetListUser() {
 
+  verifyExitOpenLiteSpeed
+
+  verifyMariadb
+
+  verifyConstainDatabase
+
   echo ''
 
   read -p "----------------> Input Domain : " inputDomain
@@ -172,6 +190,13 @@ wpGetListUser() {
 }
 
 wpResetPassword() {
+
+  verifyExitOpenLiteSpeed
+
+  verifyMariadb
+
+  verifyConstainDatabase
+
   echo ''
 
   read -p "----------------> Input Domain : " inputDomain
@@ -188,7 +213,7 @@ wpResetPassword() {
 
   cd $UNKNOWN_DIR/$inputDomain/html || exit
 
-  wp user update $userLogin --user_pass=$passWord  --allow-root &> /dev/null
+  wp user update $userLogin --user_pass=$passWord --allow-root &>/dev/null
 
   textMagenta "----------------> UPDATE PASSWORD SUCCESS"
 

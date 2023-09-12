@@ -57,18 +57,15 @@ uninstallMariaDb() {
 }
 
 createDatabase() {
-  verifyMariadb
   $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "CREATE DATABASE $1;"
 }
 
 deleteDatabase() {
-  verifyMariadb
   $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "DROP DATABASE $1;"
 }
 
 
 importDatabase() {
-  verifyMariadb
   $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD $1 < $2
 }
 

@@ -63,8 +63,10 @@ case $1 in
 
 25) wpResetPassword ;;
 
-26) uninstallUnknownOLS ;;
+26) updateHTTPConfig ;;
 
-27) updateUnknownOLS ;;
+27) uninstallUnknownOLS ;;
+
+28) updateUnknownOLS ;;
 
 esac

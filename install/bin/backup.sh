@@ -24,6 +24,8 @@ backupLocal() {
 
   verifyMariadb
 
+  verifyConstainDatabase
+
   GETDAY=$(date +"%F")
 
   textYellow "----------------> BACKUP VPS"

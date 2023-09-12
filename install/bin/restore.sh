@@ -6,6 +6,8 @@ restoreRemote() {
 
   verifyMariadb
 
+  verifyConstainDatabase
+
   textYellow "----------------> RESTORE REMOTE"
 
   echo ''

@@ -65,10 +65,12 @@ textGreen "22) Restore Remote.                             23) Permission Public
 
 textGreen "24) List User WebSite.                          25) Reset password WebSite";
 
+textGreen "26) Update HTTP Config.";
+
 echo ''
 textMagenta "----------------> ABOUT AUTO";
 
-textGreen "26) Uninstall Unknown OLS.                      27) Update UNKNOWN OLS.";
+textGreen "27) Uninstall Unknown OLS.                      28) Update UNKNOWN OLS.";
 
 echo ''
 
@@ -130,9 +132,11 @@ case $NUMBER_ACTION in
 
   25) wpResetPassword;;
 
-  26) uninstallUnknownOLS;;
+  26) updateHTTPConfig;;
 
-  27) updateUnknownOLS;;
+  27) uninstallUnknownOLS;;
+
+  28) updateUnknownOLS;;
 
   *) defaultAction;;
 
