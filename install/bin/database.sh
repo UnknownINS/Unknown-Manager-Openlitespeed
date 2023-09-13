@@ -7,7 +7,7 @@ verifyMariadb() {
     exit
   fi
 
-  if [[ -z "$MYSQL_USER" ]] =[ -z "$MYSQL_PASSWORD" ]]; then
+  if [[ -z "$MYSQL_USER" ]] || [[ -z "$MYSQL_PASSWORD" ]]; then
     textRed "You Have Not Configured WebServer"
     echo ''
     exit
