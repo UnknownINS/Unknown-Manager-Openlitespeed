@@ -28,7 +28,7 @@ restoreRemote() {
 
   echo ''
 
-  if [ [[ -z "$urlDatabase" ]] || [[ -z "$urlCodeBackup" ]] || [[ -z "$oldDomain" ]] || [[ -z "$inputDomain" ]]; then
+  if  [[ -z "$urlDatabase" ]] || [[ -z "$urlCodeBackup" ]] || [[ -z "$oldDomain" ]] || [[ -z "$inputDomain" ]]; then
     textRed "Domain please check again"
     echo ''
     exit
