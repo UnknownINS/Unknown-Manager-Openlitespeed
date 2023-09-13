@@ -217,7 +217,7 @@ wpResetPassword() {
 
   echo ''
 
-  if [ [ -z "$inputDomain" ] || [ -z "$userLogin" ] || [ -z "$passWord" ] ]; then
+  if [[ -z "$inputDomain" ]] || [[ -z "$userLogin" ]] || [[ -z "$passWord" ]]; then
     textRed "Please check again"
     echo ''
     exit
