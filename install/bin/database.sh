@@ -16,7 +16,10 @@ verifyMariadb() {
 
 MariadbSecure() {
 
-  verifyMariadb
+  if [ ! -f $MYSQL_BIN ]; then
+    textRed "Mariadb Error.Please try again later"
+    exit
+  fi
 
   echo ''
 
@@ -42,8 +45,6 @@ uninstallMariaDb() {
   textYellow "----------------> UNINSTALL MARIADB"
 
   echo ''
-
-  verifyMariadb
 
   sudo apt-get purge mariadb* -y
 
