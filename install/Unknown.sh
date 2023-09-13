@@ -41,31 +41,32 @@ textGreen "2 ) Uninstall WebServer.                        3 ) Config WebServer.
 textGreen "4 ) Insert Phpmyadmin.                          5 ) Config Auto Backup."
 
 textGreen "6 ) Backup Local.                               7 ) Update WebServer."
+
+textGreen "8 ) Mysql Config.                               9 ) Uninstall MariaDb."
+
+textGreen "10) Backup Google Driver Now.                   11) Install Library WebServer."
+
+textGreen "12) Restart WebServer.                          13) Reset Password WebAdmin."
+
+textGreen "14) Update HTTP Config."
+
 echo ''
 textBlue "----------------> MANAGER WEBSITE";
 
-textGreen "8 ) Create New Website.                         9 ) Delete WebSite."
+textGreen "15) Create New Website.                         16) Delete WebSite."
 
-textGreen "10) Restart WebServer.                          11) Update Website"
+textGreen "17) Update Website.                             18) Security Website."
 
-textGreen "12) Mysql Config.                               13) Security Website."
+textGreen "19) Reset password User (for WordPress).        20) Show All Domain."
 
-textGreen "14) Reset Password WebAdmin.                    15) Uninstall MariaDb.";
+textGreen "21) Get List User (for WordPress).              22) Permission Public Domain."
 
 echo ''
 textYellow "----------------> TOOL";
 
-textGreen "16) Install SSL/HTTPS for Domain.               17) Config Auto Job.";
+textGreen "23) Install SSL/HTTPS for Domain.               24) Config Auto Job.";
 
-textGreen "18) Backup Google Driver Now.                   19) Renews SSL/HTTPS NOW.";
-
-textGreen "20) Install Library WebServer.                  21) Show All Domain.";
-
-textGreen "22) Restore Remote.                             23) Permission Public Domain.";
-
-textGreen "24) List User WebSite.                          25) Reset password WebSite";
-
-textGreen "26) Update HTTP Config.";
+textGreen "25) Renews SSL/HTTPS NOW.                       26) Restore Remote.";
 
 echo ''
 textMagenta "----------------> ABOUT AUTO";
@@ -96,43 +97,43 @@ case $NUMBER_ACTION in
 
   7) updateWebserver;;
 
-  8) wpCreateWebsite;;
+  8) MariadbSecure;;
 
-  9) wpDeleteWebsite;;
+  9) uninstallMariaDb;;
 
-  10) restartWebserver;;
+  10) backupDriver;;
 
-  11) wpUpdateWebsite;;
+  11) installLibraryWebServer;;
 
-  12) MariadbSecure;;
+  12) restartWebserver;;
 
-  13) securityWebServer;;
+  13) resetAdminPassword;;
 
-  14) resetAdminPassword;;
+  14) updateHTTPConfig;;
 
-  15) uninstallMariaDb;;
+  15) wpCreateWebsite;;
 
-  16) installSslForDomain;;
+  16) wpDeleteWebsite;;
 
-  17) configAutoJob;;
+  17) wpUpdateWebsite;;
 
-  18) backupDriver;;
+  18) securityWebServer;;
 
-  19) renewSSLNow;;
+  19) wpResetPassword;;
 
-  20) installLibraryWebServer;;
+  20) getAllDomain;;
 
-  21) getAllDomain;;
+  21) wpGetListUser;;
 
-  22) restoreRemote;;
+  22) chownNobodyDomain;;
 
-  23) chownNobodyDomain;;
+  23) installSslForDomain;;
 
-  24) wpGetListUser;;
+  24) configAutoJob;;
 
-  25) wpResetPassword;;
+  25) renewSSLNow;;
 
-  26) updateHTTPConfig;;
+  26) restoreRemote;;
 
   27) uninstallUnknownOLS;;
 
