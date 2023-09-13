@@ -144,6 +144,13 @@ wpDeleteWebsite() {
 
   read -p "----------------> Input Domain : " inputDomain
 
+
+  if [ -z $inputDomain ]; then
+     textRed "Please try again later"
+     echo ''
+     exit
+  fi
+
   echo ''
 
   textYellow "----------------> DELETE WEBSITE"
