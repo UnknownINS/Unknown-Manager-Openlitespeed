@@ -144,7 +144,7 @@ wpDeleteWebsite() {
 
   read -p "----------------> Input Domain : " inputDomain
 
-  if [ [ $inputDomain == '' ] || [ $inputDomain == ' ' ] ]; then
+  if [ -z "$inputDomain" ]; then
      textRed "Please try again later"
      echo ''
      exit
