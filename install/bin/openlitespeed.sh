@@ -353,6 +353,8 @@ restartWebserver() {
 
   textYellow "----------------> RESTART WEBSERVER"
 
+  service lsws restart && killall lsphp &> /dev/null
+
   systemctl restart mariadb &>/dev/null
 
   systemctl restart lsws &>/dev/null
