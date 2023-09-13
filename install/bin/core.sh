@@ -31,7 +31,6 @@ updateUnknownOLS() {
 
   echo ''
 
-  Unknown
 }
 
 killApt() {
