@@ -68,6 +68,18 @@ verifyExitDir() {
 
 }
 
+
+verifyDir() {
+
+  if [ ! -d $1 ]; then
+    textRed "Folder not exist."
+    echo ''
+    exit
+  fi
+
+}
+
+
 updateSystem() {
 
   textBlue "----------------> UPDATE SYSTEM"

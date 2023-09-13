@@ -145,10 +145,12 @@ wpDeleteWebsite() {
   read -p "----------------> Input Domain : " inputDomain
 
   if [ -z "$inputDomain" ]; then
-     textRed "Please try again later"
-     echo ''
-     exit
+    textRed "Please try again later"
+    echo ''
+    exit
   fi
+
+  verifyDir $UNKNOWN_DIR/$inputDomain/html
 
   echo ''
 
@@ -187,6 +189,14 @@ wpGetListUser() {
 
   echo ''
 
+  if [ -z "$inputDomain" ]; then
+    textRed "Please check again"
+    echo ''
+    exit
+  fi
+
+  verifyDir $UNKNOWN_DIR/$inputDomain/html
+
   cd $UNKNOWN_DIR/$inputDomain/html || exit
 
   wp user list --allow-root
@@ -222,6 +232,8 @@ wpResetPassword() {
     echo ''
     exit
   fi
+
+  verifyDir $UNKNOWN_DIR/$inputDomain/html
 
   cd $UNKNOWN_DIR/$inputDomain/html || exit
 
