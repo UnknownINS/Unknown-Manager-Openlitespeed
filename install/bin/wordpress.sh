@@ -67,7 +67,7 @@ wpCreateWebsite() {
 
   chown -R nobody:nogroup $UNKNOWN_DIR/$inputDomain/html
 
-  rm index.html
+  rm index.html &> /dev/null
 
   textYellow "----------------> INSTALL VIRTUALHOST"
 
