@@ -42,7 +42,7 @@ EOF
 
 verifyConstainDatabase() {
 
-  if [ $MYSQL_USER == '' -o $MYSQL_PASSWORD == '' ]; then
+  if [[ -z "$MYSQL_USER" ]] || [[ -z "$MYSQL_PASSWORD" ]]; then
 
     echo textRed "Please config MariaDb"
     echo ''
