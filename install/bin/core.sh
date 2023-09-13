@@ -97,6 +97,8 @@ updateSystem() {
 
   sudo apt upgrade -y
 
+  echo ''
+
   textBlue "----------------> INSTALL DEFAULT SYSTEM"
 
   echo ''
