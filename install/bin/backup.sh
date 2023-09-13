@@ -60,7 +60,7 @@ backupLocal() {
 
 backupDriver() {
 
-  if [ ! $RCLONE_NAME ]; then
+  if [ -z "$RCLONE_NAME" ]; then
     textRed "You Have Not Configured WebServer"
     exit
   fi
