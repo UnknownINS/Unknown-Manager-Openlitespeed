@@ -68,7 +68,7 @@ configWebServer() {
 
   echo ""
 
-  if [ [ -z "$MYSQL_USER" ] || [ -z "$MYSQL_PASSWORD" ] ]; then
+  if [[ -z "$MYSQL_USER" ] || [ -z "$MYSQL_PASSWORD" ]]; then
     textRed "Please try again later"
     echo ''
     exit
