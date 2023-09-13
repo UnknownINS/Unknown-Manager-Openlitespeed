@@ -40,7 +40,7 @@ case $1 in
 
   13) resetAdminPassword;;
 
-  14) updateHTTPConfig;;
+  14) updateDomainSever;;
 
   15) wpCreateWebsite;;
 

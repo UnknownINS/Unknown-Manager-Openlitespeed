@@ -109,7 +109,7 @@ case $NUMBER_ACTION in
 
   13) resetAdminPassword;;
 
-  14) updateDomainConfig;;
+  14) updateDomainSever;;
 
   15) wpCreateWebsite;;
 
