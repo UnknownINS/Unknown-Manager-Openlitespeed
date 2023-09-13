@@ -68,6 +68,12 @@ configWebServer() {
 
   echo ""
 
+  if [ [ -z "$MYSQL_USER" ] || [ -z "$MYSQL_PASSWORD" ] ]; then
+    textRed "Please try again later"
+    echo ''
+    exit
+  fi
+
   cat >~/.constain <<EOF
 export MYSQL_USER=$MYSQL_USER
 export MYSQL_PASSWORD=$MYSQL_PASSWORD

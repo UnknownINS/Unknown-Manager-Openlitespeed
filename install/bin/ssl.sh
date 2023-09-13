@@ -17,7 +17,7 @@ installSslForDomain() {
 
   read -p "----------------> Enter Domain : " domain
 
-  if [ -z $domain ]; then
+  if [ -z "$domain" ]; then
     textRed "Please try again later"
     echo ''
     exit
