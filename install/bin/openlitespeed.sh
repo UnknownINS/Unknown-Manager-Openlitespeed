@@ -353,7 +353,7 @@ restartWebserver() {
 
   textYellow "----------------> RESTART WEBSERVER"
 
-  service lsws restart && killall lsphp &> /dev/null
+  service lsws restart && killall lsphp &>/dev/null
 
   systemctl restart mariadb &>/dev/null
 
@@ -406,4 +406,21 @@ updateWebserver() {
 
   echo ""
 
+}
+
+updateDomainSever() {
+
+  ALLDOMAIN=$(dir $UNKNOWN_DIR)
+
+  cd $UNKNOWN_DIR || exit
+
+  for i in $ALLDOMAIN; do
+
+    if [ $i != "localhost" ]; then
+      createVirtualHost $i
+    fi
+
+    updateHTTPConfig
+
+  done
 }
