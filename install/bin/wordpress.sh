@@ -63,7 +63,7 @@ wpCreateWebsite() {
 
   echo ""
 
-  wp core install --url=$inputDomain --title="News Website" --admin_name=admin --admin_password=123456789 --admin_email=root@localhost --allow-root &>/dev/null
+  wp core install --url=$inputDomain --title="News Website" --admin_name=admin --admin_password=123456789 --admin_email=admin@gmail.com --allow-root &>/dev/null
 
   chown -R nobody:nogroup $UNKNOWN_DIR/$inputDomain/html
 
@@ -79,7 +79,7 @@ wpCreateWebsite() {
 
   textYellow "----------------> INSTALL SSL/HTTPS"
 
-  certbot certonly --non-interactive --agree-tos -m root@localhost --webroot -w $UNKNOWN_DIR/$inputDomain/html -d $inputDomain &>/dev/null
+  certbot certonly --non-interactive --agree-tos -m admin@gmail.com --webroot -w $UNKNOWN_DIR/$inputDomain/html -d $inputDomain &>/dev/null
 
   echo ""
 

@@ -23,7 +23,7 @@ installSslForDomain() {
     exit
   fi
 
-  certbot certonly --non-interactive --agree-tos -m root@localhost --webroot -w $UNKNOWN_DIR/$domain/html -d $domain
+  certbot certonly --non-interactive --agree-tos -m admin@gmail.com --webroot -w $UNKNOWN_DIR/$domain/html -d $domain
 
   echo ''
 
