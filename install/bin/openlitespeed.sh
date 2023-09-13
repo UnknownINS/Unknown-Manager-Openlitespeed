@@ -418,6 +418,7 @@ updateDomainSever() {
 
     if [ $i != "localhost" ]; then
       createVirtualHost $i
+      rm $UNKNOWN_DIR/$i/html/index.html &> /dev/null
     fi
 
     updateHTTPConfig
