@@ -58,7 +58,6 @@ backupLocal() {
 
 }
 
-
 backupDriver() {
 
   if [ ! $RCLONE_NAME ]; then

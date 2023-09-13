@@ -21,7 +21,6 @@ installWebServer() {
     sudo systemctl start mariadb &>/dev/null
   fi
 
-
   textBlue "----------------> INSTALL OPENLITESPEED"
 
   wget -O - https://repo.litespeed.sh | sudo bash &>/dev/null
@@ -69,7 +68,6 @@ installWebServer() {
   systemctl restart lsws
 
 }
-
 
 installLibraryWebServer() {
 

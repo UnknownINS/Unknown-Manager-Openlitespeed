@@ -1,40 +1,39 @@
 #!/bin/bash
 
-verifyExitOpenLiteSpeed(){
-   if [ ! -d "$LSWS_DIR" ]; then
-      textRed "WebServer Error.Please reinstall the web server"
-      echo ''
-      exit
-    fi
+verifyExitOpenLiteSpeed() {
+  if [ ! -d "$LSWS_DIR" ]; then
+    textRed "WebServer Error.Please reinstall the web server"
+    echo ''
+    exit
+  fi
 }
 
-cleanVhostsDefault(){
+cleanVhostsDefault() {
   verifyExitOpenLiteSpeed $1
   rm -rf $LSWS_CONFIG/templates
   rm -rf $LSWS_VHOSTS
   mkdir -m 0755 $LSWS_VHOSTS
 }
 
-createVirtualHost(){
+createVirtualHost() {
 
-verifyExitOpenLiteSpeed
+  verifyExitOpenLiteSpeed
 
-mkdir -p "$LSWS_VHOSTS/$1"
+  mkdir -p "$LSWS_VHOSTS/$1"
 
-mkdir -p $UNKNOWN_DIR/$1/html/
+  mkdir -p $UNKNOWN_DIR/$1/html/
 
-cd $UNKNOWN_DIR/$1/html || exit
+  cd $UNKNOWN_DIR/$1/html || exit
 
-touch index.html
+  touch index.html
 
-touch 404.html
+  touch 404.html
 
-echo "<html><head></head><body><h1>$1</h1></body></html>" > $UNKNOWN_DIR/$1/html/index.html
+  echo "<html><head></head><body><h1>$1</h1></body></html>" >$UNKNOWN_DIR/$1/html/index.html
 
-createFile404 404.html
+  createFile404 404.html
 
-
-contentConf="
+  contentConf="
 docRoot                   \$VH_ROOT/html/
 vhDomain                  $1
 enableGzip                1
@@ -49,52 +48,47 @@ rewrite  {
 errorpage 404 {
   url                     /404.html
 }
-";
+"
 
+  if [ $1 != "localhost" ]; then
 
-
-if [ $1 != "localhost" ]; then
-
-contentConf="$contentConf
+    contentConf="$contentConf
 vhssl  {
   keyFile                 /etc/letsencrypt/live/$1/privkey.pem
   certFile                /etc/letsencrypt/live/$1/fullchain.pem
   certChain               1
 }
-";
+"
 
-fi
+  fi
 
-
-cat > $LSWS_VHOSTS/$1/vhconf.conf  << EOF
+  cat >$LSWS_VHOSTS/$1/vhconf.conf <<EOF
 $contentConf
 EOF
 
-cd $UNKNOWN_DIR || exit
+  cd $UNKNOWN_DIR || exit
 
 }
 
+updateHTTPConfig() {
 
+  verifyExitOpenLiteSpeed
 
-updateHTTPConfig(){
+  sudo rm "$LSWS_CONFIG/httpd_config.conf" &>/dev/nul
 
-verifyExitOpenLiteSpeed
+  getVirtualHost=''
 
-sudo rm "$LSWS_CONFIG/httpd_config.conf" &> /dev/nul
+  domainHTTP=''
 
-getVirtualHost=''
+  domainHTTPS=''
 
-domainHTTP=''
+  defaultSSL=''
 
-domainHTTPS=''
+  ALLDOMAIN=$(dir $UNKNOWN_DIR)
 
-defaultSSL=''
+  for i in $ALLDOMAIN; do
 
-ALLDOMAIN=$(dir $UNKNOWN_DIR)
-
-for i in $ALLDOMAIN ; do
-
-getVirtualHost="
+    getVirtualHost="
 $getVirtualHost
 virtualhost $i {
   vhRoot                  $UNKNOWN_DIR/$i
@@ -103,32 +97,32 @@ virtualhost $i {
   enableScript            1
   restrained              1
 }
-";
+"
 
-if [[ $i == 'localhost' ]]; then
- domainHTTP="$domainHTTP
-   map                     $i $GET_IP_NAME";
-else
-  defaultSSL=$i
+    if [[ $i == 'localhost' ]]; then
+      domainHTTP="$domainHTTP
+   map                     $i $GET_IP_NAME"
+    else
+      defaultSSL=$i
 
-  domainHTTP="$domainHTTP
-   map                     $i $i";
+      domainHTTP="$domainHTTP
+   map                     $i $i"
 
-   domainHTTPS="$domainHTTPS
-   map                     $i $i";
-fi
+      domainHTTPS="$domainHTTPS
+   map                     $i $i"
+    fi
 
-done
+  done
 
-listenerHTTP="
+  listenerHTTP="
 
 listener HTTP {
   address                 *:80
   secure                  0$domainHTTP
 }
-";
+"
 
-listenerHTTPS="
+  listenerHTTPS="
 listener HTTPS {
   address                 *:443
   secure                  1
@@ -138,7 +132,7 @@ listener HTTPS {
 }
 "
 
-echo "
+  echo "
 #
 # PLAIN TEXT CONFIGURATION FILE
 #
@@ -349,27 +343,24 @@ privateExpireInSeconds 3600
 $getVirtualHost
 $listenerHTTP
 $listenerHTTPS
-" > "$LSWS_CONFIG/httpd_config.conf"
+" >"$LSWS_CONFIG/httpd_config.conf"
 
-cd $UNKNOWN_DIR || exit
+  cd $UNKNOWN_DIR || exit
 
 }
 
-
-
-restartWebserver(){
+restartWebserver() {
 
   textYellow "----------------> RESTART WEBSERVER"
 
-  systemctl restart mariadb &> /dev/null
+  systemctl restart mariadb &>/dev/null
 
-  systemctl restart lsws &> /dev/null
+  systemctl restart lsws &>/dev/null
 
   echo ''
 }
 
-
-resetAdminPassword(){
+resetAdminPassword() {
 
   textYellow "----------------> RESET WEB ADMIN"
 
@@ -382,14 +373,13 @@ resetAdminPassword(){
   restartWebserver
 }
 
-
-updateWebserver(){
+updateWebserver() {
 
   updateSystem
 
   textYellow "----------------> UPDATE DPKG"
 
-  sudo dpkg --configure -a &> /dev/null
+  sudo dpkg --configure -a &>/dev/null
 
   echo ""
 
@@ -397,22 +387,21 @@ updateWebserver(){
 
   echo ""
 
-  sudo wp cli update -y &> /dev/null
+  sudo wp cli update -y &>/dev/null
 
-    textYellow "----------------> UPDATE OPENLITESPEED"
-    echo ""
-    sudo apt upgrade openlitespeed -y &> /dev/null
+  textYellow "----------------> UPDATE OPENLITESPEED"
+  echo ""
+  sudo apt upgrade openlitespeed -y &>/dev/null
 
   textYellow "----------------> AUTO CLEAN"
   echo ""
 
-  sudo apt autoremove -y &> /dev/null
+  sudo apt autoremove -y &>/dev/null
 
-  sudo apt autoclean -y &> /dev/null
+  sudo apt autoclean -y &>/dev/null
 
   textMagenta "----------------> UPDATE WEBSERVER SUCCESS"
 
-  echo "";
-
+  echo ""
 
 }

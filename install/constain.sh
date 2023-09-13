@@ -21,7 +21,7 @@ mkdir -p $UNKNOWN_DIR &>/dev/null
 
 export RESTORE_DIR=/home/restore
 
-rm -rf $RESTORE_DIR/* &> /dev/null
+rm -rf $RESTORE_DIR/* &>/dev/null
 
 mkdir -p $RESTORE_DIR &>/dev/null
 
@@ -40,7 +40,7 @@ EOF
   fi
 }
 
-verifyConstainDatabase(){
+verifyConstainDatabase() {
 
   if [ $MYSQL_USER == '' -o $MYSQL_PASSWORD == '' ]; then
 
@@ -80,4 +80,3 @@ EOF
 
   exit
 }
-

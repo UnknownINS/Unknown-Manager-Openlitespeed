@@ -8,9 +8,9 @@ verifyMariadb() {
   fi
 
   if [ $MYSQL_USER == '' -o $MYSQL_PASSWORD == '' ]; then
-  textRed "You Have Not Configured WebServer"
-  echo ''
-  exit
+    textRed "You Have Not Configured WebServer"
+    echo ''
+    exit
   fi
 }
 
@@ -64,11 +64,9 @@ deleteDatabase() {
   $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "DROP DATABASE $1;"
 }
 
-
 importDatabase() {
-  $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD $1 < $2
+  $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD $1 <$2
 }
-
 
 backupDatabase() {
 

@@ -26,19 +26,33 @@ restoreRemote() {
 
   read -p "----------------> URL Database Backup (.sql) : " urlDatabase
 
+  echo ''
+
+  if [ [ -z $urlDatabase ] || [ -z $urlCodeBackup ] || [ -z $oldDomain ] || [ -z $inputDomain ] ]; then
+    textRed "Domain please check again"
+    echo ''
+    exit
+  fi
+
   verifyExitDir $UNKNOWN_DIR/$inputDomain
 
-  echo ''
+  baseNameCode=$(basename $urlCodeBackup)
+
+  baseNameSQL=$(basename $urlDatabase)
+
+  nameDatabase=$(sed "s/\./_/g" <<<"$inputDomain")
+
+  if [ [ -z $nameDatabase ] || [ -z $baseNameSQL ] || [ -z $baseNameCode ] ]; then
+    textRed "Please check again"
+    echo ''
+    exit
+  fi
 
   cd /home || exit
 
   textYellow "----------------> DOWNLOAD CODE BACKUP"
 
   echo ''
-
-  baseNameCode=$(basename $urlCodeBackup)
-
-  baseNameSQL=$(basename $urlDatabase)
 
   wget $urlCodeBackup
 
@@ -51,18 +65,6 @@ restoreRemote() {
   textYellow "----------------> INSTALL BACKUP"
 
   echo ''
-
-  nameDatabase=$(sed "s/\./_/g" <<<"$inputDomain")
-
-  if [ -z $nameDatabase ]; then
-    textRed "Domain please check again"
-    echo ''
-  fi
-
-  if [ -z $oldDomain ]; then
-    textRed "Domain please check again"
-    echo ''
-  fi
 
   createDatabase $nameDatabase &>/dev/null
 

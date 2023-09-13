@@ -1,9 +1,9 @@
 #!/bin/bash
 
-verifyCertbot(){
+verifyCertbot() {
   if [ ! -f '/snap/bin/certbot' ]; then
-    echo "SSL/HTTP Not Install.Please try again later"
-     exit
+    textRed "SSL/HTTP Not Install.Please try again later"
+    exit
   fi
 
 }
@@ -16,6 +16,12 @@ installSslForDomain() {
   echo ''
 
   read -p "----------------> Enter Domain : " domain
+
+  if [ -z $domain ]; then
+    textRed "Please try again later"
+    echo ''
+    exit
+  fi
 
   certbot certonly --non-interactive --agree-tos -m root@localhost --webroot -w $UNKNOWN_DIR/$domain/html -d $domain
 

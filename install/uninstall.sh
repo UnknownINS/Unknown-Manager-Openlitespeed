@@ -1,36 +1,36 @@
 #!/bin/bash
 
-uninstallWebServer(){
+uninstallWebServer() {
 
-cd "/" || exit
+  cd "/" || exit
 
-notificationUninstall
+  notificationUninstall
 
-textBlue "----------------> UNINSTALL WEBSERVER"
+  textBlue "----------------> UNINSTALL WEBSERVER"
 
-killall lsphp &> /dev/null
+  killall lsphp &>/dev/null
 
-killall lshttpd &> /dev/null
+  killall lshttpd &>/dev/null
 
-systemctl stop lsws &> /dev/null
+  systemctl stop lsws &>/dev/null
 
-$LSWS_DIR/bin/lswsctrl stop &> /dev/null
+  $LSWS_DIR/bin/lswsctrl stop &>/dev/null
 
-sudo apt-get purge certbot openlitespeed php* lsphp* rclone* -y &> /dev/null
+  sudo apt-get purge certbot openlitespeed php* lsphp* rclone* -y &>/dev/null
 
-sudo rm /usr/local/bin/wp &> /dev/null
+  sudo rm /usr/local/bin/wp &>/dev/null
 
-sudo apt autoremove -y &> /dev/null
+  sudo apt autoremove -y &>/dev/null
 
-sudo rm -rf $LSWS_DIR &> /dev/null
+  sudo rm -rf $LSWS_DIR &>/dev/null
 
-sudo apt autoclean -y &> /dev/null
+  sudo apt autoclean -y &>/dev/null
 
-echo "";
+  echo ""
 
-sudo apt --fix-broken install &> /dev/null
+  sudo apt --fix-broken install &>/dev/null
 
-textMagenta "----------------> UNINSTALL WEBSERVER SUCCESS"
+  textMagenta "----------------> UNINSTALL WEBSERVER SUCCESS"
 
-echo ''
+  echo ''
 }

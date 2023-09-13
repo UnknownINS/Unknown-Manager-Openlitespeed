@@ -211,6 +211,12 @@ wpResetPassword() {
 
   echo ''
 
+  if [ [ -z $inputDomain ] || [ -z $userLogin ] || [ -z $passWord ] ]; then
+    textRed "Please check again"
+    echo ''
+    exit
+  fi
+
   cd $UNKNOWN_DIR/$inputDomain/html || exit
 
   wp user update $userLogin --user_pass=$passWord --allow-root &>/dev/null
