@@ -16,136 +16,133 @@ welcome
 
 killApt
 
-exitConsole(){
-  NUMBER_ACTION=0 &> /dev/null
+exitConsole() {
+  NUMBER_ACTION=0 &>/dev/null
 }
 
-
-defaultAction(){
-NUMBER_ACTION=-1
-textRed "----------------> PLEASE CHECK AGAIN"
-echo ''
+defaultAction() {
+  NUMBER_ACTION=-1
+  textRed "----------------> PLEASE CHECK AGAIN"
+  echo ''
 }
 
+StartApp() {
 
-StartApp(){
+  echo ""
 
-echo ""
+  textYellow "----------------> WEBSERVER"
 
-textYellow "----------------> WEBSERVER";
+  textGreen "0 ) Exit App.                                   1 ) Install WebServer."
 
-textGreen "0 ) Exit App.                                   1 ) Install WebServer."
+  textGreen "2 ) Uninstall WebServer.                        3 ) Config WebServer."
 
-textGreen "2 ) Uninstall WebServer.                        3 ) Config WebServer."
+  textGreen "4 ) Insert Phpmyadmin.                          5 ) Config Auto Backup."
 
-textGreen "4 ) Insert Phpmyadmin.                          5 ) Config Auto Backup."
+  textGreen "6 ) Backup Local.                               7 ) Update WebServer."
 
-textGreen "6 ) Backup Local.                               7 ) Update WebServer."
+  textGreen "8 ) Mysql Config.                               9 ) Uninstall MariaDb."
 
-textGreen "8 ) Mysql Config.                               9 ) Uninstall MariaDb."
+  textGreen "10) Backup Google Driver Now.                   11) Install Library WebServer."
 
-textGreen "10) Backup Google Driver Now.                   11) Install Library WebServer."
+  textGreen "12) Restart WebServer.                          13) Reset Password WebAdmin."
 
-textGreen "12) Restart WebServer.                          13) Reset Password WebAdmin."
+  textGreen "14) Update HTTP Config."
 
-textGreen "14) Update HTTP Config."
+  echo ''
+  textBlue "----------------> MANAGER WEBSITE"
 
-echo ''
-textBlue "----------------> MANAGER WEBSITE";
+  textGreen "15) Create New Website.                         16) Delete WebSite."
 
-textGreen "15) Create New Website.                         16) Delete WebSite."
+  textGreen "17) Update Website.                             18) Security Website."
 
-textGreen "17) Update Website.                             18) Security Website."
+  textGreen "19) Reset password User (for WordPress).        20) Show All Domain."
 
-textGreen "19) Reset password User (for WordPress).        20) Show All Domain."
+  textGreen "21) Get List User (for WordPress).              22) Permission Public Domain."
 
-textGreen "21) Get List User (for WordPress).              22) Permission Public Domain."
+  echo ''
+  textYellow "----------------> TOOL"
 
-echo ''
-textYellow "----------------> TOOL";
+  textGreen "23) Install SSL/HTTPS for Domain.               24) Config Auto Job."
 
-textGreen "23) Install SSL/HTTPS for Domain.               24) Config Auto Job.";
+  textGreen "25) Renews SSL/HTTPS NOW.                       26) Restore Remote."
 
-textGreen "25) Renews SSL/HTTPS NOW.                       26) Restore Remote.";
+  echo ''
+  textMagenta "----------------> ABOUT AUTO"
 
-echo ''
-textMagenta "----------------> ABOUT AUTO";
+  textGreen "27) Uninstall Unknown OLS.                      28) Update UNKNOWN OLS."
 
-textGreen "27) Uninstall Unknown OLS.                      28) Update UNKNOWN OLS.";
+  echo ''
 
-echo ''
+  read -p "----------------> ENTER NUMBER ACTION : " NUMBER_ACTION
 
-read -p "----------------> ENTER NUMBER ACTION : " NUMBER_ACTION
+  echo ""
 
-echo "";
+  case $NUMBER_ACTION in
 
-case $NUMBER_ACTION in
+  0) exitConsole ;;
 
-  0) exitConsole;;
+  1) installWebServer ;;
 
-  1) installWebServer;;
+  2) uninstallWebServer ;;
 
-  2) uninstallWebServer;;
+  3) configWebServer ;;
 
-  3) configWebServer;;
+  4) installPhpmyadmin ;;
 
-  4) installPhpmyadmin;;
+  5) configAutoBackup ;;
 
-  5) configAutoBackup;;
+  6) backupLocal ;;
 
-  6) backupLocal;;
+  7) updateWebserver ;;
 
-  7) updateWebserver;;
+  8) MariadbSecure ;;
 
-  8) MariadbSecure;;
+  9) uninstallMariaDb ;;
 
-  9) uninstallMariaDb;;
+  10) backupDriver ;;
 
-  10) backupDriver;;
+  11) installLibraryWebServer ;;
 
-  11) installLibraryWebServer;;
+  12) restartWebserver ;;
 
-  12) restartWebserver;;
+  13) resetAdminPassword ;;
 
-  13) resetAdminPassword;;
+  14) updateDomainSever ;;
 
-  14) updateDomainSever;;
+  15) wpCreateWebsite ;;
 
-  15) wpCreateWebsite;;
+  16) wpDeleteWebsite ;;
 
-  16) wpDeleteWebsite;;
+  17) wpUpdateWebsite ;;
 
-  17) wpUpdateWebsite;;
+  18) securityWebServer ;;
 
-  18) securityWebServer;;
+  19) wpResetPassword ;;
 
-  19) wpResetPassword;;
+  20) getAllDomain ;;
 
-  20) getAllDomain;;
+  21) wpGetListUser ;;
 
-  21) wpGetListUser;;
+  22) chownNobodyDomain ;;
 
-  22) chownNobodyDomain;;
+  23) installSslForDomain ;;
 
-  23) installSslForDomain;;
+  24) configAutoJob ;;
 
-  24) configAutoJob;;
+  25) renewSSLNow ;;
 
-  25) renewSSLNow;;
+  26) restoreRemote ;;
 
-  26) restoreRemote;;
+  27) uninstallUnknownOLS ;;
 
-  27) uninstallUnknownOLS;;
+  28) updateUnknownOLS ;;
 
-  28) updateUnknownOLS;;
+  *) defaultAction ;;
 
-  *) defaultAction;;
-
-esac
+  esac
 
 }
 
-while [ $NUMBER_ACTION -ne 0 ]
-  do
-    StartApp
+while [ $NUMBER_ACTION -ne 0 ]; do
+  StartApp
 done

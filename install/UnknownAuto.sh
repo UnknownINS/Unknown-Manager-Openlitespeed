@@ -14,60 +14,60 @@ killApt
 
 case $1 in
 
-  1) installWebServer;;
+1) installWebServer ;;
 
-  2) uninstallWebServer;;
+2) uninstallWebServer ;;
 
-  3) configWebServer;;
+3) configWebServer ;;
 
-  4) installPhpmyadmin;;
+4) installPhpmyadmin ;;
 
-  5) configAutoBackup;;
+5) configAutoBackup ;;
 
-  6) backupLocal;;
+6) backupLocal ;;
 
-  7) updateWebserver;;
+7) updateWebserver ;;
 
-  8) MariadbSecure;;
+8) MariadbSecure ;;
 
-  9) uninstallMariaDb;;
+9) uninstallMariaDb ;;
 
-  10) backupDriver;;
+10) backupDriver ;;
 
-  11) installLibraryWebServer;;
+11) installLibraryWebServer ;;
 
-  12) restartWebserver;;
+12) restartWebserver ;;
 
-  13) resetAdminPassword;;
+13) resetAdminPassword ;;
 
-  14) updateDomainSever;;
+14) updateDomainSever ;;
 
-  15) wpCreateWebsite;;
+15) wpCreateWebsite ;;
 
-  16) wpDeleteWebsite;;
+16) wpDeleteWebsite ;;
 
-  17) wpUpdateWebsite;;
+17) wpUpdateWebsite ;;
 
-  18) securityWebServer;;
+18) securityWebServer ;;
 
-  19) wpResetPassword;;
+19) wpResetPassword ;;
 
-  20) getAllDomain;;
+20) getAllDomain ;;
 
-  21) wpGetListUser;;
+21) wpGetListUser ;;
 
-  22) chownNobodyDomain;;
+22) chownNobodyDomain ;;
 
-  23) installSslForDomain;;
+23) installSslForDomain ;;
 
-  24) configAutoJob;;
+24) configAutoJob ;;
 
-  25) renewSSLNow;;
+25) renewSSLNow ;;
 
-  26) restoreRemote;;
+26) restoreRemote ;;
 
-  27) uninstallUnknownOLS;;
+27) uninstallUnknownOLS ;;
 
-  28) updateUnknownOLS;;
+28) updateUnknownOLS ;;
 
 esac
