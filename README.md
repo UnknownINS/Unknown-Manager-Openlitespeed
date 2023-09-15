@@ -18,7 +18,7 @@ Install command
 
 3. [ ] Step 3
 
-    use command `Unknown` and `UnknownAuto`
+    use command `Unknown` and `UnknownCLI`
 
 
 <p align="center">

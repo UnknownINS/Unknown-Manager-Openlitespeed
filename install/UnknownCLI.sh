@@ -65,10 +65,8 @@ case $1 in
 
 26) restoreRemote ;;
 
-27) renameDomain ;;
+27) uninstallUnknownOLS ;;
 
-28) uninstallUnknownOLS ;;
-
-29) updateUnknownOLS ;;
+28) updateUnknownOLS ;;
 
 esac

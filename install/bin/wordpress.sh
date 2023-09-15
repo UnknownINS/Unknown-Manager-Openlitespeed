@@ -244,35 +244,3 @@ wpResetPassword() {
   echo ''
 
 }
-
-wpRenameDomain(){
-
-    echo ''
-
-    verifyMariadb
-
-    verifyConstainDatabase
-
-  textYellow "----------------> RENAME DOMAIN ( WORDPRESS )"
-
-  echo ''
-
-  read -p "----------------> New Domain Name : " inputDomain
-
-  echo ''
-
-  read -p "----------------> Old Domain Name : " oldDomain
-
-  echo ''
-
-    if [[ -z "$oldDomain" ]] || [[ -z "$inputDomain" ]]; then
-    textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
-          echo ''
-      exit
-    fi
-
-    verifyDir $UNKNOWN_DIR/oldDomain
-
-    verifyExitDir $UNKNOWN_DIR/$inputDomain
-
-}

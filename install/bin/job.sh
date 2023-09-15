@@ -20,11 +20,11 @@ configAutoJob() {
 
   if [ $status == 'y' ]; then
 
-    if [[ "$cronJobUpdate" =~ "UnknownAuto 10" ]]; then
+    if [[ "$cronJobUpdate" =~ "UnknownCLI 10" ]]; then
       echo ''
     else
       cronJobUpdate="$cronJobUpdate
-0 5 * * * UnknownAuto 10 &> /dev/null
+0 5 * * * UnknownCLI 10 &> /dev/null
 "
     fi
 
@@ -51,11 +51,11 @@ configAutoJob() {
 
   if [ $status == 'y' ]; then
 
-    if [[ "$cronJobUpdate" =~ "UnknownAuto 17 && UnknownAuto 18" ]]; then
+    if [[ "$cronJobUpdate" =~ "UnknownCLI 17 && UnknownCLI 18" ]]; then
       echo ''
     else
       cronJobUpdate="$cronJobUpdate
-0 2 * * * UnknownAuto 17 && UnknownAuto 18 &> /dev/null
+0 2 * * * UnknownCLI 17 && UnknownCLI 18 &> /dev/null
 "
     fi
 
