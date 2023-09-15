@@ -2,7 +2,7 @@
 
 verifyExitOpenLiteSpeed() {
   if [ ! -d "$LSWS_DIR" ]; then
-    textRed "WebServer Error.Please reinstall the web server"
+    textRed "WEBSERVER ERROR.PLEASE REINSTALL THE WEBSERVER"
     echo ''
     exit
   fi

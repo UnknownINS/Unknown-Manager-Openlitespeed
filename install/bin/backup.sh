@@ -2,7 +2,7 @@
 
 verifyAutoBackup() {
   if [ ! -f /usr/bin/rclone ]; then
-    textRed "Auto Backup not Install.Please try again later"
+  textRed "----------------> RCLONE NOT INSTALL"
     exit
   fi
 }
@@ -61,7 +61,7 @@ backupLocal() {
 backupDriver() {
 
   if [ -z "$RCLONE_NAME" ]; then
-    textRed "You Have Not Configured WebServer"
+    textRed "----------------> RCLONE NOT CONFIG"
     exit
   fi
 

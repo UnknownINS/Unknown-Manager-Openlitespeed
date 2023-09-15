@@ -18,7 +18,7 @@ wpCreateWebsite() {
 
   if [[ -z "$inputDomain" ]]; then
 
-    textRed "You must enter a domain"
+    textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
 
     echo ''
 
@@ -30,7 +30,7 @@ wpCreateWebsite() {
   if [[ "$inputDomain" =~ $validate ]]; then
     echo ''
   else
-    textRed "Not valid $inputDomain name."
+    textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
     echo ''
     exit
   fi
@@ -145,7 +145,7 @@ wpDeleteWebsite() {
   read -p "----------------> Input Domain : " inputDomain
 
   if [ -z "$inputDomain" ]; then
-    textRed "Please try again later"
+    textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
     echo ''
     exit
   fi
@@ -190,7 +190,7 @@ wpGetListUser() {
   echo ''
 
   if [ -z "$inputDomain" ]; then
-    textRed "Please check again"
+    textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
     echo ''
     exit
   fi
@@ -228,7 +228,7 @@ wpResetPassword() {
   echo ''
 
   if [[ -z "$inputDomain" ]] || [[ -z "$userLogin" ]] || [[ -z "$passWord" ]]; then
-    textRed "Please check again"
+    textRed "----------------> PLEASE CHECK AGAIN"
     echo ''
     exit
   fi
@@ -242,5 +242,37 @@ wpResetPassword() {
   textMagenta "----------------> UPDATE PASSWORD SUCCESS"
 
   echo ''
+
+}
+
+wpRenameDomain(){
+
+    echo ''
+
+    verifyMariadb
+
+    verifyConstainDatabase
+
+  textYellow "----------------> RENAME DOMAIN ( WORDPRESS )"
+
+  echo ''
+
+  read -p "----------------> New Domain Name : " inputDomain
+
+  echo ''
+
+  read -p "----------------> Old Domain Name : " oldDomain
+
+  echo ''
+
+    if [[ -z "$oldDomain" ]] || [[ -z "$inputDomain" ]]; then
+    textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
+          echo ''
+      exit
+    fi
+
+    verifyDir $UNKNOWN_DIR/oldDomain
+
+    verifyExitDir $UNKNOWN_DIR/$inputDomain
 
 }

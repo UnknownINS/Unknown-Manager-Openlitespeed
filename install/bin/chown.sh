@@ -5,7 +5,7 @@ chownNobodyDomain() {
   read -p "----------------> Input Domain : " inputDomain
   echo ''
   if [ -z "$inputDomain" ]; then
-    textRed "Please check again"
+    textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
     echo ''
     exit
   fi

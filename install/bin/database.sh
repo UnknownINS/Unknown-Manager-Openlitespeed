@@ -3,12 +3,12 @@
 verifyMariadb() {
 
   if [ ! -f $MYSQL_BIN ]; then
-    textRed "Mariadb Error.Please try again later"
+    textRed "----------------> PLEASE CHECK MARIADB AGAIN"
     exit
   fi
 
   if [[ -z "$MYSQL_USER" ]] || [[ -z "$MYSQL_PASSWORD" ]]; then
-    textRed "You Have Not Configured WebServer"
+    textRed "----------------> PLEASE CHECK CONFIG AGAIN"
     echo ''
     exit
   fi
@@ -17,7 +17,7 @@ verifyMariadb() {
 MariadbSecure() {
 
   if [ ! -f $MYSQL_BIN ]; then
-    textRed "Mariadb Error.Please try again later"
+    textRed "----------------> PLEASE CHECK MARIADB AGAIN"
     exit
   fi
 

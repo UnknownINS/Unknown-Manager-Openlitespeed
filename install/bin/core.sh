@@ -62,7 +62,7 @@ getAllDomain() {
 verifyExitDir() {
 
   if [ -d $1 ]; then
-    textRed "Folder exist."
+    textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
     echo ''
     exit
   fi
@@ -73,7 +73,7 @@ verifyExitDir() {
 verifyDir() {
 
   if [ ! -d $1 ]; then
-    textRed "Folder not exist."
+    textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
     echo ''
     exit
   fi

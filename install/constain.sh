@@ -43,8 +43,7 @@ EOF
 verifyConstainDatabase() {
 
   if [[ -z "$MYSQL_USER" ]] || [[ -z "$MYSQL_PASSWORD" ]]; then
-
-    echo textRed "Please config MariaDb"
+    textRed "----------------> PLEASE CHECK CONFIG AGAIN"
     echo ''
     exit
   fi
@@ -68,7 +67,7 @@ configWebServer() {
   echo ""
 
   if [[ -z "$MYSQL_USER" ]] || [[ -z "$MYSQL_PASSWORD" ]]; then
-    textRed "Please try again later"
+    textRed "----------------> PLEASE CHECK CONFIG AGAIN"
     echo ''
     exit
   fi

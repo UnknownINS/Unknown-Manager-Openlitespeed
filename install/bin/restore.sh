@@ -29,7 +29,7 @@ restoreRemote() {
   echo ''
 
   if  [[ -z "$urlDatabase" ]] || [[ -z "$urlCodeBackup" ]] || [[ -z "$oldDomain" ]] || [[ -z "$inputDomain" ]]; then
-    textRed "Domain please check again"
+    textRed "----------------> PLEASE CHECK AGAIN"
     echo ''
     exit
   fi
@@ -43,7 +43,7 @@ restoreRemote() {
   nameDatabase=$(sed "s/\./_/g" <<<"$inputDomain")
 
   if [[ -z "$nameDatabase" ]] || [[ -z "$baseNameSQL" ]] || [[ -z "$baseNameCode" ]]; then
-    textRed "Please check again"
+    textRed "----------------> PLEASE CHECK AGAIN"
     echo ''
     exit
   fi
