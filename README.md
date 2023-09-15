@@ -22,5 +22,5 @@ Install command
 
 
 <p align="center">
-  <img width="830" height="470" src="https://github.com/UnknownINS/Unknown-Manager-Openlitespeed/blob/main/assets/ols.png?raw=true">
+  <img src="https://github.com/UnknownINS/Unknown-Manager-Openlitespeed/blob/main/assets/ols.png?raw=true">
 </p>
