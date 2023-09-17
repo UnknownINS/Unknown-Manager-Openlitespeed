@@ -262,9 +262,5 @@ wpRenameDomain() {
 
   chown -R nobody:nogroup $UNKNOWN_DIR/$newDomain/html &>/dev/null
 
-  textYellow "----------------> INSTALL SSL/HTTPS"
-
-  certbot certonly --non-interactive --agree-tos -m admin@gmail.com --webroot -w $UNKNOWN_DIR/$newDomain/html -d $newDomain &>/dev/null
-
   restartWebserver
 }
