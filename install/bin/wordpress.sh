@@ -24,13 +24,11 @@ wpCreateWebsite() {
   verifyExitDir $UNKNOWN_DIR/$inputDomain
 
   if [[ "$inputDomain" =~ $validate ]]; then
-    echo ''
+    textYellow "----------------> CREATE DATABASE FOR WEBSITE"
   else
     textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
     exit
   fi
-
-  textYellow "----------------> CREATE DATABASE FOR WEBSITE"
 
 
   nameDatabase=$(sed "s/\./_/g" <<<"$inputDomain")

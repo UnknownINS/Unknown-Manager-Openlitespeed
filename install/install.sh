@@ -53,8 +53,6 @@ installWebServer() {
 
   ufw reload &>/dev/null
 
-  echo ""
-
   textMagenta "----------------> INSTALL WEBSERVER SUCCESS"
 
   echo "ADMIN OPENLITESPEED : $GET_IP_NAME:7080"
