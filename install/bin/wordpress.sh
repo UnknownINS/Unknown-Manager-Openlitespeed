@@ -147,7 +147,6 @@ wpDeleteWebsite() {
 
   updateHTTPConfig
 
-
   restartWebserver
 }
 
