@@ -71,7 +71,7 @@ StartApp() {
   echo ''
   textMagenta "----------------> ABOUT AUTO"
 
-  textGreen "27) Uninstall Unknown OLS.                      28) Update UNKNOWN OLS."
+  textGreen "28) Uninstall Unknown OLS.                      29) Update UNKNOWN OLS."
 
   echo ''
 
