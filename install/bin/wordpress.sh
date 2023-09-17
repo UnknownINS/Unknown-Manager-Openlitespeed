@@ -267,12 +267,6 @@ wpRenameDomain() {
 
 wpRedirectDomain(){
 
-  verifyExitOpenLiteSpeed
-
-  verifyMariadb
-
-  verifyConstainDatabase
-
   read -p "----------------> New Domain : " newDomain
 
   read -p "----------------> Old Domain : " oldDomain
