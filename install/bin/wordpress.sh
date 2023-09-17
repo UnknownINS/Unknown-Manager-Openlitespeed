@@ -288,6 +288,8 @@ wpRedirectDomain(){
 
   cd $UNKNOWN_DIR/$oldDomain/html || exit
 
+  rm .htaccess &> /dev/null
+
   rm index.html &> /dev/null
 
   contentHtaccess="<IfModule mod_rewrite.c>
@@ -297,7 +299,7 @@ wpRedirectDomain(){
   RewriteRule (.*)$ http://$newDomain.com/$1 [R=301,L]
   </IfModule>"
 
-  cat >$UNKNOWN_DIR/$oldDomain/html/.htaccess $contentHtaccess
+  echo $contentHtaccess > $UNKNOWN_DIR/$oldDomain/html/.htaccess
 
   cd $UNKNOWN_DIR || exit
 
