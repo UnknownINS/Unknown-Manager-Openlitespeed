@@ -283,14 +283,19 @@ wpRedirectDomain(){
 
   rm index.html &> /dev/null
 
-  contentHtaccess="<IfModule mod_rewrite.c>
+  contentHtaccess="
+<IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteCond %{HTTP_HOST} ^$oldDomain$ [OR]
   RewriteCond %{HTTP_HOST} ^www.$oldDomain.com$
-  RewriteRule (.*)$ http://$newDomain.com/$1 [R=301,L]
-  </IfModule>"
+  RewriteRule (.*)$ https://$newDomain.com/$1 [R=301,L]
+</IfModule>
+"
 
-  echo $contentHtaccess > $UNKNOWN_DIR/$oldDomain/html/.htaccess
+
+  cat >$UNKNOWN_DIR/$oldDomain/html/.htaccess <<EOF
+$contentHtaccess
+EOF
 
   cd $UNKNOWN_DIR || exit
 

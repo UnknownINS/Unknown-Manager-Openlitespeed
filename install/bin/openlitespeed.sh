@@ -378,9 +378,7 @@ updateWebserver() {
 
   sudo dpkg --configure -a &>/dev/null
 
-
   textYellow "----------------> UPDATE WP CLI"
-
 
   sudo wp cli update -y &>/dev/null
 
@@ -395,7 +393,6 @@ updateWebserver() {
 
   textMagenta "----------------> UPDATE WEBSERVER SUCCESS"
 
-
 }
 
 updateDomainSever() {
@@ -408,7 +405,7 @@ updateDomainSever() {
 
     if [ $i != "localhost" ]; then
       createVirtualHost $i
-      rm $UNKNOWN_DIR/$i/html/index.html &> /dev/null
+      rm $UNKNOWN_DIR/$i/html/index.html &>/dev/null
     fi
 
     updateHTTPConfig
