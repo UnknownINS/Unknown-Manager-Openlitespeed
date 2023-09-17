@@ -65,8 +65,10 @@ case $1 in
 
 26) restoreRemote ;;
 
-27) uninstallUnknownOLS ;;
+27) wpRenameDomain ;;
 
-28) updateUnknownOLS ;;
+28) uninstallUnknownOLS ;;
+
+29) updateUnknownOLS ;;
 
 esac

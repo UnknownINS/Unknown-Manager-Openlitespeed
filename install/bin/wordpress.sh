@@ -67,7 +67,7 @@ wpCreateWebsite() {
 
   chown -R nobody:nogroup $UNKNOWN_DIR/$inputDomain/html
 
-  rm $UNKNOWN_DIR/$inputDomain/html/index.html &> /dev/null
+  rm $UNKNOWN_DIR/$inputDomain/html/index.html &>/dev/null
 
   textYellow "----------------> INSTALL VIRTUALHOST"
 
@@ -243,4 +243,76 @@ wpResetPassword() {
 
   echo ''
 
+}
+
+wpRenameDomain() {
+
+  verifyExitOpenLiteSpeed
+
+  verifyMariadb
+
+  verifyConstainDatabase
+
+  echo ''
+
+  read -p "----------------> New Domain : " newDomain
+
+  echo ''
+
+  read -p "----------------> Old Domain : " oldDomain
+
+  echo ''
+
+  if [[ -z "$newDomain" ]] || [[ -z "$oldDomain" ]]; then
+    textRed "----------------> PLEASE CHECK AGAIN"
+    echo ''
+    exit
+  fi
+
+  verifyDir $oldDomain
+
+  verifyExitDir $newDomain
+
+  textYellow "----------------> RENAME DATABASE"
+
+  echo ''
+
+  databaseNewDomain=$(sed "s/\./_/g" <<<"$newDomain")
+
+  databaseOldDomain=$(sed "s/\./_/g" <<<"$oldDomain")
+
+  renameDataBase $databaseOldDomain $databaseNewDomain
+
+  textYellow "----------------> RENAME DOMAIN"
+  echo ''
+
+  mv $oldDomain $newDomain
+
+  cd $UNKNOWN_DIR/$newDomain/html || exit
+
+  wp config set DB_HOST "localhost" --allow-root &>/dev/null
+
+  wp config set DB_NAME "$databaseNewDomain" --allow-root &>/dev/null
+
+  wp config set DB_USER "$MYSQL_USER" --allow-root &>/dev/null
+
+  wp config set DB_PASSWORD "$MYSQL_PASSWORD" --allow-root &>/dev/null
+
+  wp search-replace $oldDomain $newDomain --all-tables --allow-root &>/dev/null
+
+  rm -rf $LSWS_VHOSTS/$oldDomain &>/dev/null
+
+  createVirtualHost $newDomain
+
+  updateHTTPConfig
+
+  chown -R nobody:nogroup $UNKNOWN_DIR/$newDomain/html &>/dev/null
+
+  textYellow "----------------> INSTALL SSL/HTTPS"
+
+  certbot certonly --non-interactive --agree-tos -m admin@gmail.com --webroot -w $UNKNOWN_DIR/$newDomain/html -d $newDomain &>/dev/null
+
+  echo ''
+
+  restartWebserver
 }

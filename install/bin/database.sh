@@ -66,7 +66,7 @@ deleteDatabase() {
 }
 
 importDatabase() {
-  $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD $1 <$2
+  $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD $1 < $2
 }
 
 backupDatabase() {
@@ -81,4 +81,15 @@ backupDatabase() {
 
   done
 
+}
+
+renameDataBase(){
+
+  $MYSQL_DUMP --force --opt --user=$MYSQL_USER -p$MYSQL_PASSWORD -R $1 > "$RESTORE_DIR/$1.sql"
+
+  createDatabase $2
+
+  #deleteDatabase $1
+
+  importDatabase $2 < "$RESTORE_DIR/$1.sql"
 }
