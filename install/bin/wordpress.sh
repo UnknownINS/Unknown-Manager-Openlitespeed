@@ -256,6 +256,8 @@ wpRenameDomain() {
 
   rm index.html &> /dev/null
 
+  cd $UNKNOWN_DIR || exit
+
   updateHTTPConfig
 
   chown -R nobody:nogroup $UNKNOWN_DIR/$newDomain/html &>/dev/null
