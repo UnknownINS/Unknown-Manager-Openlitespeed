@@ -58,7 +58,6 @@ vhssl  {
   certChain               1
 }
 "
-
   fi
 
   cat >$LSWS_VHOSTS/$1/vhconf.conf <<EOF

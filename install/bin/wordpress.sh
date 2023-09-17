@@ -264,3 +264,42 @@ wpRenameDomain() {
 
   restartWebserver
 }
+
+wpRedirectDomain(){
+
+  verifyExitOpenLiteSpeed
+
+  verifyMariadb
+
+  verifyConstainDatabase
+
+  read -p "----------------> New Domain : " newDomain
+
+  read -p "----------------> Old Domain : " oldDomain
+
+  if [[ -z "$newDomain" ]] || [[ -z "$oldDomain" ]]; then
+    textRed "----------------> PLEASE CHECK AGAIN"
+    exit
+  fi
+
+  verifyDir $oldDomain
+
+  textYellow "----------------> REDIRECT DOMAIN"
+
+  cd $UNKNOWN_DIR/$oldDomain/html || exit
+
+  rm index.html &> /dev/null
+
+  contentHtaccess="<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^$oldDomain$ [OR]
+  RewriteCond %{HTTP_HOST} ^www.$oldDomain.com$
+  RewriteRule (.*)$ http://$newDomain.com/$1 [R=301,L]
+  </IfModule>"
+
+  cat >$UNKNOWN_DIR/$oldDomain/html/.htaccess $contentHtaccess
+
+  cd $UNKNOWN_DIR || exit
+
+  restartWebserver
+}

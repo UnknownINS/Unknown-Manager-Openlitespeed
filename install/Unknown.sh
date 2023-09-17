@@ -66,12 +66,12 @@ StartApp() {
 
   textGreen "25) Renews SSL/HTTPS NOW.                       26) Restore Remote."
 
-  textGreen "27) Rename Domain."
+  textGreen "27) Rename Domain.                              28) Redirect Domain."
 
   echo ''
   textMagenta "----------------> ABOUT AUTO"
 
-  textGreen "28) Uninstall Unknown OLS.                      29) Update UNKNOWN OLS."
+  textGreen "29) Uninstall Unknown OLS.                      30) Update UNKNOWN OLS."
 
   echo ''
 
@@ -137,9 +137,11 @@ StartApp() {
 
   27) wpRenameDomain ;;
 
-  28) uninstallUnknownOLS ;;
+  28) wpRedirectDomain ;;
 
-  29) updateUnknownOLS ;;
+  29) uninstallUnknownOLS ;;
+
+  30) updateUnknownOLS ;;
 
   *) defaultAction ;;
 

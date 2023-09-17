@@ -79,7 +79,7 @@ renameDataBase(){
 
   createDatabase $2
 
-  #deleteDatabase $1
+  deleteDatabase $1
 
   importDatabase $2 "$RESTORE_DIR/$1.sql"
 
