@@ -49,7 +49,9 @@ wpCreateWebsite() {
 
   textYellow "----------------> WORDPRESS CORE INSTALL"
 
-  wp core install --url=$inputDomain --title="News Website" --admin_name=admin --admin_password=123456789 --admin_email=admin@gmail.com --allow-root &>/dev/null
+  ADMIN_PASSWORD=$(openssl rand -base64 20)
+
+  wp core install --url=$inputDomain --title="News Website" --admin_name=admin --admin_password=$ADMIN_PASSWORD --admin_email=admin@gmail.com --allow-root &>/dev/null
 
   chown -R nobody:nogroup $UNKNOWN_DIR/$inputDomain/html
 
@@ -69,8 +71,10 @@ wpCreateWebsite() {
 
   textMagenta "----------------> CREATE WEBSITE SUCCESS"
 
-
   restartWebserver
+
+  textMagenta "----------------> PASSWORD ADMIN : $ADMIN_PASSWORD"
+
 }
 
 wpUpdateWebsite() {
