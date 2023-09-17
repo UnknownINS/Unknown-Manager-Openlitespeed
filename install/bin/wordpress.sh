@@ -67,7 +67,6 @@ wpCreateWebsite() {
 
   certbot certonly --non-interactive --agree-tos -m admin@gmail.com --webroot -w $UNKNOWN_DIR/$inputDomain/html -d $inputDomain &>/dev/null
 
-
   cd $UNKNOWN_DIR || exit
 
   textMagenta "----------------> CREATE WEBSITE SUCCESS"
