@@ -238,8 +238,6 @@ wpRenameDomain() {
 
   cd $UNKNOWN_DIR/$newDomain/html || exit
 
-  rm index.html &> /dev/null
-
   wp config set DB_HOST "localhost" --allow-root &>/dev/null
 
   wp config set DB_NAME "$databaseNewDomain" --allow-root &>/dev/null
@@ -254,6 +252,8 @@ wpRenameDomain() {
 
   createVirtualHost $newDomain
 
+  rm index.html &> /dev/null
+  
   updateHTTPConfig
 
   chown -R nobody:nogroup $UNKNOWN_DIR/$newDomain/html &>/dev/null
