@@ -55,13 +55,13 @@ wpCreateWebsite() {
 
   chown -R nobody:nogroup $UNKNOWN_DIR/$inputDomain/html
 
-  rm $UNKNOWN_DIR/$inputDomain/html/index.html &>/dev/null
-
   textYellow "----------------> INSTALL VIRTUALHOST"
 
   createVirtualHost $inputDomain
 
   updateHTTPConfig
+
+  rm $UNKNOWN_DIR/$inputDomain/html/index.html &>/dev/null
 
   textYellow "----------------> INSTALL SSL/HTTPS"
 
@@ -298,5 +298,5 @@ wpRedirectDomain(){
   cd $UNKNOWN_DIR || exit
 
   restartWebserver
-  
+
 }
