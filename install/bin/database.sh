@@ -81,5 +81,7 @@ renameDataBase(){
 
   #deleteDatabase $1
 
-  importDatabase $2 < "$RESTORE_DIR/$1.sql"
+  importDatabase $2 "$RESTORE_DIR/$1.sql"
+
+  rm -rf $RESTORE_DIR &> /dev/null
 }
