@@ -3,7 +3,6 @@
 verifyExitOpenLiteSpeed() {
   if [ ! -d "$LSWS_DIR" ]; then
     textRed "WEBSERVER ERROR.PLEASE REINSTALL THE WEBSERVER"
-    echo ''
     exit
   fi
 }
@@ -359,14 +358,11 @@ restartWebserver() {
 
   systemctl restart lsws &>/dev/null
 
-  echo ''
 }
 
 resetAdminPassword() {
 
   textYellow "----------------> RESET WEB ADMIN"
-
-  echo ''
 
   verifyExitOpenLiteSpeed
 
@@ -383,20 +379,16 @@ updateWebserver() {
 
   sudo dpkg --configure -a &>/dev/null
 
-  echo ""
 
   textYellow "----------------> UPDATE WP CLI"
 
-  echo ""
 
   sudo wp cli update -y &>/dev/null
 
   textYellow "----------------> UPDATE OPENLITESPEED"
-  echo ""
   sudo apt upgrade openlitespeed -y &>/dev/null
 
   textYellow "----------------> AUTO CLEAN"
-  echo ""
 
   sudo apt autoremove -y &>/dev/null
 
@@ -404,7 +396,6 @@ updateWebserver() {
 
   textMagenta "----------------> UPDATE WEBSERVER SUCCESS"
 
-  echo ""
 
 }
 

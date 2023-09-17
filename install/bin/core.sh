@@ -2,14 +2,9 @@
 
 uninstallUnknownOLS() {
 
-  echo ''
-
   sudo rm -rf $APP_INSTALL &>/dev/null
 
   textMagenta "----------------> UNINSTALL SUCCESS"
-
-  echo ''
-
   exit
 }
 
@@ -25,11 +20,7 @@ updateUnknownOLS() {
 
   rm -rf Unknown-Manager-Openlitespeed
 
-  echo ''
-
   textMagenta "----------------> UPDATE SUCCESS"
-
-  echo ''
 
   exit
 
@@ -52,7 +43,6 @@ getAllDomain() {
 
     if [ $i != "localhost" ]; then
       textYellow "----> $i"
-      echo ''
     fi
 
   done
@@ -63,7 +53,6 @@ verifyExitDir() {
 
   if [ -d $1 ]; then
     textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
-    echo ''
     exit
   fi
 
@@ -74,7 +63,6 @@ verifyDir() {
 
   if [ ! -d $1 ]; then
     textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
-    echo ''
     exit
   fi
 
@@ -83,7 +71,7 @@ verifyDir() {
 
 updateSystem() {
 
-  textBlue "----------------> UPDATE SYSTEM"
+  textYellow "----------------> UPDATE SYSTEM"
 
   sudo apt-get purge needrestart -y &>/dev/null
 
@@ -91,28 +79,21 @@ updateSystem() {
 
   sudo apt update -y
 
-  textBlue "----------------> UPGRADE SYSTEM"
-
-  echo ''
+  textYellow "----------------> UPGRADE SYSTEM"
 
   sudo apt upgrade -y
 
-  echo ''
-
-  textBlue "----------------> INSTALL DEFAULT SYSTEM"
-
-  echo ''
+  textYellow "----------------> INSTALL DEFAULT SYSTEM"
 
   sudo apt install snapd -y &>/dev/null
 
   sudo apt install zip unzip -y &>/dev/null
 
-  textBlue "----------------> AUTO CLEAN SYSTEM"
+  textYellow "----------------> AUTO CLEAN SYSTEM"
 
   sudo apt autoremove -y &>/dev/null
 
   sudo apt autoclean -y &>/dev/null
 
-  echo ""
 }
 

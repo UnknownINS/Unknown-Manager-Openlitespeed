@@ -2,7 +2,7 @@
 
 securityDomain() {
 
-  textBlue "----> $1"
+  textYellow "----> $1"
 
   chown -R root:root $UNKNOWN_DIR/$1
 
@@ -20,7 +20,6 @@ securityDomain() {
 
   chown root:root index.php
 
-  echo ""
 
 }
 
@@ -29,8 +28,6 @@ securityWebServer() {
   ALLDOMAIN=$(dir $UNKNOWN_DIR)
 
   textYellow "----------------> PROTECT WEBSITE"
-
-  echo ""
 
   cd $UNKNOWN_DIR || exit
 
@@ -46,7 +43,5 @@ securityWebServer() {
   done
 
   cd $UNKNOWN_DIR || exit
-
-  echo ''
 
 }

@@ -13,11 +13,7 @@ configAutoBackup() {
 
   textYellow "----------------> CONFIG AUTO BACKUP"
 
-  echo ''
-
   rclone config
-
-  echo ''
 }
 
 backupLocal() {
@@ -32,11 +28,7 @@ backupLocal() {
 
   rm -rf $BACKUP_DIR/$GETDAY
 
-  echo ''
-
   textYellow "----------------> START BACKUP DATABASE MYSQL"
-
-  echo ''
 
   mkdir -p "$BACKUP_DIR/$GETDAY/mysql"
 
@@ -44,17 +36,13 @@ backupLocal() {
 
   textYellow "----------------> END BACKUP DATABASE MYSQL"
 
-  echo ''
 
   textYellow "----------------> START BACKUP CODE"
 
   zip -r $BACKUP_DIR/$GETDAY/backup.zip $UNKNOWN_DIR/* -q
 
-  echo ''
 
   textYellow "----------------> BACKUP SUCCESS"
-
-  echo ''
 
 }
 
@@ -77,12 +65,9 @@ backupDriver() {
 
   rclone --transfers=1 move $BACKUP_DIR/$GETDAY "$RCLONE_NAME:$GET_IP_NAME/$GETDAY" &>/dev/null
 
-  echo ''
-
   rm -rf $BACKUP_DIR/$GETDAY &>/dev/null
 
   textMagenta "----------------> END UPLOAD GOOGLE DRIVE"
 
-  echo ''
 
 }

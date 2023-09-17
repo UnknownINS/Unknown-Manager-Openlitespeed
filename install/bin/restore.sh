@@ -2,35 +2,22 @@
 
 restoreRemote() {
 
-  echo ''
-
   verifyMariadb
 
   verifyConstainDatabase
 
   textYellow "----------------> RESTORE REMOTE"
 
-  echo ''
-
   read -p "----------------> New Domain Name : " inputDomain
-
-  echo ''
 
   read -p "----------------> Old Domain Name : " oldDomain
 
-  echo ''
-
   read -p "----------------> URL Code Backup (.zip) : " urlCodeBackup
-
-  echo ''
 
   read -p "----------------> URL Database Backup (.sql) : " urlDatabase
 
-  echo ''
-
   if  [[ -z "$urlDatabase" ]] || [[ -z "$urlCodeBackup" ]] || [[ -z "$oldDomain" ]] || [[ -z "$inputDomain" ]]; then
     textRed "----------------> PLEASE CHECK AGAIN"
-    echo ''
     exit
   fi
 
@@ -44,7 +31,6 @@ restoreRemote() {
 
   if [[ -z "$nameDatabase" ]] || [[ -z "$baseNameSQL" ]] || [[ -z "$baseNameCode" ]]; then
     textRed "----------------> PLEASE CHECK AGAIN"
-    echo ''
     exit
   fi
 
@@ -52,19 +38,15 @@ restoreRemote() {
 
   textYellow "----------------> DOWNLOAD CODE BACKUP"
 
-  echo ''
 
   wget $urlCodeBackup
 
   textYellow "----------------> DOWNLOAD SQL BACKUP"
 
-  echo ''
-
   wget $urlDatabase
 
   textYellow "----------------> INSTALL BACKUP"
 
-  echo ''
 
   createDatabase $nameDatabase &>/dev/null
 
@@ -91,7 +73,6 @@ restoreRemote() {
   rm $UNKNOWN_DIR/$inputDomain/html/$baseNameSQL &>/dev/null
 
   textYellow "----------------> UPDATE CONFIG WEBSITE"
-  echo ''
 
   wp config set DB_HOST "localhost" --allow-root &>/dev/null
   wp config set DB_NAME "$nameDatabase" --allow-root &>/dev/null
@@ -100,8 +81,6 @@ restoreRemote() {
   wp search-replace $oldDomain $inputDomain --all-tables --allow-root &>/dev/null
 
   textYellow "----------------> INSTALL VIRTUALHOST"
-
-  echo ''
 
   createVirtualHost $inputDomain
 
@@ -117,7 +96,6 @@ restoreRemote() {
 
   certbot certonly --non-interactive --agree-tos -m admin@gmail.com --webroot -w $UNKNOWN_DIR/$inputDomain/html -d $inputDomain &>/dev/null
 
-  echo ''
 
   restartWebserver
 }

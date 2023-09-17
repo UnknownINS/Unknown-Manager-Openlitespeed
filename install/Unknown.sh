@@ -68,7 +68,6 @@ StartApp() {
 
   textGreen "27) Rename Domain."
 
-
   echo ''
   textMagenta "----------------> ABOUT AUTO"
 

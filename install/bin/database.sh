@@ -9,7 +9,6 @@ verifyMariadb() {
 
   if [[ -z "$MYSQL_USER" ]] || [[ -z "$MYSQL_PASSWORD" ]]; then
     textRed "----------------> PLEASE CHECK CONFIG AGAIN"
-    echo ''
     exit
   fi
 }
@@ -21,30 +20,21 @@ MariadbSecure() {
     exit
   fi
 
-  echo ''
-
   textYellow "----------------> MARIADB SECURITY"
 
   mysql_secure_installation
 
   sudo systemctl restart mariadb &>/dev/null
 
-  echo ""
-
   textMagenta "----------------> MARIADB SECURITY SUCCESS"
 
-  echo ''
 }
 
 uninstallMariaDb() {
 
   cd "/" || exit
 
-  echo ''
-
   textYellow "----------------> UNINSTALL MARIADB"
-
-  echo ''
 
   sudo apt-get purge mariadb* -y
 
@@ -53,7 +43,7 @@ uninstallMariaDb() {
   sudo apt --fix-broken install &>/dev/null
 
   textMagenta "----------------> UNINSTALL MARIADB SUCCESS"
-  echo ''
+
 
 }
 

@@ -6,7 +6,7 @@ uninstallWebServer() {
 
   notificationUninstall
 
-  textBlue "----------------> UNINSTALL WEBSERVER"
+  textYellow "----------------> UNINSTALL WEBSERVER"
 
   killall lsphp &>/dev/null
 
@@ -32,5 +32,4 @@ uninstallWebServer() {
 
   textMagenta "----------------> UNINSTALL WEBSERVER SUCCESS"
 
-  echo ''
 }

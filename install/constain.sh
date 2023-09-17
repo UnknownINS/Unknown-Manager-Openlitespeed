@@ -44,7 +44,6 @@ verifyConstainDatabase() {
 
   if [[ -z "$MYSQL_USER" ]] || [[ -z "$MYSQL_PASSWORD" ]]; then
     textRed "----------------> PLEASE CHECK CONFIG AGAIN"
-    echo ''
     exit
   fi
 }
@@ -52,23 +51,16 @@ verifyConstainDatabase() {
 configWebServer() {
   echo "----------------> CONFIG WEBSERVER"
 
-  echo ""
-
   read -p "----------------> INPUT MARIADB USER : " MYSQL_USER
-
-  echo ""
 
   read -p "----------------> INPUT MARIADB PASSWORD : " MYSQL_PASSWORD
 
-  echo ""
 
   read -p "----------------> INPUT RCLONE NAME : " RCLONE_NAME
 
-  echo ""
 
   if [[ -z "$MYSQL_USER" ]] || [[ -z "$MYSQL_PASSWORD" ]]; then
     textRed "----------------> PLEASE CHECK CONFIG AGAIN"
-    echo ''
     exit
   fi
 
@@ -79,8 +71,6 @@ export RCLONE_NAME=$RCLONE_NAME
 EOF
 
   textMagenta "----------------> CONFIG SUCCESS"
-
-  echo ''
 
   exit
 }
