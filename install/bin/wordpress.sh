@@ -298,4 +298,5 @@ wpRedirectDomain(){
   cd $UNKNOWN_DIR || exit
 
   restartWebserver
+  
 }
