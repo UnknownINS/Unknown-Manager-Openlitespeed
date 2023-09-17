@@ -252,8 +252,10 @@ wpRenameDomain() {
 
   createVirtualHost $newDomain
 
+  cd $UNKNOWN_DIR/$newDomain/html || exit
+
   rm index.html &> /dev/null
-  
+
   updateHTTPConfig
 
   chown -R nobody:nogroup $UNKNOWN_DIR/$newDomain/html &>/dev/null
