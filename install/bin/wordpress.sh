@@ -287,8 +287,8 @@ wpRedirectDomain(){
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteCond %{HTTP_HOST} ^$oldDomain$ [OR]
-  RewriteCond %{HTTP_HOST} ^www.$oldDomain.com$
-  RewriteRule (.*)$ https://$newDomain.com/$1 [R=301,L]
+  RewriteCond %{HTTP_HOST} ^www.$oldDomain$
+  RewriteRule (.*)$ https://$newDomain/$1 [R=301,L]
 </IfModule>
 "
 
