@@ -68,10 +68,12 @@ StartApp() {
 
   textGreen "27) Rename Domain.                              28) Redirect Domain."
 
+  textGreen "29) Repair DataBase."
+
   echo ''
   textMagenta "----------------> ABOUT AUTO"
 
-  textGreen "29) Uninstall Unknown OLS.                      30) Update UNKNOWN OLS."
+  textGreen "30) Uninstall Unknown OLS.                      31) Update UNKNOWN OLS."
 
   echo ''
 
@@ -139,9 +141,11 @@ StartApp() {
 
   28) wpRedirectDomain ;;
 
-  29) uninstallUnknownOLS ;;
+  29) repairDatabase ;;
 
-  30) updateUnknownOLS ;;
+  30) uninstallUnknownOLS ;;
+
+  31) updateUnknownOLS ;;
 
   *) defaultAction ;;
 

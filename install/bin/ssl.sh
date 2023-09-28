@@ -22,18 +22,19 @@ installSslForDomain() {
 
   verifyDir $domain
 
-
-  certbot certonly --non-interactive --agree-tos -m admin@gmail.com --webroot -w $UNKNOWN_DIR/$domain/html -d $domain
+  installSslCLI $domain
 
   textMagenta "----------------> INSTALL AUTO RENEW SSL/HTTPS SUCCESS"
 
 }
 
 renewSSLNow() {
-
   verifyCertbot
-
   textYellow "----------------> RENEW SSL/HTTPS"
   certbot renew
   textMagenta "----------------> RENEW SSL/HTTPS SUCCESS"
+}
+
+installSslCLI(){
+  certbot certonly --non-interactive --agree-tos -m admin@gmail.com --webroot -w $UNKNOWN_DIR/$1/html -d $1
 }

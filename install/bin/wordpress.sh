@@ -53,19 +53,35 @@ wpCreateWebsite() {
 
   wp core install --url=$inputDomain --title="News Website" --admin_name=admin --admin_password=$ADMIN_PASSWORD --admin_email=admin@gmail.com --allow-root &>/dev/null
 
-  chown -R nobody:nogroup $UNKNOWN_DIR/$inputDomain/html
-
   textYellow "----------------> INSTALL VIRTUALHOST"
 
   createVirtualHost $inputDomain
 
   updateHTTPConfig
 
+  rm $UNKNOWN_DIR/$inputDomain/html/.htaccess &>/dev/null
+
+    contentHtaccess="RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]"
+
+  cat >$UNKNOWN_DIR/$oldDomain/html/.htaccess <<EOF
+    $contentHtaccess
+EOF
+
   rm $UNKNOWN_DIR/$inputDomain/html/index.html &>/dev/null
+
+  chown -R nobody:nogroup $UNKNOWN_DIR/$inputDomain/html
+
+  restartWebserver
 
   textYellow "----------------> INSTALL SSL/HTTPS"
 
-  certbot certonly --non-interactive --agree-tos -m admin@gmail.com --webroot -w $UNKNOWN_DIR/$inputDomain/html -d $inputDomain &>/dev/null
+  installSslCLI $inputDomain
 
   cd $UNKNOWN_DIR || exit
 
@@ -263,6 +279,11 @@ wpRenameDomain() {
   chown -R nobody:nogroup $UNKNOWN_DIR/$newDomain/html &>/dev/null
 
   restartWebserver
+
+  installSslCLI $newDomain
+
+  restartWebserver
+
 }
 
 wpRedirectDomain(){

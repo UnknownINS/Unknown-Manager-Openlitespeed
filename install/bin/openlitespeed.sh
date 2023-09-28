@@ -135,7 +135,7 @@ listener HTTPS {
 # PLAIN TEXT CONFIGURATION FILE
 #
 # If not set, will use host name as serverName
-serverName                
+serverName
 user                      nobody
 group                     nogroup
 priority                  0
@@ -383,6 +383,7 @@ updateWebserver() {
   sudo wp cli update -y &>/dev/null
 
   textYellow "----------------> UPDATE OPENLITESPEED"
+
   sudo apt upgrade openlitespeed -y &>/dev/null
 
   textYellow "----------------> AUTO CLEAN"
