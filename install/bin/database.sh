@@ -99,7 +99,7 @@ repairDatabases(){
 }
 repairSingleDatabase(){
 
-    getTables=$($MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "SHOW TABLES FROM $1")
+    getTables=$($MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "SHOW TABLES FROM $1"  | grep -Ev "(Tables_in_$1)")
 
     for table in $getTables; do
       echo $table
