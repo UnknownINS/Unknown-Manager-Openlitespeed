@@ -93,6 +93,7 @@ repairDatabases(){
   databases=$($MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "SHOW DATABASES;" | grep -Ev "(Database|information_schema|performance_schema|mysql|sys)")
 
   for db in $databases; do
+    textYellow "----------------> CHECK AND REPAIR DATABASE $db"
     repairSingleDatabase $db
   done
 
