@@ -94,7 +94,9 @@ repairDatabase(){
 
   for db in $databases; do
 
-    #$MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "ALTER TABLE $db ENGINE = MyISAM;";
+    echo "ALTER TABLE $db ENGINE = MyISAM;"
+    
+    $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "ALTER TABLE $db ENGINE = MyISAM;";
     $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "REPAIR TABLE $db;";
 
   done
