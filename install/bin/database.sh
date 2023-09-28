@@ -102,8 +102,7 @@ repairSingleDatabase(){
     getTables=$($MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "SHOW TABLES FROM $1"  | grep -Ev "(Tables_in_$1)")
 
     for table in $getTables; do
-      echo $table
-      #$MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "ALTER TABLE $table ENGINE = MyISAM;";
-      #$MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "REPAIR TABLE $table;";
+      $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "ALTER TABLE $table ENGINE = MyISAM;";
+      $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "REPAIR TABLE $table;";
     done
 }
