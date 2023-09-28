@@ -25,4 +25,4 @@ ln -s /usr/local/unknown/Unknown.sh /usr/local/bin/Unknown &> /dev/null
 
 ln -s /usr/local/unknown/UnknownCLI.sh /usr/local/bin/UnknownCLI &> /dev/null
 
-echo "----------------> Install Success.Use command 'Unknown'' for use.Thank you"
+echo "----------------> Install Success.Use command 'Unknown' for use.Thank you"

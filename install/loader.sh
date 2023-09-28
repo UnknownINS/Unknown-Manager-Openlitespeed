@@ -16,4 +16,3 @@ source $APP_INSTALL/bin/wordpress.sh
 source $APP_INSTALL/install.sh
 source $APP_INSTALL/uninstall.sh
 source $APP_INSTALL/bin/chown.sh
-
