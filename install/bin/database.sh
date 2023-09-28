@@ -86,19 +86,25 @@ renameDataBase(){
   rm -rf $RESTORE_DIR &> /dev/null
 }
 
-repairDatabase(){
+repairDatabases(){
 
   verifyMariadb
 
   databases=$($MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "SHOW DATABASES;" | grep -Ev "(Database|information_schema|performance_schema|mysql|sys)")
 
   for db in $databases; do
-
-    echo "ALTER TABLE $db ENGINE = MyISAM;"
-    
-    $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "ALTER TABLE $db ENGINE = MyISAM;";
-    $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "REPAIR TABLE $db;";
-
+    repairSingleDatabase $db
   done
 
+}
+repairSingleDatabase(){
+
+    getTables=$($MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "SHOW TABLES FROM $1")
+
+    for table in $getTables; do
+
+      $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "ALTER TABLE $table ENGINE = MyISAM;";
+      $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "REPAIR TABLE $table;";
+
+    done
 }

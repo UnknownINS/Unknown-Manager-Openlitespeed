@@ -69,7 +69,7 @@ case $1 in
 
 28) wpRedirectDomain ;;
 
-29) repairDatabase ;;
+29) repairDatabases ;;
 
 30) uninstallUnknownOLS ;;
 
