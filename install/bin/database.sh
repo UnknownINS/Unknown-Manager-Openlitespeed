@@ -94,8 +94,8 @@ repairDatabase(){
 
   for db in $databases; do
 
-    $MYSQL_BIN --force --opt --user=$MYSQL_USER -p$MYSQL_PASSWORD --databases $db | ALTER TABLE $db ENGINE = MyISAM;
-    $MYSQL_BIN --force --opt --user=$MYSQL_USER -p$MYSQL_PASSWORD --databases $db | REPAIR TABLE $db;
+    $MYSQL_BIN --force --opt --user=$MYSQL_USER -p$MYSQL_PASSWORD -e ALTER TABLE $db ENGINE = MyISAM;
+    $MYSQL_BIN --force --opt --user=$MYSQL_USER -p$MYSQL_PASSWORD -e REPAIR TABLE $db;
 
   done
 
