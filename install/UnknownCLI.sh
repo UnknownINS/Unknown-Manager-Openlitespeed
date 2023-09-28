@@ -71,8 +71,10 @@ case $1 in
 
 29) repairDatabases ;;
 
-30) uninstallUnknownOLS ;;
+30) disableFirewall ;;
 
-31) updateUnknownOLS ;;
+31) uninstallUnknownOLS ;;
+
+32) updateUnknownOLS ;;
 
 esac

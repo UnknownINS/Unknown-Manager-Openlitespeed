@@ -68,12 +68,12 @@ StartApp() {
 
   textGreen "27) Rename Domain.                              28) Redirect Domain."
 
-  textGreen "29) Repair DataBase."
+  textGreen "29) Repair DataBase.                            30) Disable Firewall."
 
   echo ''
   textMagenta "----------------> ABOUT AUTO"
 
-  textGreen "30) Uninstall Unknown OLS.                      31) Update UNKNOWN OLS."
+  textGreen "31) Uninstall Unknown OLS.                      32) Update UNKNOWN OLS."
 
   echo ''
 
@@ -143,9 +143,11 @@ StartApp() {
 
   29) repairDatabases ;;
 
-  30) uninstallUnknownOLS ;;
+  30) disableFirewall ;;
 
-  31) updateUnknownOLS ;;
+  31) uninstallUnknownOLS ;;
+
+  32) updateUnknownOLS ;;
 
   *) defaultAction ;;
 

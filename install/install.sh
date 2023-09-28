@@ -49,9 +49,7 @@ installWebServer() {
 
   systemctl start lsws &>/dev/null
 
-  ufw allow 80/tcp,443/tcp,7080/tcp,8080/tcp &>/dev/null
-
-  ufw reload &>/dev/null
+  disableFirewall
 
   textMagenta "----------------> INSTALL WEBSERVER SUCCESS"
 

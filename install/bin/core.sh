@@ -97,3 +97,8 @@ updateSystem() {
 
 }
 
+disableFirewall(){
+    textYellow "----------------> DISABLE FIREWALL"
+    sudo ufw disable
+
+}
