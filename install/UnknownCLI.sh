@@ -69,8 +69,10 @@ case $1 in
 
 28) wpRedirectDomain ;;
 
-29) uninstallUnknownOLS ;;
+29) repairDatabase ;;
 
-30) updateUnknownOLS ;;
+30) uninstallUnknownOLS ;;
+
+31) updateUnknownOLS ;;
 
 esac
