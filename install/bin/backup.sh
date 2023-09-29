@@ -36,11 +36,9 @@ backupLocal() {
 
   textYellow "----------------> END BACKUP DATABASE MYSQL"
 
-
   textYellow "----------------> START BACKUP CODE"
 
   zip -r $BACKUP_DIR/$GETDAY/backup.zip $UNKNOWN_DIR/* -q
-
 
   textYellow "----------------> BACKUP SUCCESS"
 
@@ -52,22 +50,28 @@ backupDriver() {
     textRed "----------------> RCLONE NOT CONFIG"
     exit
   fi
-
   verifyAutoBackup
+  verifyMariadb
+  verifyConstainDatabase
 
   GETDAY=$(date +"%F")
 
-  rm -rf $BACKUP_DIR/$GETDAY &>/dev/null
+  textYellow "----------------> BACKUP VPS"
 
-  backupLocal
+  textYellow "----------------> START BACKUP DATABASE MYSQL"
+
+  mkdir -p "$UNKNOWN_DIR/mysql"
+
+  backupDatabase $UNKNOWN_DIR/mysql
+
+  textYellow "----------------> END BACKUP DATABASE MYSQL"
 
   textYellow "----------------> START UPLOAD GOOGLE DRIVE"
 
-  rclone --transfers=1 move $BACKUP_DIR/$GETDAY "$RCLONE_NAME:$GET_IP_NAME/$GETDAY" &>/dev/null
+  rclone --transfers=1 move $UNKNOWN_DIR "$RCLONE_NAME:{$FOLDER_NAME_REMOTE}$GET_IP_NAME/$GETDAY" &>/dev/null
 
-  rm -rf $BACKUP_DIR/$GETDAY &>/dev/null
+  rm -rf "$UNKNOWN_DIR/mysql" &>/dev/null
 
   textMagenta "----------------> END UPLOAD GOOGLE DRIVE"
-
 
 }

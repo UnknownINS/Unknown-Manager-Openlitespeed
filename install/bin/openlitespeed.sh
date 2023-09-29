@@ -357,6 +357,8 @@ restartWebserver() {
 
   systemctl restart lsws &>/dev/null
 
+  service lsws restart && killall lsphp &> /dev/null
+
 }
 
 resetAdminPassword() {
@@ -412,4 +414,33 @@ updateDomainSever() {
     updateHTTPConfig
 
   done
+}
+
+configOpenLiteSpeed(){
+
+  textYellow "----------------> CONFIG OPENLITESPEED"
+
+  ARGS_UPDATE_CONFIG=['upload_max_filesize'='200M'] ["max_input_time"='30'] ["memory_limit"='512M'] ["max_execution_time"='300'] ["post_max_size"='800M']
+
+  read -p "----------------> UPLOAD MAX FILE SIZE ( M ) : " ARGS_UPDATE_CONFIG['upload_max_filesize']
+  read -p "----------------> MAX INPUT TIME ( NUMBER ) : " ARGS_UPDATE_CONFIG['max_input_time']
+  read -p "----------------> MEMORY LIMIT ( M ) : " ARGS_UPDATE_CONFIG['memory_limit']
+  read -p "----------------> MAX EXECUTION TIME ( NUMBER ) : " ARGS_UPDATE_CONFIG['max_execution_time']
+  read -p "----------------> POST MAX SIZE ( M ) : " ARGS_UPDATE_CONFIG['post_max_size']
+
+  echo $$ARGS_UPDATE_CONFIG
+
+  exit 
+   if [ -f $LSWS_CONFIGPHP ]; then
+     for item in $ARGS_UPDATE_CONFIG; do
+          sed -i 's/$item}/; $item/g' $LSWS_CONFIGPHP
+          echo "${item} = ${ARGS_UPDATE_CONFIG[$item]}" | sudo tee -a $LSWS_CONFIGPHP >/dev/null
+     done
+    restartWebserver
+
+    textMagenta "----------------> UPDATE WEBSERVER SUCCESS"
+    else
+       textRed "----------------> PLEASE CHECK AGAIN"
+    fi
+
 }
