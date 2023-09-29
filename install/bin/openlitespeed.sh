@@ -430,7 +430,7 @@ configOpenLiteSpeed(){
 
   echo $$ARGS_UPDATE_CONFIG
 
-  exit 
+  exit
    if [ -f $LSWS_CONFIGPHP ]; then
      for item in $ARGS_UPDATE_CONFIG; do
           sed -i 's/$item}/; $item/g' $LSWS_CONFIGPHP

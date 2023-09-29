@@ -36,7 +36,7 @@ StartApp() {
 
   textGreen "2 ) Uninstall WebServer.                        3 ) Config WebServer."
 
-  textGreen "4 ) Insert Phpmyadmin.                          5 ) Config Auto Backup."
+  textGreen "4 ) Insert Phpmyadmin.                          5 ) Config Rclone."
 
   textGreen "6 ) Backup Local.                               7 ) Update WebServer."
 
