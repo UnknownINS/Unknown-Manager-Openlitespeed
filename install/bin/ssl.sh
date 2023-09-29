@@ -24,6 +24,8 @@ installSslForDomain() {
 
   installSslCLI $domain
 
+  restartWebserver
+
   textMagenta "----------------> INSTALL AUTO RENEW SSL/HTTPS SUCCESS"
 
 }
