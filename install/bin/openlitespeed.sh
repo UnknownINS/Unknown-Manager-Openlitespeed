@@ -422,7 +422,7 @@ updateDomainSever() {
 
 configVariableOpenLiteSpeed(){
 
-  textYellow "----------------> CONFIG OPENLITESPEED"
+  textYellow "----------------> CONFIG VARIABLE OPENLITESPEED"
 
   ARGS_UPDATE_CONFIG=['upload_max_filesize'='200M'] ["max_input_time"='30'] ["memory_limit"='512M'] ["max_execution_time"='300'] ["post_max_size"='800M']
 
@@ -442,7 +442,7 @@ configVariableOpenLiteSpeed(){
      done
     restartWebserver
 
-    textMagenta "----------------> UPDATE WEBSERVER SUCCESS"
+    textMagenta "----------------> UPDATE VARIABLE OPENLITESPEED SUCCESS"
     else
        textRed "----------------> PLEASE CHECK AGAIN"
     fi

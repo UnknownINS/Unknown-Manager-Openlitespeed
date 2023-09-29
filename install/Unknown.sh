@@ -46,7 +46,7 @@ StartApp() {
 
   textGreen "12) Restart WebServer.                          13) Reset Password WebAdmin."
 
-  textGreen "14) Reload HTTP/HTTPS Config                    15) Reset Password WebAdmin."
+  textGreen "14) Reload HTTP/HTTPS Config                    15) Config Variable OpenLiteSpeed"
 
   echo ''
   textBlue "----------------> MANAGER WEBSITE"
