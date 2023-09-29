@@ -437,10 +437,10 @@ configVariableOpenLiteSpeed(){
    if [ -f $LSWS_CONFIGPHP ]; then
      echo '' | tee -a $LSWS_CONFIGPHP >/dev/null
      for item in "${!ARGS_UPDATE_CONFIG[@]}"; do
+       echo $item = ${ARGS_UPDATE_CONFIG[${item}]}
 
-       echo ${ARGS_UPDATE_CONFIG[item]}
-          #sed -i "s/$item/; $item/g" $LSWS_CONFIGPHP
-          #echo "$item = ${ARGS_UPDATE_CONFIG[item]}" | tee -a $LSWS_CONFIGPHP >/dev/null
+       #   sed -i "s/$item/; $item/g" $LSWS_CONFIGPHP
+       #   echo "$item = ${ARGS_UPDATE_CONFIG[${item}]}" | tee -a $LSWS_CONFIGPHP >/dev/null
      done
     restartWebserver
 
