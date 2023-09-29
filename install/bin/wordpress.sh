@@ -69,7 +69,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]"
 
-  cat >$UNKNOWN_DIR/$oldDomain/html/.htaccess <<EOF
+  cat >$UNKNOWN_DIR/$inputDomain/html/.htaccess <<EOF
     $contentHtaccess
 EOF
 

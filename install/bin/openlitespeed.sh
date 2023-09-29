@@ -9,9 +9,9 @@ verifyExitOpenLiteSpeed() {
 
 cleanVhostsDefault() {
   verifyExitOpenLiteSpeed $1
-  rm -rf $LSWS_CONFIG/templates
-  rm -rf $LSWS_VHOSTS
-  mkdir -m 0755 $LSWS_VHOSTS
+  rm -rf $LSWS_CONFIG/templates &> /dev/null
+  rm -rf $LSWS_VHOSTS &> /dev/null
+  mkdir -m 0755 $LSWS_VHOSTS &> /dev/null
 }
 
 createVirtualHost() {

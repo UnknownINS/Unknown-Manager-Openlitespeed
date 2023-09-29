@@ -18,7 +18,7 @@ updateUnknownOLS() {
 
   cd /usr/local || exit
 
-  rm -rf Unknown-Manager-Openlitespeed
+  rm -rf Unknown-Manager-Openlitespeed  &>/dev/null
 
   textMagenta "----------------> UPDATE SUCCESS"
 
@@ -77,11 +77,11 @@ updateSystem() {
 
   sudo apt autoremove -y &>/dev/null
 
-  sudo apt update -y
+  sudo apt update -y &>/dev/null
 
   textYellow "----------------> UPGRADE SYSTEM"
 
-  sudo apt upgrade -y
+  sudo apt upgrade -y &>/dev/null
 
   textYellow "----------------> INSTALL DEFAULT SYSTEM"
 

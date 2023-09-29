@@ -26,7 +26,7 @@ backupLocal() {
 
   textYellow "----------------> BACKUP VPS"
 
-  rm -rf $BACKUP_DIR/$GETDAY
+  rm -rf $BACKUP_DIR/$GETDAY  &>/dev/null
 
   textYellow "----------------> START BACKUP DATABASE MYSQL"
 

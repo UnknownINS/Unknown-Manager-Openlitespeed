@@ -40,15 +40,30 @@ configAutoJob() {
   fi
 
 
-  read -p "----------------> Install Auto Update and Security Website (y/n) : " status
+  read -p "----------------> Install Auto Update Website (y/n) : " status
 
   if [ $status == 'y' ]; then
 
-    if [[ "$cronJobUpdate" =~ "UnknownCLI 17 && UnknownCLI 18" ]]; then
+    if [[ "$cronJobUpdate" =~ "UnknownCLI 17" ]]; then
       echo 'Already Exist.'
     else
       cronJobUpdate="$cronJobUpdate
-0 2 * * * UnknownCLI 17 && UnknownCLI 18 &> /dev/null
+0 2 * * * UnknownCLI 17 &> /dev/null
+"
+    fi
+
+  fi
+
+
+  read -p "----------------> Install Auto Security WebSite (y/n) : " status
+
+  if [ $status == 'y' ]; then
+
+    if [[ "$cronJobUpdate" =~ "UnknownCLI 18" ]]; then
+      echo 'Already Exist.'
+    else
+      cronJobUpdate="$cronJobUpdate
+0 3 * * * UnknownCLI 18 &> /dev/null
 "
     fi
 
