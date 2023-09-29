@@ -68,10 +68,10 @@ backupDriver() {
 
   textYellow "----------------> START UPLOAD GOOGLE DRIVE"
 
-  rclone --transfers=1 move $UNKNOWN_DIR "$RCLONE_NAME:{$FOLDER_NAME_REMOTE}$GET_IP_NAME/$GETDAY" &>/dev/null
+  rclone --transfers=1 move $UNKNOWN_DIR "$RCLONE_NAME:$FOLDER_NAME_REMOTE/$GET_IP_NAME/$GETDAY" &>/dev/null
 
   rm -rf "$UNKNOWN_DIR/mysql" &>/dev/null
-
+  
   textMagenta "----------------> END UPLOAD GOOGLE DRIVE"
 
 }
