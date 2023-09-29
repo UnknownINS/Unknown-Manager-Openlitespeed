@@ -44,11 +44,11 @@ configAutoJob() {
 
   if [ $status == 'y' ]; then
 
-    if [[ "$cronJobUpdate" =~ "UnknownCLI 17" ]]; then
+    if [[ "$cronJobUpdate" =~ "UnknownCLI 18" ]]; then
       echo 'Already Exist.'
     else
       cronJobUpdate="$cronJobUpdate
-0 2 * * * UnknownCLI 17 &> /dev/null
+0 2 * * * UnknownCLI 18 &> /dev/null
 "
     fi
 
@@ -59,11 +59,11 @@ configAutoJob() {
 
   if [ $status == 'y' ]; then
 
-    if [[ "$cronJobUpdate" =~ "UnknownCLI 18" ]]; then
+    if [[ "$cronJobUpdate" =~ "UnknownCLI 19" ]]; then
       echo 'Already Exist.'
     else
       cronJobUpdate="$cronJobUpdate
-0 3 * * * UnknownCLI 18 &> /dev/null
+0 3 * * * UnknownCLI 19 &> /dev/null
 "
     fi
 
@@ -76,5 +76,7 @@ EOF
   sudo crontab $APP_INSTALL/crontab.txt
 
   rm $APP_INSTALL/crontab.txt
+
+  textMagenta "----------------> UPDATE CRON JOB SUCCESS"
 
 }

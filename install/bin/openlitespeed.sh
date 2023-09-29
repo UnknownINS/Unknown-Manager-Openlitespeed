@@ -413,10 +413,14 @@ updateDomainSever() {
 
     updateHTTPConfig
 
+    restartWebserver
+
+    textMagenta "----------------> RELOAD HTTP/HTTPS CONFIG SUCCESS"
+
   done
 }
 
-configOpenLiteSpeed(){
+configVariableOpenLiteSpeed(){
 
   textYellow "----------------> CONFIG OPENLITESPEED"
 

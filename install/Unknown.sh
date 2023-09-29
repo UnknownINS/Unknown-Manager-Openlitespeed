@@ -46,34 +46,34 @@ StartApp() {
 
   textGreen "12) Restart WebServer.                          13) Reset Password WebAdmin."
 
-  textGreen "14) Update HTTP Config."
+  textGreen "14) Reload HTTP/HTTPS Config                    15) Reset Password WebAdmin."
 
   echo ''
   textBlue "----------------> MANAGER WEBSITE"
 
-  textGreen "15) Create New Website.                         16) Delete WebSite."
+  textGreen "16) Create New Website.                         17) Delete WebSite."
 
-  textGreen "17) Update Website.                             18) Security Website."
+  textGreen "18) Update Website.                             19) Security Website."
 
-  textGreen "19) Reset password User (for WordPress).        20) Show All Domain."
+  textGreen "20) Reset password User (for WordPress).        21) Show All Domain."
 
-  textGreen "21) Get List User (for WordPress).              22) Permission Public Domain."
+  textGreen "22) Get List User (for WordPress).              23) Permission Public Domain."
 
   echo ''
   textYellow "----------------> TOOL"
 
-  textGreen "23) Install SSL/HTTPS for Domain.               24) Config Auto Job."
+  textGreen "24) Install SSL/HTTPS for Domain.               25) Config Auto Job."
 
-  textGreen "25) Renews SSL/HTTPS NOW.                       26) Restore Remote."
+  textGreen "26) Renews SSL/HTTPS NOW.                       27) Restore Remote."
 
-  textGreen "27) Rename Domain.                              28) Redirect Domain."
+  textGreen "28) Rename Domain.                              29) Redirect Domain."
 
-  textGreen "29) Repair DataBase.                            30) Disable Firewall."
+  textGreen "30) Repair DataBase.                            31) Disable Firewall."
 
   echo ''
   textMagenta "----------------> ABOUT AUTO"
 
-  textGreen "31) Uninstall Unknown OLS.                      32) Update UNKNOWN OLS."
+  textGreen "32) Uninstall Unknown OLS.                      33) Update UNKNOWN OLS."
 
   echo ''
 
@@ -113,41 +113,43 @@ StartApp() {
 
   14) updateDomainSever ;;
 
-  15) wpCreateWebsite ;;
+  15) configVariableOpenLiteSpeed ;;
 
-  16) wpDeleteWebsite ;;
+  16) wpCreateWebsite ;;
 
-  17) wpUpdateWebsite ;;
+  17) wpDeleteWebsite ;;
 
-  18) securityWebServer ;;
+  18) wpUpdateWebsite ;;
 
-  19) wpResetPassword ;;
+  19) securityWebServer ;;
 
-  20) getAllDomain ;;
+  20) wpResetPassword ;;
 
-  21) wpGetListUser ;;
+  21) getAllDomain ;;
 
-  22) chownNobodyDomain ;;
+  22) wpGetListUser ;;
 
-  23) installSslForDomain ;;
+  23) chownNobodyDomain ;;
 
-  24) configAutoJob ;;
+  24) installSslForDomain ;;
 
-  25) renewSSLNow ;;
+  25) configAutoJob ;;
 
-  26) restoreRemote ;;
+  26) renewSSLNow ;;
 
-  27) wpRenameDomain ;;
+  27) restoreRemote ;;
 
-  28) wpRedirectDomain ;;
+  28) wpRenameDomain ;;
 
-  29) repairDatabases ;;
+  29) wpRedirectDomain ;;
 
-  30) disableFirewall ;;
+  30) repairDatabases ;;
 
-  31) uninstallUnknownOLS ;;
+  31) disableFirewall ;;
 
-  32) updateUnknownOLS ;;
+  32) uninstallUnknownOLS ;;
+
+  33) updateUnknownOLS ;;
 
   *) defaultAction ;;
 
