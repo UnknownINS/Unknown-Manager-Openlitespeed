@@ -432,8 +432,6 @@ configVariableOpenLiteSpeed(){
   read -p "----------------> MAX EXECUTION TIME ( NUMBER ) : " ARGS_UPDATE_CONFIG['max_execution_time']
   read -p "----------------> POST MAX SIZE ( M ) : " ARGS_UPDATE_CONFIG['post_max_size']
 
-
-  exit
    if [ -f $LSWS_CONFIGPHP ]; then
      for item in "${ARGS_UPDATE_CONFIG[@]}"; do
           sed -i 's/$item/; $item/g' $LSWS_CONFIGPHP
