@@ -435,11 +435,12 @@ configVariableOpenLiteSpeed(){
   read -p "----------------> POST MAX SIZE ( M ) : " ARGS_UPDATE_CONFIG['post_max_size']
 
    if [ -f $LSWS_CONFIGPHP ]; then
+     echo '' | tee -a $LSWS_CONFIGPHP >/dev/null
      for item in "${!ARGS_UPDATE_CONFIG[@]}"; do
-          sed -i "s/$item/; $item/g" $LSWS_CONFIGPHP
-          echo '' | tee -a $LSWS_CONFIGPHP >/dev/null
-          echo '' | tee -a $LSWS_CONFIGPHP >/dev/null
-          echo "$item = ${ARGS_UPDATE_CONFIG[item]}" | tee -a $LSWS_CONFIGPHP >/dev/null
+
+       echo ${ARGS_UPDATE_CONFIG[item]}
+          #sed -i "s/$item/; $item/g" $LSWS_CONFIGPHP
+          #echo "$item = ${ARGS_UPDATE_CONFIG[item]}" | tee -a $LSWS_CONFIGPHP >/dev/null
      done
     restartWebserver
 
