@@ -424,7 +424,7 @@ configVariableOpenLiteSpeed(){
 
   textYellow "----------------> CONFIG VARIABLE OPENLITESPEED"
 
-  ARGS_UPDATE_CONFIG=['upload_max_filesize'='200M'] ["max_input_time"='30'] ["memory_limit"='512M'] ["max_execution_time"='300'] ["post_max_size"='800M']
+  ARGS_UPDATE_CONFIG=([upload_max_filesize='200M'] [max_input_time=30] [memory_limit="512M"] [max_execution_time=300] [post_max_size='800M'])
 
   read -p "----------------> UPLOAD MAX FILE SIZE ( M ) : " ARGS_UPDATE_CONFIG['upload_max_filesize']
   read -p "----------------> MAX INPUT TIME ( NUMBER ) : " ARGS_UPDATE_CONFIG['max_input_time']
