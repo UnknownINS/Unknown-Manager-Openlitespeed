@@ -53,6 +53,7 @@ backupDriver() {
   verifyAutoBackup
   verifyMariadb
   verifyConstainDatabase
+  
   GETDAY=$(date +"%F")
 
   rm -rf $BACKUP_DIR/$GETDAY &>/dev/null
@@ -64,7 +65,7 @@ backupDriver() {
   rclone --transfers=1 move $BACKUP_DIR/$GETDAY "$RCLONE_NAME:$FOLDER_NAME_REMOTE/$GET_IP_NAME/$GETDAY" &>/dev/null
 
   rm -rf $BACKUP_DIR/$GETDAY &>/dev/null
-  
+
   textMagenta "----------------> END UPLOAD GOOGLE DRIVE"
 
 }
