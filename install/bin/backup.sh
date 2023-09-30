@@ -61,10 +61,10 @@ backupDriver() {
 
   textYellow "----------------> START UPLOAD GOOGLE DRIVE"
 
-  rclone --transfers=1 move $BACKUP_DIR "$RCLONE_NAME:$FOLDER_NAME_REMOTE/$GET_IP_NAME/$GETDAY" &>/dev/null
+  rclone --transfers=1 move $BACKUP_DIR/$GETDAY "$RCLONE_NAME:$FOLDER_NAME_REMOTE/$GET_IP_NAME/$GETDAY" &>/dev/null
 
   rm -rf $BACKUP_DIR/$GETDAY &>/dev/null
-
+  
   textMagenta "----------------> END UPLOAD GOOGLE DRIVE"
 
 }
