@@ -53,7 +53,7 @@ backupDriver() {
   verifyAutoBackup
   verifyMariadb
   verifyConstainDatabase
-  
+
   GETDAY=$(date +"%F")
 
   rm -rf $BACKUP_DIR/$GETDAY &>/dev/null
