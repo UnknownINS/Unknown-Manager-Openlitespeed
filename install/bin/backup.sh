@@ -53,24 +53,17 @@ backupDriver() {
   verifyAutoBackup
   verifyMariadb
   verifyConstainDatabase
-
   GETDAY=$(date +"%F")
 
-  textYellow "----------------> BACKUP VPS"
+  rm -rf $BACKUP_DIR/$GETDAY &>/dev/null
 
-  textYellow "----------------> START BACKUP DATABASE MYSQL"
-
-  mkdir -p "$UNKNOWN_DIR/mysql"
-
-  backupDatabase $UNKNOWN_DIR/mysql
-
-  textYellow "----------------> END BACKUP DATABASE MYSQL"
+  backupLocal
 
   textYellow "----------------> START UPLOAD GOOGLE DRIVE"
 
-  rclone --transfers=1 move $UNKNOWN_DIR "$RCLONE_NAME:$FOLDER_NAME_REMOTE/$GET_IP_NAME/$GETDAY" &>/dev/null
+  rclone --transfers=1 move $BACKUP_DIR "$RCLONE_NAME:$FOLDER_NAME_REMOTE/$GET_IP_NAME/$GETDAY" &>/dev/null
 
-  rm -rf "$UNKNOWN_DIR/mysql" &>/dev/null
+  rm -rf $BACKUP_DIR/$GETDAY &>/dev/null
 
   textMagenta "----------------> END UPLOAD GOOGLE DRIVE"
 
