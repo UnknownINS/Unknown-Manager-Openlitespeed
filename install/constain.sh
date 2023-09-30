@@ -40,6 +40,7 @@ export MYSQL_USER=''
 export MYSQL_PASSWORD=''
 export RCLONE_NAME=''
 export FOLDER_NAME_REMOTE=''
+export FTP_NAME=''
 EOF
   fi
 }
@@ -55,16 +56,18 @@ verifyConstainDatabase() {
 configWebServer() {
   echo "----------------> CONFIG WEBSERVER"
 
-  read -p "----------------> INPUT MARIADB USER : " MYSQL_USER
+  read -p "----------------> INPUT MARIADB USER ( * ) : " MYSQL_USER
 
-  read -p "----------------> INPUT MARIADB PASSWORD : " MYSQL_PASSWORD
+  read -p "----------------> INPUT MARIADB PASSWORD ( * ) : " MYSQL_PASSWORD
 
   read -p "----------------> INPUT RCLONE NAME : " RCLONE_NAME
 
   read -p "----------------> INPUT FOLDER NAME REMOTE BACKUP : " FOLDER_NAME_REMOTE
 
+  read -p "----------------> INPUT NAME AND GROUP ACCOUNT FTP OR ROOT ( * ) : " FTP_NAME
 
-  if [[ -z "$MYSQL_USER" ]] || [[ -z "$MYSQL_PASSWORD" ]]; then
+
+  if [[ -z "$MYSQL_USER" ]] || [[ -z "$MYSQL_PASSWORD" ]] || [[ -z "$FTP_NAME" ]]; then
     textRed "----------------> PLEASE CHECK CONFIG AGAIN"
     exit
   fi
@@ -74,6 +77,7 @@ export MYSQL_USER=$MYSQL_USER
 export MYSQL_PASSWORD=$MYSQL_PASSWORD
 export RCLONE_NAME=$RCLONE_NAME
 export FOLDER_NAME_REMOTE=$FOLDER_NAME_REMOTE
+export FTP_NAME=$FTP_NAME
 EOF
 
   textMagenta "----------------> CONFIG SUCCESS"

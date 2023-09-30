@@ -4,7 +4,7 @@ securityDomain() {
 
   textYellow "----> $1"
 
-  chown -R root:root $UNKNOWN_DIR/$1
+  chown -R $FTP_NAME $UNKNOWN_DIR/$1
 
   cd $UNKNOWN_DIR/$1/html || exit
 
@@ -16,9 +16,9 @@ securityDomain() {
 
   chown -R nobody:nogroup $UNKNOWN_DIR/$1/html/wp-content
 
-  chown -R root:root plugins themes
+  chown -R $FTP_NAME plugins themes
 
-  chown root:root index.php
+  chown $FTP_NAME index.php
 
 
 }
