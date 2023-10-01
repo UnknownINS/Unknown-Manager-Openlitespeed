@@ -73,15 +73,15 @@ updateSystem() {
 
   textYellow "----------------> UPDATE SYSTEM"
 
-  sudo apt-get purge needrestart -y
+  sudo apt-get purge needrestart -y &>/dev/null
 
-  sudo apt autoremove -y
+  sudo apt autoremove -y &>/dev/null
 
-  sudo apt update -y
+  sudo apt update -y &>/dev/null
 
   textYellow "----------------> UPGRADE SYSTEM"
 
-  sudo apt upgrade -y
+  sudo apt upgrade -y &>/dev/null
 
   textYellow "----------------> INSTALL DEFAULT SYSTEM"
 
