@@ -12,13 +12,17 @@ securityDomain() {
 
   find $UNKNOWN_DIR/$1/html -type f -exec chmod 644 {} \;
 
-  cd $UNKNOWN_DIR/$1/html/wp-content || exit
+  if [ -d $UNKNOWN_DIR/$1/html/wp-content ]; then
 
-  chown -R nobody:nogroup $UNKNOWN_DIR/$1/html/wp-content
+      cd $UNKNOWN_DIR/$1/html/wp-content || exit
 
-  chown -R $FTP_NAME plugins themes
+      chown -R nobody:nogroup $UNKNOWN_DIR/$1/html/wp-content
 
-  chown $FTP_NAME index.php
+      chown -R $FTP_NAME plugins themes
+
+      chown $FTP_NAME index.php
+
+  fi
 
 
 }
