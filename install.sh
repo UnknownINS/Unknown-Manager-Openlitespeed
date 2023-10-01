@@ -31,4 +31,4 @@ rm -rf Unknown-Manager-Openlitespeed &> /dev/null
 
 echo "----------------> Install Success.Use command 'Unknown' for use.Thank you"
 
-cd ../
+cd /home/unknown || exit
