@@ -69,9 +69,7 @@ installLibraryWebServer() {
 
   textYellow "----------------> INSTALL LIBRARY WEBSERVER"
 
-  sudo -v
   curl https://rclone.org/install.sh | sudo bash &>/dev/null
-
 
   textYellow "----------------> INSTALL WORDPRESS TOOL"
 
