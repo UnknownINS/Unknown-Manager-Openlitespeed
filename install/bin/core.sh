@@ -77,11 +77,11 @@ updateSystem() {
 
   sudo apt autoremove -y &>/dev/null
 
-  sudo apt update -y &>/dev/null
+  sudo apt update -y
 
   textYellow "----------------> UPGRADE SYSTEM"
 
-  sudo apt upgrade -y &>/dev/null
+  sudo apt upgrade -y
 
   textYellow "----------------> INSTALL DEFAULT SYSTEM"
 
