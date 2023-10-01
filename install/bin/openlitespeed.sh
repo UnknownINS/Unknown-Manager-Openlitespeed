@@ -410,14 +410,14 @@ updateDomainSever() {
       createVirtualHost $i
       rm $UNKNOWN_DIR/$i/html/index.html &>/dev/null
     fi
-
-    updateHTTPConfig
-
-    restartWebserver
-
-    textMagenta "----------------> RELOAD HTTP/HTTPS CONFIG SUCCESS"
-
   done
+
+  updateHTTPConfig
+
+  restartWebserver
+
+  textMagenta "----------------> RELOAD HTTP/HTTPS CONFIG SUCCESS"
+
 }
 
 configVariableOpenLiteSpeed(){
