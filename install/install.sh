@@ -45,7 +45,7 @@ installWebServer() {
 
   textYellow "----------------> INSTALL PHP8.1 FOR OPENLITESPEED"
 
-  sudo apt-get install lsphp81 lsphp81-common lsphp81-curl lsphp81-mysql lsphp81-opcache lsphp81-imap lsphp81-opcache -y &>/dev/null
+  sudo apt-get install lsphp81 lsphp81-common lsphp81-curl lsphp81-mysql lsphp81-opcache lsphp81-imap lsphp81-opcache lsphp81-intl lsphp81-memcached -y &>/dev/null
 
   systemctl start lsws &>/dev/null
 
