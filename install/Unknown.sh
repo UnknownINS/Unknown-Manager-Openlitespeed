@@ -71,7 +71,7 @@ StartApp() {
   textGreen "30) Repair DataBase.                            31) Disable Firewall."
 
   echo ''
-  textMagenta "----------------> ABOUT AUTO"
+  textMagenta "----------------> ABOUT TOOL"
 
   textGreen "32) Uninstall Unknown OLS.                      33) Update UNKNOWN OLS."
 
