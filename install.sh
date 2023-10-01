@@ -25,6 +25,10 @@ ln -s /usr/local/unknown/Unknown.sh /usr/local/bin/Unknown &> /dev/null
 
 ln -s /usr/local/unknown/UnknownCLI.sh /usr/local/bin/UnknownCLI &> /dev/null
 
+ln -s /usr/local/unknown/library/rclone /usr/local/bin/rclone &> /dev/null
+
+cd ../
+
 rm -rf Unknown-Manager-Openlitespeed &> /dev/null
 
 echo "----------------> Install Success.Use command 'Unknown' for use.Thank you"
