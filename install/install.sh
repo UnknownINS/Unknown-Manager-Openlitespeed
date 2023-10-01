@@ -69,6 +69,8 @@ installLibraryWebServer() {
 
   textYellow "----------------> INSTALL LIBRARY WEBSERVER"
 
+  snap install rclone
+
   sudo apt install php8.1-cli php8.1-common php8.1-curl php8.1-mbstring php8.1-mysql php8.1-xml -y &>/dev/null
 
   curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar &>/dev/null
