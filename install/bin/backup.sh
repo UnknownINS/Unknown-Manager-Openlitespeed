@@ -1,7 +1,7 @@
 #!/bin/bash
 
 verifyAutoBackup() {
-  if [ ! -f /snap/bin/rclone ]; then
+  if [ ! -f /snap/bin/rclone ] || [ ! -f /usr/bin/rclone ]; then
   textRed "----------------> RCLONE NOT INSTALL"
     exit
   fi
