@@ -316,6 +316,13 @@ wpRedirectDomain(){
 </IfModule>
 "
 
+rm -rf $UNKNOWN_DIR/$oldDomain/html
+
+mkdir -p $UNKNOWN_DIR/$oldDomain/html/
+
+nameDatabase=$(sed "s/\./_/g" <<<"$oldDomain")
+
+deleteDatabase $nameDatabase
 
   cat >$UNKNOWN_DIR/$oldDomain/html/.htaccess <<EOF
 $contentHtaccess
