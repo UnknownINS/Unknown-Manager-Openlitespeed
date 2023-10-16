@@ -38,7 +38,19 @@ backupLocal() {
 
   textYellow "----------------> START BACKUP CODE"
 
-  zip -r $BACKUP_DIR/$GETDAY/backup.zip $UNKNOWN_DIR/* -q
+    ALLDOMAIN=$(dir $UNKNOWN_DIR)
+
+    cd $UNKNOWN_DIR || exit
+
+    for i in $ALLDOMAIN; do
+
+      if [ $i != "localhost" ]; then
+        textYellow "----> BACKUP $i"
+        zip -r $i.zip $i -q
+      fi
+
+    done
+
 
   textYellow "----------------> BACKUP SUCCESS"
 
