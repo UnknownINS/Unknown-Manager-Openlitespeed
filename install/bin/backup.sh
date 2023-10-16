@@ -46,7 +46,7 @@ backupLocal() {
 
       if [ $i != "localhost" ]; then
         textYellow "----> BACKUP $i"
-        zip -r $i.zip $i -q
+        zip -r $i.zip $i/* -q
       fi
 
     done
