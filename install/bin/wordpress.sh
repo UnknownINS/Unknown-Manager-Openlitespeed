@@ -368,7 +368,7 @@ RepairWordpress(){
        if [[ "$findString" =~ "whitespacefix" ]]; then
             echo ''
           else
-            sed -i 's/<?php/<?php\n\include ("whitespacefix.php");\n\/g' index.php
+            sed -i 's/<?php/<?php\n\include ("whitespacefix.php");\n/g' index.php
         fi
     fi
 
