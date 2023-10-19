@@ -354,14 +354,14 @@ RepairWordpress(){
 
       cd $UNKNOWN_DIR/$i/html || exit
 
-      wp config set WP_DEBUG false
+      wp config set WP_DEBUG false --allow-root
 
-      wp config set FS_METHOD direct
+      wp config set FS_METHOD direct --allow-root
 
     fi
 
   done
 
-  textMagenta "----------------> UPDATE WEBSITE SUCCESS"
+  textMagenta "----------------> REPAIR WEBSITE SUCCESS"
 
 }
