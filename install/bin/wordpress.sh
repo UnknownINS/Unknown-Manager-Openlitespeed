@@ -369,7 +369,7 @@ RepairWordpress(){
           textRed "-------------------> Nothing Changes"
           else
             sed -i 's/<?php/<?php\n\include ("whitespacefix.php");\n/g' index.php
-            textBlue "-------------------> Update"
+            textBlue "-------------------> Update Success"
         fi
     fi
 
