@@ -354,9 +354,9 @@ RepairWordpress(){
 
       cd $UNKNOWN_DIR/$i/html || exit
 
-      wp config set WP_DEBUG false --allow-root
+      wp config set WP_DEBUG false --raw --allow-root &> /dev/null
 
-      wp config set FS_METHOD direct --allow-root
+      wp config set FS_METHOD direct --allow-root &> /dev/null
 
     fi
 
