@@ -125,6 +125,7 @@ wpUpdateWebsite() {
 
   textMagenta "----------------> UPDATE WEBSITE SUCCESS"
 
+  RepairWordpress
 
 }
 
