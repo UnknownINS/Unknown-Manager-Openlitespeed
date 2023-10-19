@@ -366,10 +366,10 @@ RepairWordpress(){
       findString=$(grep -r "whitespacefix" index.php)
 
        if [[ "$findString" =~ "whitespacefix" ]]; then
-          textYellow "---> Nothing Changes"
+          textRed "----------------> Nothing Changes"
           else
             sed -i 's/<?php/<?php\n\include ("whitespacefix.php");\n/g' index.php
-            textMagenta "--> Update"
+            textBlue "----------------> Update"
         fi
     fi
 
