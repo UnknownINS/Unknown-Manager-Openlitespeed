@@ -358,6 +358,15 @@ RepairWordpress(){
 
       wp config set FS_METHOD direct --allow-root &> /dev/null
 
+      rm whitespacefix.php &> /dev/null
+
+      cp $APP_INSTALL/library/whitespacefix.php whitespacefix.php
+
+      findString=$(grep -r "whitespacefix" index.php)
+
+      if [ ! $findString ]; then
+        sed -i 'include ("whitespacefix.php");' todo.txt
+      fi
     fi
 
   done
