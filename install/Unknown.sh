@@ -70,10 +70,12 @@ StartApp() {
 
   textGreen "30) Repair DataBase.                            31) Disable Firewall."
 
+  textGreen "32) Enable Firewall.                            33) Repair Wordpress."
+
   echo ''
   textMagenta "----------------> ABOUT TOOL"
 
-  textGreen "32) Uninstall Unknown OLS.                      33) Update UNKNOWN OLS."
+  textGreen "34) Uninstall Unknown OLS.                      35) Update UNKNOWN OLS."
 
   echo ''
 
@@ -147,9 +149,13 @@ StartApp() {
 
   31) disableFirewall ;;
 
-  32) uninstallUnknownOLS ;;
+  32) enableFirewall ;;
 
-  33) updateUnknownOLS ;;
+  33) RepairWordpress ;;
+
+  34) uninstallUnknownOLS ;;
+
+  35) updateUnknownOLS ;;
 
   *) defaultAction ;;
 

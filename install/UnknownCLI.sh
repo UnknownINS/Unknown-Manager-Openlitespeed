@@ -75,8 +75,12 @@ case $1 in
 
 31) disableFirewall ;;
 
-32) uninstallUnknownOLS ;;
+32) enableFirewall ;;
 
-33) updateUnknownOLS ;;
+33) RepairWordpress ;;
+
+34) uninstallUnknownOLS ;;
+
+35) updateUnknownOLS ;;
 
 esac

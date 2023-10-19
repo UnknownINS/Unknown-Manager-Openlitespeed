@@ -100,5 +100,9 @@ updateSystem() {
 disableFirewall(){
     textYellow "----------------> DISABLE FIREWALL"
     sudo ufw disable
+}
 
+enableFirewall(){
+    textYellow "----------------> ENABLE FIREWALL"
+    sudo ufw enable
 }

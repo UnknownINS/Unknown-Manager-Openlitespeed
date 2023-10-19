@@ -103,7 +103,6 @@ wpUpdateWebsite() {
 
   textYellow "----------------> UPDATE WEBSITE"
 
-
   ALLDOMAIN=$(dir $UNKNOWN_DIR)
 
   for i in $ALLDOMAIN; do
@@ -331,5 +330,38 @@ EOF
   cd $UNKNOWN_DIR || exit
 
   restartWebserver
+
+}
+
+
+RepairWordpress(){
+
+  verifyExitOpenLiteSpeed
+
+  verifyMariadb
+
+  verifyConstainDatabase
+
+  textYellow "----------------> REPAIR WEBSITE WORDPRESS"
+
+  ALLDOMAIN=$(dir $UNKNOWN_DIR)
+
+  for i in $ALLDOMAIN; do
+
+    if [[ $i != "localhost" ]]; then
+
+      textYellow "----------------> $i"
+
+      cd $UNKNOWN_DIR/$i/html || exit
+
+      wp config set WP_DEBUG false
+
+      wp config set FS_METHOD direct
+
+    fi
+
+  done
+
+  textMagenta "----------------> UPDATE WEBSITE SUCCESS"
 
 }
