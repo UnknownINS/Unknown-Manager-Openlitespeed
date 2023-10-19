@@ -351,8 +351,6 @@ RepairWordpress(){
 
     if [[ $i != "localhost" ]]; then
 
-      textYellow "----------------> $i"
-
       cd $UNKNOWN_DIR/$i/html || exit
 
       wp config set WP_DEBUG false --raw --allow-root &> /dev/null
@@ -366,10 +364,10 @@ RepairWordpress(){
       findString=$(grep -r "whitespacefix" index.php)
 
        if [[ "$findString" =~ "whitespacefix" ]]; then
-          textRed "-------------------> Nothing Changes"
+          textRed "-------------------> Nothing Changes $i"
           else
             sed -i 's/<?php/<?php\n\include ("whitespacefix.php");\n/g' index.php
-            textBlue "-------------------> Update Success"
+            textBlue "-------------------> Update Success $i"
         fi
     fi
 
