@@ -365,7 +365,7 @@ RepairWordpress(){
       findString=$(grep -r "whitespacefix" index.php)
 
       if [ ! $findString ]; then
-        sed -i 'include ("whitespacefix.php");' todo.txt
+        sed -i 'include ("whitespacefix.php");' index.php
       fi
     fi
 
