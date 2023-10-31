@@ -73,9 +73,7 @@ backupDriver() {
 
   textYellow "----------------> START UPLOAD GOOGLE DRIVE"
 
-  rclone --transfers=1 move $BACKUP_DIR "$RCLONE_NAME:$FOLDER_NAME_REMOTE/$GET_IP_NAME"
-
-  rclone -q --min-age 2w delete "remote:$RCLONE_NAME"
+  rclone --transfers=1 move $BACKUP_DIR "$RCLONE_NAME:$FOLDER_NAME_REMOTE/$GET_IP_NAME" &>/dev/null
 
     ALLDOMAIN=$(dir $UNKNOWN_DIR)
 
