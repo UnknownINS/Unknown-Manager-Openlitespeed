@@ -26,7 +26,6 @@ backupLocal() {
 
   mkdir -p "$BACKUP_DIR"
 
-
   textYellow "----------------> START BACKUP WEBSITE"
 
     ALLDOMAIN=$(dir $UNKNOWN_DIR)
@@ -38,6 +37,8 @@ backupLocal() {
       if [ $i != "localhost" ]; then
 
         textYellow "----> BACKUP $i"
+
+        rm -rf $BACKUP_DIR/$i/$GETDAY &> /dev/null
 
         mkdir -p "$BACKUP_DIR/$i/$GETDAY"
 
