@@ -36,9 +36,10 @@ backupLocal() {
     for i in $ALLDOMAIN; do
 
       if [ $i != "localhost" ]; then
+
         textYellow "----> BACKUP $i"
 
-        mkdir -p "$BACKUP_DIR/$i/i$GETDAY"
+        mkdir -p "$BACKUP_DIR/$i/$GETDAY"
 
         zip -r $BACKUP_DIR/$i/$GETDAY/$i.zip $UNKNOWN_DIR/$i/* -q
 
