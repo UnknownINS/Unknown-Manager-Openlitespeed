@@ -40,7 +40,7 @@ backupLocal() {
 
         mkdir -p "$BACKUP_DIR/$i/i$GETDAY"
 
-        zip -r $BACKUP_DIR/$i/$GETDAY/$i.zip $i/* -q
+        zip -r $BACKUP_DIR/$i/$GETDAY/$i.zip $UNKNOWN_DIR/$i/* -q
 
         nameDatabase=$(sed "s/\./_/g" <<<"$i")
 
