@@ -73,6 +73,10 @@ backupDatabase() {
 
 }
 
+customBackupDatabase(){
+  $MYSQL_DUMP --force --opt --user=$MYSQL_USER -p$MYSQL_PASSWORD --databases $1 | gzip >"$2/$1.sql.gz"
+}
+
 renameDataBase(){
 
   $MYSQL_DUMP --force --opt --user=$MYSQL_USER -p$MYSQL_PASSWORD -R $1 > "$RESTORE_DIR/$1.sql"

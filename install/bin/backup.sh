@@ -24,19 +24,10 @@ backupLocal() {
 
   GETDAY=$(date +"%F")
 
-  textYellow "----------------> BACKUP VPS"
+  mkdir -p "$BACKUP_DIR"
 
-  rm -rf $BACKUP_DIR/$GETDAY  &>/dev/null
 
-  textYellow "----------------> START BACKUP DATABASE MYSQL"
-
-  mkdir -p "$BACKUP_DIR/$GETDAY/mysql"
-
-  backupDatabase $BACKUP_DIR/$GETDAY/mysql
-
-  textYellow "----------------> END BACKUP DATABASE MYSQL"
-
-  textYellow "----------------> START BACKUP CODE"
+  textYellow "----------------> START BACKUP WEBSITE"
 
     ALLDOMAIN=$(dir $UNKNOWN_DIR)
 
@@ -46,7 +37,15 @@ backupLocal() {
 
       if [ $i != "localhost" ]; then
         textYellow "----> BACKUP $i"
-        zip -r $BACKUP_DIR/$GETDAY/$i.zip $i/* -q
+
+        mkdir -p "$BACKUP_DIRDIR/$i/i$GETDAY"
+
+        zip -r $BACKUP_DIRDIR/$i/$GETDAY/$i.zip $i/* -q
+
+        nameDatabase=$(sed "s/\./_/g" <<<"$i")
+
+        customBackupDatabase $nameDatabase $BACKUP_DIR/$i/$GETDAY
+
       fi
 
     done
@@ -68,15 +67,11 @@ backupDriver() {
 
   GETDAY=$(date +"%F")
 
-  rm -rf $BACKUP_DIR/$GETDAY &>/dev/null
-
   backupLocal
 
   textYellow "----------------> START UPLOAD GOOGLE DRIVE"
 
-  rclone --transfers=1 move $BACKUP_DIR/$GETDAY "$RCLONE_NAME:$FOLDER_NAME_REMOTE/$GET_IP_NAME/$GETDAY" &>/dev/null
-
-  rm -rf $BACKUP_DIR/$GETDAY &>/dev/null
+  rclone --transfers=1 move $BACKUP_DIR "$RCLONE_NAME:$FOLDER_NAME_REMOTE/$GET_IP_NAME" &>/dev/null
 
   textMagenta "----------------> END UPLOAD GOOGLE DRIVE"
 
