@@ -43,8 +43,6 @@ uninstallMariaDb() {
   sudo apt --fix-broken install &>/dev/null
 
   textMagenta "----------------> UNINSTALL MARIADB SUCCESS"
-
-
 }
 
 createDatabase() {
