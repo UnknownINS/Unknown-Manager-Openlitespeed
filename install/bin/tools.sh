@@ -23,7 +23,7 @@ unInstallNetData(){
 createFTPForDomain(){
 
     FTP_PASSWORD=$(openssl rand -base64 20)
-    sudo adduser -d $UNKNOWN_DIR/$inputDomain -g ftponly -p $FTP_PASSWORD -s /bin/ftponly $1
+    useradd -d $UNKNOWN_DIR/$inputDomain -g ftponly -m -s /bin/ftponly $1
     textMagenta "----------------> USERNAME FTP : $1"
     textMagenta "----------------> PASSWORD FTP : $FTP_PASSWORD"
 }
