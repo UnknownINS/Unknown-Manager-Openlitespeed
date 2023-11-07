@@ -46,9 +46,6 @@ createFTPForDomain(){
 
 }
 
-configVSFTPD(){
-
-}
 installFTPForDomain(){
 
   textYellow "----------------> INSTALL FTP FOR DOMAIN"
