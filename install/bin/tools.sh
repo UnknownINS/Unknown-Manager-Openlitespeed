@@ -11,7 +11,7 @@ installNetData(){
   textMagenta "----------------> INSTALL SUCCESS : $GET_IP_NAME:19999"
 }
 unInstallNetData(){
-  
+
   textYellow "----------------> UNINSTALL NETDATA"
 
   if [ -f /tmp/netdata-service-cmds ]; then
