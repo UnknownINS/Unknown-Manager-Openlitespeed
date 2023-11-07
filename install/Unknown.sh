@@ -72,10 +72,14 @@ StartApp() {
 
   textGreen "32) Enable Firewall.                            33) Repair Wordpress."
 
+  textGreen "34) Install NetData.                            35) Uninstall NetData"
+
+  textGreen "36) Install FTP for Domain.                     "
+
   echo ''
   textMagenta "----------------> ABOUT TOOL"
 
-  textGreen "34) Uninstall Unknown OLS.                      35) Update UNKNOWN OLS."
+  textGreen "37) Uninstall Unknown OLS.                      38) Update UNKNOWN OLS."
 
   echo ''
 
@@ -153,9 +157,15 @@ StartApp() {
 
   33) RepairWordpress ;;
 
-  34) uninstallUnknownOLS ;;
+  34) installNetData ;;
 
-  35) updateUnknownOLS ;;
+  35) unInstallNetData ;;
+
+  36) installFTPforDomain ;;
+
+  37) uninstallUnknownOLS ;;
+
+  38) updateUnknownOLS ;;
 
   *) defaultAction ;;
 

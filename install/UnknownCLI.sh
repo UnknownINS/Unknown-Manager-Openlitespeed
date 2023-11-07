@@ -79,8 +79,14 @@ case $1 in
 
 33) RepairWordpress ;;
 
-34) uninstallUnknownOLS ;;
+34) installNetData ;;
 
-35) updateUnknownOLS ;;
+ 35) unInstallNetData ;;
+
+36) installFTPforDomain ;;
+
+37) uninstallUnknownOLS ;;
+
+38) updateUnknownOLS ;;
 
 esac
