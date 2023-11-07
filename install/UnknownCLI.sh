@@ -85,8 +85,10 @@ case $1 in
 
 36) installFTPForDomain ;;
 
-37) uninstallUnknownOLS ;;
+37) deleteFTPDomain ;;
 
-38) updateUnknownOLS ;;
+38) uninstallUnknownOLS ;;
+
+39) updateUnknownOLS ;;
 
 esac

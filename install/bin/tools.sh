@@ -20,6 +20,41 @@ unInstallNetData(){
   textMagenta "----------------> UNINSTALL SUCCESS"
 }
 
+
+deleteFTPDomain(){
+
+  textYellow "----------------> DELETE FTP ACCOUNT FOR DOMAIN"
+
+    read -p "----------------> Enter Domain : " inputDomain
+
+    validate="^([a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]\.)+[a-zA-Z]{2,}$"
+
+    if [[ -z "$inputDomain" ]]; then
+      textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
+      exit
+    fi
+
+  verifyDir $UNKNOWN_DIR/$inputDomain
+
+  nameFTP=$(sed "s/\./_/g" <<<"$inputDomain")
+
+  if [[ "$inputDomain" =~ $validate ]]; then
+      verifyNameFTP=$(sudo cat /etc/passwd | grep $nameFTP)
+      if [[ -z "$verifyNameFTP" ]]; then
+        echo ''
+        textRed "----------------> DOMAIN NOT FOUND FTP ACCOUNT"
+      else
+        deluser $nameFTP
+        textRed "----------------> DELETE SUCCESS FTP ACCOUNT"
+      fi
+
+  else
+    textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
+    exit
+  fi
+
+}
+
 createFTPForDomain(){
     useradd -d $UNKNOWN_DIR/$2/html -g ftponly -m -s /bin/ftponly $1 &> /dev/null
     textMagenta "----------------> PASSWORD FOR FTP ACCOUNT : "
@@ -86,8 +121,6 @@ sudo addgroup ftponly &> /dev/null
 }
 
 installFTPForDomain(){
-
-  textYellow "----------------> INSTALL FTP FOR DOMAIN"
 
   if [ ! -f /etc/vsftpd.conf ]; then
       textYellow "----------------> INSTALL LIBRARY VSFTPD"

@@ -74,12 +74,12 @@ StartApp() {
 
   textGreen "34) Install NetData.                            35) Uninstall NetData"
 
-  textGreen "36) Install FTP for Domain.                     "
+  textGreen "36) Install FTP for Domain.                     37) Delete FTP Domain"
 
   echo ''
   textMagenta "----------------> ABOUT TOOL"
 
-  textGreen "37) Uninstall Unknown OLS.                      38) Update UNKNOWN OLS."
+  textGreen "38) Uninstall Unknown OLS.                      39) Update UNKNOWN OLS."
 
   echo ''
 
@@ -163,9 +163,11 @@ StartApp() {
 
   36) installFTPForDomain ;;
 
-  37) uninstallUnknownOLS ;;
+  37) deleteFTPDomain ;;
 
-  38) updateUnknownOLS ;;
+  38) uninstallUnknownOLS ;;
+
+  39) updateUnknownOLS ;;
 
   *) defaultAction ;;
 
