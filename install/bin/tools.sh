@@ -25,7 +25,7 @@ createFTPForDomain(){
     useradd -d $UNKNOWN_DIR/$2/html -g ftponly -m -s /bin/ftponly $1 &> /dev/null
     textMagenta "----------------> PASSWORD FOR FTP ACCOUNT : "
     passwd $1
-    textMagenta "----------------> CREATE FTP USER FOR DOMAIN $2 SUCCESS"
+    textMagenta "----------------> USERNAME FTP ACCOUNT : $1"
 }
 
 callbackFTPForDomain(){
