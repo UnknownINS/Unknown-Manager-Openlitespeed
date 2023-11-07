@@ -80,7 +80,7 @@ sudo chmod a+x /bin/ftponly
 
 sudo echo "/bin/ftponly" >> /etc/shells
 
-sudo addgroup ftponly
+sudo addgroup ftponly &> /dev/null
 
 }
 
