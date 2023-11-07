@@ -70,10 +70,11 @@ configVSFTPD(){
   sudo cp /etc/vsftpd.conf /etc/vsftpd.conf_default
   sudo cp $APP_INSTALL/library/vsftpd.conf /etc/vsftpd.conf
 
-  contentOnlyFTP="#!/bin/sh
+  contentOnlyFTP="
+#!/bin/sh
 echo 'This account is limited to FTP access only.'"
-    cat >/bin/ftponly <<EOF
-      $contentOnlyFTP
+  cat >/bin/ftponly <<EOF
+$contentOnlyFTP
 EOF
 
 sudo chmod a+x /bin/ftponly
@@ -100,5 +101,4 @@ installFTPForDomain(){
   textYellow "----------------> CREATE FTP FOR DOMAIN"
   echo ''
   callbackFTPForDomain
-
 }
