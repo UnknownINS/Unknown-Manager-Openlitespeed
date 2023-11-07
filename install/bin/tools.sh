@@ -16,6 +16,7 @@ unInstallNetData(){
   wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh --uninstall
   sudo apt autoremove
   sudo apt autoclean
+  rm /tmp/netdata-kickstart.sh &> /dev/null
   textMagenta "----------------> UNINSTALL SUCCESS"
 }
 
