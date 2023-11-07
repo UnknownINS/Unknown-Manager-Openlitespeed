@@ -20,24 +20,32 @@ unInstallNetData(){
 }
 
 createFTPForDomain(){
+   textYellow "----------------> CREATE FTP FOR DOMAIN"
+    FTP_PASSWORD=$(openssl rand -base64 20)
+    sudo adduser -m -d $UNKNOWN_DIR/$inputDomain -g ftponly -p $FTP_PASSWORD -s /bin/ftponly $1
+}
+
+callbackFTPForDomain(){
 
     read -p "----------------> Enter Domain : " inputDomain
 
     validate="^([a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]\.)+[a-zA-Z]{2,}$"
 
     if [[ -z "$inputDomain" ]]; then
-
       textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
-
       exit
     fi
 
   verifyDir $UNKNOWN_DIR/$inputDomain
 
-  if [[ "$inputDomain" =~ $validate ]]; then
-    textYellow "----------------> CREATE FTP FOR DOMAIN"
+  nameFTP=$(sed "s/\./_/g" <<<"$inputDomain")
 
-    FTP_PASSWORD=$(openssl rand -base64 20)
+  if [[ "$inputDomain" =~ $validate ]]; then
+
+      verifyNameFTP=$(sudo cat /etc/passwd | grep nameFTP)
+      if [[ -z "$verifyNameFTP" ]]; then
+        createFTPForDomain $nameFTP
+      fi
 
   else
     textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
@@ -45,18 +53,43 @@ createFTPForDomain(){
   fi
 }
 
+restartVSFTPD(){
+    sudo systemctl restart vsftpd
+}
+
+configVSFTPD(){
+  sudo ufw allow 20,21,990/tcp
+  sudo ufw allow 40000:50000/tcp
+  sudo ufw reload
+  sudo cp /etc/vsftpd.conf /etc/vsftpd.conf_default
+  sudo cp $APP_INSTALL/library/vsftpd.conf /etc/vsftpd.conf
+
+  contentOnlyFTP="#!/bin/sh
+echo 'This account is limited to FTP access only.'"
+    cat >/bin/ftponly <<EOF
+      $contentOnlyFTP
+EOF
+
+sudo chmod a+x /bin/ftponly
+
+sudo echo "/bin/ftponly" >> /etc/shells
+
+sudo addgroup ftponly
+
+}
+
 installFTPForDomain(){
 
   textYellow "----------------> INSTALL FTP FOR DOMAIN"
 
   if [ ! -f /etc/vsftpd.conf ]; then
-    echo "Không";
-    textMagenta "----------------> FTP SEVER NOT INSTALL"
-    else
-      echo "có";
-      #sudo apt install vsftpd -y
-      #configVSFTPD
-      #createFTPForDomain
+      textYellow "----------------> INSTALL LIBRARY VSFTPD"
+      sudo apt install vsftpd -y
+      sudo systemctl start vsftpd
+      sudo systemctl enable vsftpd
+      configVSFTPD
+      restartVSFTPD
   fi
+  callbackFTPForDomain
 
 }

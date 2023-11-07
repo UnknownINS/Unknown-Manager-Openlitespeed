@@ -23,6 +23,7 @@ securityDomain() {
       chown $FTP_NAME index.php
 
   fi
+    chown nobody:nogroup $UNKNOWN_DIR/$1/html
 
 
 }
