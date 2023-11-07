@@ -81,7 +81,7 @@ case $1 in
 
 34) installNetData ;;
 
- 35) unInstallNetData ;;
+35) unInstallNetData ;;
 
 36) installFTPForDomain ;;
 
