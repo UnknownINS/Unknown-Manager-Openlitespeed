@@ -1,7 +1,7 @@
 installNetData(){
   textYellow "----------------> INSTALL NETDATA"
 
-  if [ ! -f /tmp/netdata-service-cmds ]; then
+  if [ ! -f /tmp/netdata-kickstart.sh ]; then
     wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh
     sudo ufw allow 19999/tcp &>/dev/null
     sudo ufw reload
@@ -14,10 +14,10 @@ unInstallNetData(){
 
   textYellow "----------------> UNINSTALL NETDATA"
 
-  if [ -f /tmp/netdata-service-cmds ]; then
+  if [ -f /tmp/netdata-kickstart.sh ]; then
     systemctl stop netdata
     wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh --uninstall
-    rm /tmp/netdata-service-cmds &> /dev/null
+    rm -rf /tmp/ &>/dev/null
   fi
   sudo apt autoremove
   sudo apt autoclean
