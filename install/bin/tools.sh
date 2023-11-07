@@ -24,6 +24,9 @@ createFTPForDomain(){
    textYellow "----------------> CREATE FTP FOR DOMAIN"
     FTP_PASSWORD=$(openssl rand -base64 20)
     sudo adduser -m -d $UNKNOWN_DIR/$inputDomain -g ftponly -p $FTP_PASSWORD -s /bin/ftponly $1
+
+    textMagenta "----------------> USERNAME FTP : $1"
+    textMagenta "----------------> PASSWORD FTP : $FTP_PASSWORD"
 }
 
 callbackFTPForDomain(){
@@ -46,6 +49,8 @@ callbackFTPForDomain(){
       verifyNameFTP=$(sudo cat /etc/passwd | grep nameFTP)
       if [[ -z "$verifyNameFTP" ]]; then
         createFTPForDomain $nameFTP
+      else
+        textRed "----------------> USER FTP EXIST"
       fi
 
   else
