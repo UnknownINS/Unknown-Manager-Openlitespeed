@@ -16,8 +16,9 @@ unInstallNetData(){
   textYellow "----------------> UNINSTALL NETDATA"
 
   if [ -f /tmp/netdata-service-cmds ]; then
-      systemctl stop netdata
+    systemctl stop netdata
     wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh --uninstall
+    rm /tmp/netdata-service-cmds &> /dev/null
   fi
   sudo apt autoremove
   sudo apt autoclean
@@ -28,5 +29,5 @@ unInstallNetData(){
 installFTPforDomain(){
 
   textYellow "----------------> INSTALL FTP FOR DOMAIN"
-  
+
 }
