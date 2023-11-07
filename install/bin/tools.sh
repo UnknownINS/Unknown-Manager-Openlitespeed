@@ -8,8 +8,7 @@ installNetData(){
   fi
   systemctl stop netdata
   systemctl start netdata
-
-  textMagenta "----------------> INSTALL SUCCESS"
+  textMagenta "----------------> INSTALL SUCCESS : $GET_IP_NAME:19999"
 }
 unInstallNetData(){
 
