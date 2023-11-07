@@ -21,7 +21,7 @@ unInstallNetData(){
 }
 
 createFTPForDomain(){
-   textYellow "----------------> CREATE FTP FOR DOMAIN"
+
     FTP_PASSWORD=$(openssl rand -base64 20)
     sudo adduser -m -d $UNKNOWN_DIR/$inputDomain -g ftponly -p $FTP_PASSWORD -s /bin/ftponly $1
 
@@ -96,6 +96,9 @@ installFTPForDomain(){
       configVSFTPD
       restartVSFTPD
   fi
+  echo ''
+  textYellow "----------------> CREATE FTP FOR DOMAIN"
+  echo ''
   callbackFTPForDomain
 
 }
