@@ -25,4 +25,8 @@ installFTPforDomain(){
 
   textYellow "----------------> INSTALL FTP FOR DOMAIN"
 
+  if [ -f /etc/vsftpd.conf ]; then
+    echo "có"
+  fi
+
 }
