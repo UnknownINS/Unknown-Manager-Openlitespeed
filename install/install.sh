@@ -12,7 +12,6 @@ installWebServer() {
 
   textYellow "----------------> INSTALL MARIADB"
 
-
   UP=$(pgrep mariadb | wc -l)
 
   if [ "$UP" -ne 1 ]; then

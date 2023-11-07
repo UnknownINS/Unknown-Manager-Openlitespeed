@@ -50,7 +50,6 @@ getAllDomain() {
 }
 
 verifyExitDir() {
-
   if [ -d $1 ]; then
     textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
     exit
