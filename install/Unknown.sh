@@ -161,7 +161,7 @@ StartApp() {
 
   35) unInstallNetData ;;
 
-  36) installFTPforDomain ;;
+  36) installFTPForDomain ;;
 
   37) uninstallUnknownOLS ;;
 

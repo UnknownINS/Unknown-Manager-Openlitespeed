@@ -43,7 +43,6 @@ createFTPForDomain(){
     textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
     exit
   fi
-
 }
 
 installFTPForDomain(){
