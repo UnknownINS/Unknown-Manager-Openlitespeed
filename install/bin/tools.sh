@@ -44,7 +44,7 @@ deleteFTPDomain(){
         echo ''
         textRed "----------------> DOMAIN NOT FOUND FTP ACCOUNT"
       else
-        deluser $nameFTP
+        deluser $nameFTP &> /dev/null
         textRed "----------------> DELETE SUCCESS FTP ACCOUNT"
       fi
 
