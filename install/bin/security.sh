@@ -4,7 +4,15 @@ securityDomain() {
 
   textYellow "----> $1"
 
-  chown -R $FTP_NAME $UNKNOWN_DIR/$1
+  nameFTP=$(sed "s/\./_/g" <<<"$1")
+
+  verifyNameFTP=$(sudo cat /etc/passwd | grep $nameFTP)
+
+  if [[ -z "$verifyNameFTP" ]]; then
+      chown -R $FTP_NAME $UNKNOWN_DIR/$1
+    else
+      chown -R $nameFTP::ftponly $UNKNOWN_DIR/$1
+  fi
 
   cd $UNKNOWN_DIR/$1/html || exit
 
@@ -18,14 +26,15 @@ securityDomain() {
 
       chown -R nobody:nogroup $UNKNOWN_DIR/$1/html/wp-content
 
-      chown -R $FTP_NAME plugins themes
-
-      chown $FTP_NAME index.php
-
+        if [[ -z "$verifyNameFTP" ]]; then
+            chown -R $FTP_NAME plugins themes
+            chown $FTP_NAME index.php
+          else
+            chown -R $nameFTP::ftponly plugins themes
+            chown $nameFTP::ftponly index.php
+        fi
   fi
     chown nobody:nogroup $UNKNOWN_DIR/$1/html
-
-
 }
 
 securityWebServer() {

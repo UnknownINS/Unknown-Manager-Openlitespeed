@@ -21,11 +21,12 @@ unInstallNetData(){
 }
 
 createFTPForDomain(){
-
     useradd -d $UNKNOWN_DIR/$2/html -g ftponly -m -s /bin/ftponly $1 &> /dev/null
     textMagenta "----------------> PASSWORD FOR FTP ACCOUNT : "
     passwd $1
-    textMagenta "----------------> USERNAME FTP ACCOUNT : $1"
+    textYellow "----------------> PROTECT WEBSITE"
+    securityDomain $2
+    textMagenta "----------------> USERNAME FTP ACCOUNT FOR DOMAIN $2 : $1"
 }
 
 callbackFTPForDomain(){
@@ -48,6 +49,7 @@ callbackFTPForDomain(){
       if [[ -z "$verifyNameFTP" ]]; then
         createFTPForDomain $nameFTP $inputDomain
       else
+        echo ''
         textRed "----------------> USER FTP EXIST"
       fi
 
