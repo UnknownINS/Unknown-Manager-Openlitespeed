@@ -13,15 +13,11 @@ installNetData(){
 unInstallNetData(){
 
   textYellow "----------------> UNINSTALL NETDATA"
-
-  if [ -f /tmp/netdata-kickstart.sh ]; then
-    systemctl stop netdata
-    wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh --uninstall
-    rm -rf /tmp/ &>/dev/null
-  fi
+  wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh --uninstall
+  rm -rf /tmp/ &>/dev/null
   sudo apt autoremove
   sudo apt autoclean
-    textMagenta "----------------> UNINSTALL SUCCESS"
+  textMagenta "----------------> UNINSTALL SUCCESS"
 }
 
 
