@@ -44,7 +44,15 @@ wpCreateWebsite() {
 
   textYellow "----------------> WORDPRESS CORE CONFIG"
 
-  wp core config --dbhost=localhost --dbname=$nameDatabase --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --allow-root &>/dev/null
+  MSQL_USER_PASSWORD=$(openssl rand -base64 15);
+
+  createUserDatabase $nameDatabase $MSQL_USER_PASSWORD
+
+  GrantingSQLUserPermissions $nameDatabase $nameDatabase
+
+  FlushMYSQL
+
+  wp core config --dbhost=localhost --dbname=$nameDatabase --dbuser=$nameDatabase --dbpass=$MSQL_USER_PASSWORD --allow-root &>/dev/null
 
   textYellow "----------------> WORDPRESS CORE INSTALL"
 

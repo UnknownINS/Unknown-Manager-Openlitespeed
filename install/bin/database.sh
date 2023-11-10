@@ -45,6 +45,16 @@ uninstallMariaDb() {
   textMagenta "----------------> UNINSTALL MARIADB SUCCESS"
 }
 
+FlushMYSQL(){
+  mysql -u root -e "FLUSH PRIVILEGES;";
+}
+GrantingSQLUserPermissions(){
+    mysql -u root -e "GRANT ALL PRIVILEGES ON $1.* TO '$2'@'localhost' WITH GRANT OPTION;";
+}
+
+createUserDatabase(){
+  mysql -u root -e "CREATE USER '$1'@'localhost' IDENTIFIED WITH mysql_native_password BY '$2';";
+}
 createDatabase() {
   $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "CREATE DATABASE $1;"
 }
