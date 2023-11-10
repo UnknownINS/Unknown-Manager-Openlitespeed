@@ -255,7 +255,17 @@ wpRenameDomain() {
 
   databaseOldDomain=$(sed "s/\./_/g" <<<"$oldDomain")
 
+  PRIVATE_SQL_PASSWORD_DOMAIN=$(openssl rand -base64 15);
+
   renameDataBase $databaseOldDomain $databaseNewDomain
+
+  createUserDatabase $databaseNewDomain PRIVATE_SQL_PASSWORD_DOMAIN
+
+  GrantingSQLUserPermissions $databaseNewDomain $databaseNewDomain
+
+  deleteUserDatabase $databaseOldDomain &> /dev/null
+
+  FlushMYSQL
 
   textYellow "----------------> RENAME DOMAIN"
 
@@ -267,9 +277,9 @@ wpRenameDomain() {
 
   wp config set DB_NAME "$databaseNewDomain" --allow-root &>/dev/null
 
-  wp config set DB_USER "$MYSQL_USER" --allow-root &>/dev/null
+  wp config set DB_USER "$databaseNewDomain" --allow-root &>/dev/null
 
-  wp config set DB_PASSWORD "$MYSQL_PASSWORD" --allow-root &>/dev/null
+  wp config set DB_PASSWORD "$PRIVATE_SQL_PASSWORD_DOMAIN" --allow-root &>/dev/null
 
   wp search-replace $oldDomain $newDomain --all-tables --allow-root &>/dev/null
 

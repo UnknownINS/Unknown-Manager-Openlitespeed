@@ -90,15 +90,7 @@ renameDataBase(){
 
   createDatabase $2
 
-  createUserDatabase $2
-
-  GrantingSQLUserPermissions $2 $2
-
   deleteDatabase $1
-
-  deleteUserDatabase $1 &> /dev/null
-
-  FlushMYSQL
 
   importDatabase $2 "$RESTORE_DIR/$1.sql"
 
