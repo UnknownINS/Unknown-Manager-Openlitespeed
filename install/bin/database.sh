@@ -53,7 +53,7 @@ GrantingSQLUserPermissions(){
 }
 
 createUserDatabase(){
-  $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "CREATE USER '$1'@'localhost' IDENTIFIED WITH mysql_native_password BY '$2';"
+  $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "CREATE USER '$1'@'localhost' IDENTIFIED BY '$2';"
 }
 createDatabase() {
   $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "CREATE DATABASE $1;"
