@@ -44,15 +44,15 @@ wpCreateWebsite() {
 
   textYellow "----------------> WORDPRESS CORE CONFIG"
 
-  MSQL_USER_PASSWORD=$(openssl rand -base64 15);
+  PRIVATE_SQL_PASSWORD_DOMAIN=$(openssl rand -base64 15);
 
-  createUserDatabase $nameDatabase $MSQL_USER_PASSWORD
+  createUserDatabase $nameDatabase $PRIVATE_SQL_PASSWORD_DOMAIN
 
   GrantingSQLUserPermissions $nameDatabase $nameDatabase
 
   FlushMYSQL
 
-  wp core config --dbhost=localhost --dbname=$nameDatabase --dbuser=$nameDatabase --dbpass=$MSQL_USER_PASSWORD --allow-root &>/dev/null
+  wp core config --dbhost=localhost --dbname=$nameDatabase --dbuser=$nameDatabase --dbpass=$PRIVATE_SQL_PASSWORD_DOMAIN --allow-root &>/dev/null
 
   textYellow "----------------> WORDPRESS CORE INSTALL"
 
@@ -165,6 +165,8 @@ wpDeleteWebsite() {
   nameDatabase=$(sed "s/\./_/g" <<<"$inputDomain")
 
   deleteDatabase $nameDatabase &>/dev/null
+
+  deleteUserDatabase $nameDatabase &>/dev/null
 
   textYellow "----------------> UPDATE HTTP/HTTPS CONFIG"
 
@@ -329,7 +331,9 @@ mkdir -p $UNKNOWN_DIR/$oldDomain/html/
 
 nameDatabase=$(sed "s/\./_/g" <<<"$oldDomain")
 
-deleteDatabase $nameDatabase
+deleteDatabase $nameDatabase &>/dev/null
+
+deleteUserDatabase $nameDatabase &>/dev/null
 
   cat >$UNKNOWN_DIR/$oldDomain/html/.htaccess <<EOF
 $contentHtaccess

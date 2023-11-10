@@ -50,6 +50,14 @@ restoreRemote() {
 
   createDatabase $nameDatabase &>/dev/null
 
+  PRIVATE_SQL_PASSWORD_DOMAIN=$(openssl rand -base64 15);
+
+  createUserDatabase $nameDatabase $PRIVATE_SQL_PASSWORD_DOMAIN
+
+  GrantingSQLUserPermissions $nameDatabase $nameDatabase
+
+  FlushMYSQL
+
   mkdir -p $UNKNOWN_DIR/$inputDomain/html
 
   cd $UNKNOWN_DIR/$inputDomain/html || exit
@@ -76,8 +84,8 @@ restoreRemote() {
 
   wp config set DB_HOST "localhost" --allow-root &>/dev/null
   wp config set DB_NAME "$nameDatabase" --allow-root &>/dev/null
-  wp config set DB_USER "$MYSQL_USER" --allow-root &>/dev/null
-  wp config set DB_PASSWORD "$MYSQL_PASSWORD" --allow-root &>/dev/null
+  wp config set DB_USER "$nameDatabase" --allow-root &>/dev/null
+  wp config set DB_PASSWORD "$PRIVATE_SQL_PASSWORD_DOMAIN" --allow-root &>/dev/null
   wp search-replace $oldDomain $inputDomain --all-tables --allow-root &>/dev/null
 
   textYellow "----------------> INSTALL VIRTUALHOST"

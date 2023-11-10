@@ -55,6 +55,11 @@ GrantingSQLUserPermissions(){
 createUserDatabase(){
   $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "CREATE USER '$1'@'localhost' IDENTIFIED BY '$2';"
 }
+
+deleteUserDatabase(){
+    $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "DROP USER '$1'@'localhost';"
+}
+
 createDatabase() {
   $MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "CREATE DATABASE $1;"
 }
@@ -68,17 +73,11 @@ importDatabase() {
 }
 
 backupDatabase() {
-
   mkdir -p $1
-
   databases=$($MYSQL_BIN --user=$MYSQL_USER -p$MYSQL_PASSWORD -e "SHOW DATABASES;" | grep -Ev "(Database|information_schema|performance_schema|mysql|sys)")
-
   for db in $databases; do
-
     $MYSQL_DUMP --force --opt --user=$MYSQL_USER -p$MYSQL_PASSWORD --databases $db | gzip >"$1/$db.sql.gz"
-
   done
-
 }
 
 customBackupDatabase(){
@@ -91,7 +90,15 @@ renameDataBase(){
 
   createDatabase $2
 
+  createUserDatabase $2
+
+  GrantingSQLUserPermissions $2 $2
+
   deleteDatabase $1
+
+  deleteUserDatabase $1 &> /dev/null
+
+  FlushMYSQL
 
   importDatabase $2 "$RESTORE_DIR/$1.sql"
 
