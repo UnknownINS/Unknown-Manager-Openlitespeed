@@ -397,3 +397,80 @@ RepairWordpress(){
   textMagenta "----------------> REPAIR WEBSITE SUCCESS"
 
 }
+
+disableWPCRON(){
+
+    read -p "----------------> Enter Domain : " Domain
+
+    verifyDir $Domain
+
+    textYellow "----------------> DISABLE WP CRON JOB FOR DOMAIN $Domain"
+
+    cd $UNKNOWN_DIR/$Domain/html || exit
+
+    wp config set DISABLE_WP_CRON true --raw --allow-root &> /dev/null
+
+    cd $UNKNOWN_DIR || exit
+}
+
+enableWPCRON(){
+
+    read -p "----------------> Enter Domain : " Domain
+
+    verifyDir $Domain
+
+    textYellow "----------------> ENABLE WP CRON JOB"
+
+    cd $UNKNOWN_DIR/$Domain/html || exit
+
+    wp config set DISABLE_WP_CRON false --raw --allow-root &> /dev/null
+
+    cd $UNKNOWN_DIR || exit
+}
+
+disableAllWPCRON(){
+
+    textYellow "----------------> DISABLE WP CRON JOB ALL WEBSITE WORDPRESS"
+
+    ALLDOMAIN=$(dir $UNKNOWN_DIR)
+
+    for i in $ALLDOMAIN; do
+
+      if [[ $i != "localhost" ]]; then
+
+        textYellow "----------------> $i"
+        cd $UNKNOWN_DIR/$i/html || exit
+        wp config set DISABLE_WP_CRON true --raw --allow-root &> /dev/null
+
+      fi
+
+    done
+
+    cd $UNKNOWN_DIR || exit
+
+    textMagenta "----------------> DISABLE WP CRON SUCCESS"
+}
+
+enableAllWPCRON(){
+
+    textYellow "----------------> ENABLE WP CRON JOB ALL WEBSITE WORDPRESS"
+
+    ALLDOMAIN=$(dir $UNKNOWN_DIR)
+
+    for i in $ALLDOMAIN; do
+
+      if [[ $i != "localhost" ]]; then
+
+        textYellow "----------------> $i"
+        cd $UNKNOWN_DIR/$i/html || exit
+        wp config set DISABLE_WP_CRON false --raw --allow-root &> /dev/null
+
+      fi
+
+    done
+
+    cd $UNKNOWN_DIR || exit
+
+    textMagenta "----------------> ENABLE WP CRON SUCCESS"
+}
+

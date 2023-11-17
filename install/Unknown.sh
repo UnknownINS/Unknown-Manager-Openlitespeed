@@ -76,10 +76,14 @@ StartApp() {
 
   textGreen "36) Install FTP for Domain.                     37) Delete FTP Domain"
 
+  textGreen "38) Disable Cron Job For Domain.                39) Disable Cron Job All Website"
+
+  textGreen "40) Enable Cron Job For Domain.                 41) Enable Cron Job All Website"
+
   echo ''
   textMagenta "----------------> ABOUT TOOL"
 
-  textGreen "38) Uninstall Unknown OLS.                      39) Update UNKNOWN OLS."
+  textGreen "42) Uninstall Unknown OLS.                      43) Update UNKNOWN OLS."
 
   echo ''
 
@@ -165,9 +169,17 @@ StartApp() {
 
   37) deleteFTPDomain ;;
 
-  38) uninstallUnknownOLS ;;
+  38) disableWPCRON ;;
 
-  39) updateUnknownOLS ;;
+  39) disableAllWPCRON ;;
+
+  40) enableWPCRON ;;
+
+  41) enableAllWPCRON ;;
+
+  42) uninstallUnknownOLS ;;
+
+  43) updateUnknownOLS ;;
 
   *) defaultAction ;;
 

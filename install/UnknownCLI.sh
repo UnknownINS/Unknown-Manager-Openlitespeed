@@ -87,8 +87,16 @@ case $1 in
 
 37) deleteFTPDomain ;;
 
-38) uninstallUnknownOLS ;;
+38) disableWPCRON ;;
 
-39) updateUnknownOLS ;;
+39) disableAllWPCRON ;;
+
+40) enableWPCRON ;;
+
+41) enableAllWPCRON ;;
+
+42) uninstallUnknownOLS ;;
+
+43) updateUnknownOLS ;;
 
 esac
