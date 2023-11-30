@@ -145,10 +145,12 @@ checkSystem(){
         echo ''
     free -hlt
 
+    echo ''
     textMagenta "----------------> OS VERSION : "
     echo ''
     hostnamectl
-
+    
+    echo ''
     textMagenta "----------------> DISK : "
     echo ''
     df -h
