@@ -80,10 +80,12 @@ StartApp() {
 
   textGreen "40) Enable Cron Job For Domain.                 41) Enable Cron Job All Website"
 
+  textGreen "42) Check System.                               43) Check Use Hard Drive"
+
   echo ''
   textMagenta "----------------> ABOUT TOOL"
 
-  textGreen "42) Uninstall Unknown OLS.                      43) Update UNKNOWN OLS."
+  textGreen "44) Uninstall Unknown OLS.                      45) Update UNKNOWN OLS."
 
   echo ''
 
@@ -177,9 +179,13 @@ StartApp() {
 
   41) enableAllWPCRON ;;
 
-  42) uninstallUnknownOLS ;;
+  42) checkSystem ;;
 
-  43) updateUnknownOLS ;;
+  43) checkUseHardDrive ;;
+
+  44) uninstallUnknownOLS ;;
+
+  45) updateUnknownOLS ;;
 
   *) defaultAction ;;
 

@@ -95,8 +95,12 @@ case $1 in
 
 41) enableAllWPCRON ;;
 
-42) uninstallUnknownOLS ;;
+42) checkSystem ;;
 
-43) updateUnknownOLS ;;
+43) checkUseHardDrive ;;
+
+44) uninstallUnknownOLS ;;
+
+45) updateUnknownOLS ;;
 
 esac

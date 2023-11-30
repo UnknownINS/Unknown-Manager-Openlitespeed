@@ -134,3 +134,47 @@ installFTPForDomain(){
   echo ''
   callbackFTPForDomain
 }
+
+checkSystem(){
+
+    textYellow "----------------> INFORMATION SYSTEM"
+
+    echo ''
+
+    textMagenta "----------------> MEMORY : "
+        echo ''
+    free -hlt
+
+    textMagenta "----------------> OS VERSION : "
+    echo ''
+    hostnamectl
+
+    textMagenta "----------------> DISK : "
+    echo ''
+    df -h
+}
+checkUseHardDrive(){
+
+      textYellow "----------------> USER HARD DRIVE"
+
+      echo ''
+
+    ALLDOMAIN=$(dir $UNKNOWN_DIR)
+
+    cd $UNKNOWN_DIR || exit
+
+    for i in $ALLDOMAIN; do
+
+      if [ $i != "localhost" ]; then
+
+        USER=$(du -ad 0 --block-size=M $UNKNOWN_DIR/$i)
+
+        textMagenta "----------------> $i $USER "
+
+      fi
+
+    done
+
+    cd $UNKNOWN_DIR || exit
+
+}
