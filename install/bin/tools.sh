@@ -149,7 +149,7 @@ checkSystem(){
     textMagenta "----------------> OS VERSION : "
     echo ''
     hostnamectl
-    
+
     echo ''
     textMagenta "----------------> DISK : "
     echo ''
@@ -169,9 +169,11 @@ checkUseHardDrive(){
 
       if [ $i != "localhost" ]; then
 
-        USER=$(du -ad 0 --block-size=M $UNKNOWN_DIR/$i)
+        cd $UNKNOWN_DIR/$i || exit
 
-        textMagenta "----------------> $i $USER "
+        USER=$(du -ad 0 --block-size=M)
+
+        textBlue "----------------> $i $USER "
 
       fi
 
