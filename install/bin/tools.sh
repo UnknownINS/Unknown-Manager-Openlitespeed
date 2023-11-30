@@ -171,9 +171,11 @@ checkUseHardDrive(){
 
         cd $UNKNOWN_DIR/$i || exit
 
-        USER=$(du -ad 0 --block-size=M)
+        textBlue "----------------> $i"
 
-        textBlue "----------------> $i $USER "
+        du -ad 0 --block-size=M
+
+        echo ''
 
       fi
 
