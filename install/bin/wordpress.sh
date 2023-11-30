@@ -399,7 +399,6 @@ RepairWordpress(){
 }
 
 disableWPCRON(){
-
     read -p "----------------> Enter Domain : " Domain
 
     verifyDir $Domain
