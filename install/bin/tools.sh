@@ -141,8 +141,12 @@ checkSystem(){
 
     echo ''
 
+    textMagenta "----------------> IP : "
+    echo $GET_IP_NAME
+    echo ''
+
     textMagenta "----------------> MEMORY : "
-        echo ''
+      echo ''
     free -hlt
 
     echo ''
@@ -172,10 +176,7 @@ checkUseHardDrive(){
         cd $UNKNOWN_DIR/$i || exit
 
         textBlue "----------------> $i"
-
-        du -ad 0 --block-size=M
-
-        echo ''
+        du -ad 0 --block-size=G
 
       fi
 
