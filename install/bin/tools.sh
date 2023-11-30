@@ -176,7 +176,7 @@ checkUseHardDrive(){
         cd $UNKNOWN_DIR/$i || exit
 
         textBlue "----------------> $i"
-        du -ad 0 --block-size=G
+        du -ad 0 --block-size=M
 
       fi
 
