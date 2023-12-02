@@ -20,8 +20,7 @@ configAutoJob() {
       echo 'Already Exist.'
     else
       cronJobUpdate="$cronJobUpdate
-0 5 * * * UnknownCLI 10 &> /dev/null
-"
+0 5 * * * UnknownCLI 10 &> /dev/null"
     fi
 
   fi
@@ -34,8 +33,7 @@ configAutoJob() {
       echo 'Already Exist.'
     else
       cronJobUpdate="$cronJobUpdate
-0 1 * * * certbot renew &> /dev/null
-"
+0 1 * * * certbot renew &> /dev/null"
     fi
   fi
 
@@ -48,8 +46,7 @@ configAutoJob() {
       echo 'Already Exist.'
     else
       cronJobUpdate="$cronJobUpdate
-0 2 * * * UnknownCLI 18 &> /dev/null
-"
+0 2 * * * UnknownCLI 18 &> /dev/null"
     fi
 
   fi
@@ -63,8 +60,7 @@ configAutoJob() {
       echo 'Already Exist.'
     else
       cronJobUpdate="$cronJobUpdate
-0 3 * * * UnknownCLI 19 &> /dev/null
-"
+0 3 * * * UnknownCLI 19 &> /dev/null"
     fi
 
   fi
@@ -72,7 +68,7 @@ configAutoJob() {
 
   ALLDOMAIN=$(dir $UNKNOWN_DIR)
 
-  read -p "----------------> RUN WP CRON TERMINAL (y/n) : " status
+  read -p "----------------> Install WP cron terminal (y/n) : " status
 
   if [ $status == 'y' ]; then
     if [[ "$cronJobUpdate" =~ "wp-cron" ]]; then
@@ -81,8 +77,7 @@ configAutoJob() {
           for i in $ALLDOMAIN; do
             if [[ $i != "localhost" ]]; then
               cronJobUpdate="$cronJobUpdate
-              * * * * * wget http://$i/wp-cron.php
-              ";
+* * * * * wget http://$i/wp-cron.php";
             fi
 
           done
