@@ -406,7 +406,7 @@ toggleWPCRON(){
       textMagenta "----------------> DISABLE = 0"
       read -p "----------------> Input Number : " numberAction
 
-      if [ $numberAction == 1 || $numberAction == 0 ]; then
+      if [[ $numberAction == 1 ]] || [[ $numberAction == 0 ]]; then
 
         if [ $numberAction == 1 ]; then
           enableAllWPCRON
