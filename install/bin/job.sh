@@ -79,7 +79,6 @@ configAutoJob() {
       echo 'Already Exist.'
     else
           for i in $ALLDOMAIN; do
-
             if [[ $i != "localhost" ]]; then
               cronJobUpdate="$cronJobUpdate
               * * * * * wget http://$i/wp-cron.php
