@@ -398,38 +398,29 @@ RepairWordpress(){
 
 }
 
-disableWPCRON(){
-    read -p "----------------> Enter Domain : " Domain
 
-    verifyDir $Domain
+toggleWPCRON(){
 
-    textYellow "----------------> DISABLE WP CRON JOB FOR DOMAIN $Domain"
+      textYellow "----------------> DISABLE/ENABLE WP CRON JOB ALL WEBSITE WORDPRESS"
+      textMagenta "----------------> ENABLE = 1"
+      textMagenta "----------------> DISABLE = 0"
+      read -p "----------------> Input Number : " numberAction
 
-    cd $UNKNOWN_DIR/$Domain/html || exit
+      if [ $numberAction == 1 || $numberAction == 0 ]; then
 
-    wp config set DISABLE_WP_CRON true --raw --allow-root &> /dev/null
+        if [ $numberAction == 1 ]; then
+          enableAllWPCRON
+        else
+          disableAllWPCRON
+        fi
 
-    cd $UNKNOWN_DIR || exit
-}
+        else
+          textRed "----------------> PLEASE CHECK INPUT TYPE"
+      fi
 
-enableWPCRON(){
-
-    read -p "----------------> Enter Domain : " Domain
-
-    verifyDir $Domain
-
-    textYellow "----------------> ENABLE WP CRON JOB"
-
-    cd $UNKNOWN_DIR/$Domain/html || exit
-
-    wp config set DISABLE_WP_CRON false --raw --allow-root &> /dev/null
-
-    cd $UNKNOWN_DIR || exit
 }
 
 disableAllWPCRON(){
-
-    textYellow "----------------> DISABLE WP CRON JOB ALL WEBSITE WORDPRESS"
 
     ALLDOMAIN=$(dir $UNKNOWN_DIR)
 
@@ -451,8 +442,6 @@ disableAllWPCRON(){
 }
 
 enableAllWPCRON(){
-
-    textYellow "----------------> ENABLE WP CRON JOB ALL WEBSITE WORDPRESS"
 
     ALLDOMAIN=$(dir $UNKNOWN_DIR)
 

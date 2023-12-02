@@ -69,6 +69,27 @@ configAutoJob() {
 
   fi
 
+
+  ALLDOMAIN=$(dir $UNKNOWN_DIR)
+
+  read -p "----------------> RUN WP CRON TERMINAL (y/n) : " status
+
+  if [ $status == 'y' ]; then
+    if [[ "$cronJobUpdate" =~ "wp-cron" ]]; then
+      echo 'Already Exist.'
+    else
+          for i in $ALLDOMAIN; do
+
+            if [[ $i != "localhost" ]]; then
+              cronJobUpdate="$cronJobUpdate
+              * * * * * wget http://$i/wp-cron.php
+              ";
+            fi
+
+          done
+    fi
+  fi
+
   cat >$APP_INSTALL/crontab.txt <<EOF
 $cronJobUpdate
 EOF

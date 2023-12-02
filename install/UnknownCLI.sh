@@ -87,20 +87,14 @@ case $1 in
 
 37) deleteFTPDomain ;;
 
-38) disableWPCRON ;;
+38) toggleWPCRON ;;
 
-39) disableAllWPCRON ;;
+39) checkSystem ;;
 
-40) enableWPCRON ;;
+40) checkUseHardDrive ;;
 
-41) enableAllWPCRON ;;
+41) uninstallUnknownOLS ;;
 
-42) checkSystem ;;
-
-43) checkUseHardDrive ;;
-
-44) uninstallUnknownOLS ;;
-
-45) updateUnknownOLS ;;
+42) updateUnknownOLS ;;
 
 esac
