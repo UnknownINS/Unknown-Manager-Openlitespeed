@@ -77,7 +77,7 @@ configAutoJob() {
           for i in $ALLDOMAIN; do
             if [[ $i != "localhost" ]]; then
               cronJobUpdate="$cronJobUpdate
-* * * * * wget http://$i/wp-cron.php &> /dev/null";
+* * * * * wget --delete-after http://$i/wp-cron.php &> /dev/null";
             fi
 
           done
