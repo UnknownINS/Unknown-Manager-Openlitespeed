@@ -78,12 +78,12 @@ StartApp() {
 
   textGreen "38) Disable/Enable Cron Job All Website         39) Check System"
 
-  textGreen "40) Check Use Hard Drive"
+  textGreen "40) Check Use Hard Drive                        41) Optimize Image for Website"
 
   echo ''
   textMagenta "----------------> ABOUT TOOL"
 
-  textGreen "41) Uninstall Unknown OLS.                      42) Update UNKNOWN OLS."
+  textGreen "42) Uninstall Unknown OLS.                      43) Update UNKNOWN OLS."
 
   echo ''
 
@@ -175,9 +175,11 @@ StartApp() {
 
   40) checkUseHardDrive ;;
 
-  41) uninstallUnknownOLS ;;
+  41) optimizeImage ;;
 
-  42) updateUnknownOLS ;;
+  42) uninstallUnknownOLS ;;
+
+  43) updateUnknownOLS ;;
 
   *) defaultAction ;;
 

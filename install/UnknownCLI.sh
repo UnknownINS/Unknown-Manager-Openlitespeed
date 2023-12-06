@@ -93,8 +93,10 @@ case $1 in
 
 40) checkUseHardDrive ;;
 
-41) uninstallUnknownOLS ;;
+41) optimizeImage ;;
 
-42) updateUnknownOLS ;;
+42) uninstallUnknownOLS ;;
+
+43) updateUnknownOLS ;;
 
 esac

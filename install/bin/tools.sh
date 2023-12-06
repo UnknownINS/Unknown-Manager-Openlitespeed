@@ -185,3 +185,56 @@ checkUseHardDrive(){
     cd $UNKNOWN_DIR || exit
 
 }
+
+
+optimizeImage(){
+
+  textYellow "----------------> OPTIMIZE IMAGE"
+
+  if [ ! -f /usr/bin/mogrify ]; then
+    sudo apt install imagemagick -y
+  fi
+
+  read -p "----------------> Enter Domain : " inputDomain
+
+    validate="^([a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]\.)+[a-zA-Z]{2,}$"
+
+    if [[ -z "$inputDomain" ]]; then
+      textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
+      exit
+    fi
+
+    verifyDir $UNKNOWN_DIR/$inputDomain
+
+    if [[ "$inputDomain" =~ $validate ]]; then
+      textYellow "----------------> OPTIMIZE IMAGE FOR DOMAIN"
+    else
+      textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
+      exit
+    fi
+
+    textYellow "----------------> OPTIONS OPTIMIZE IMAGE"
+
+    textMagenta "----------------> DELETE IMAGE AFTER OPTIMIZE = 1"
+    textMagenta "----------------> KEEP IMAGE AFTER OPTIMIZE = 0"
+
+    read -p "----------------> Enter Number : " numberAction
+
+
+    cd $UNKNOWN_DIR/$inputDomain/html || exit
+
+    mogrify -format webp wp-content/uploads/*/*/*.png  &> /dev/null
+    mogrify -format webp wp-content/uploads/*/*/*.jpg  &> /dev/null
+
+    if [[ $numberAction == 1 ]]; then
+      textYellow "----------------> DELETE FILE PNG,JPG IMAGE AFTER OPTIMIZE"
+      rm wp-content/uploads/*/*/*.png
+      rm wp-content/uploads/*/*/*.jpg
+    fi
+
+    textYellow "----------------> REPLACE IMAGE DATABASE"
+    wp search-replace '(.+?).png' '\1.webp' --all-tables --regex --precise --regex-flags='i' --allow-root  &> /dev/null
+    wp search-replace '(.+?).jpg' '\1.webp' --all-tables --regex --precise --regex-flags='i' --allow-root  &> /dev/null
+    textYellow "----------------> OPTIMIZE IMAGE SUCCESS"
+
+}
