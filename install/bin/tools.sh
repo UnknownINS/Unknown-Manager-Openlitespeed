@@ -241,13 +241,14 @@ optimizeImage(){
 
     textYellow "----------------> REPLACE IMAGE DATABASE"
     wp search-replace 'image/png' 'image/webp' --all-tables --regex --precise --regex-flags='i' --allow-root  &> /dev/null
-    wp search-replace 'image/jpg' 'image/jpg' --all-tables --regex --precise --regex-flags='i' --allow-root  &> /dev/null
+    wp search-replace 'image/jpg' 'image/webp' --all-tables --regex --precise --regex-flags='i' --allow-root  &> /dev/null
+    wp search-replace 'image/jpeg' 'image/webp' --all-tables --regex --precise --regex-flags='i' --allow-root  &> /dev/null
 
     wp search-replace '(.+?).png' '\1.webp' --all-tables --regex --precise --regex-flags='i' --allow-root  &> /dev/null
     wp search-replace '(.+?).jpg' '\1.webp' --all-tables --regex --precise --regex-flags='i' --allow-root  &> /dev/null
     wp search-replace '(.+?).jpeg' '\1.webp' --all-tables --regex --precise --regex-flags='i' --allow-root  &> /dev/null
     wp search-replace 'image.webp' 'image/webp' --all-tables --regex --precise --regex-flags='i' --allow-root  &> /dev/null
     textYellow "----------------> OPTIMIZE IMAGE SUCCESS"
-  
+
     cd $UNKNOWN_DIR || exit
 }
