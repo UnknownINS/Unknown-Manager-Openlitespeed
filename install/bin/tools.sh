@@ -226,7 +226,7 @@ optimizeImage(){
 
     mogrify -format webp wp-content/uploads/*/*/*.png  &> /dev/null
 
-    textYellow "----------------> OPTIONS OPTIMIZE IMAGE JPG"
+    textYellow "----------------> OPTIONS OPTIMIZE IMAGE JPG,JPEG"
 
     mogrify -format webp wp-content/uploads/*/*/*.jpg  &> /dev/null
     mogrify -format webp wp-content/uploads/*/*/*.jpeg  &> /dev/null
@@ -242,6 +242,7 @@ optimizeImage(){
     wp search-replace '(.+?).png' '\1.webp' --all-tables --regex --precise --regex-flags='i' --allow-root  &> /dev/null
     wp search-replace '(.+?).jpg' '\1.webp' --all-tables --regex --precise --regex-flags='i' --allow-root  &> /dev/null
     wp search-replace '(.+?).jpeg' '\1.webp' --all-tables --regex --precise --regex-flags='i' --allow-root  &> /dev/null
+    wp search-replace 'image.webp' 'image/webp' --all-tables --regex --precise --regex-flags='i' --allow-root  &> /dev/null
     textYellow "----------------> OPTIMIZE IMAGE SUCCESS"
 
 }
