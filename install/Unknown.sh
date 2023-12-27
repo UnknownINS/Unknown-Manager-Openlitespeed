@@ -189,7 +189,7 @@ StartApp() {
 
 while [ $NUMBER_ACTION -ne 0 ]; do
 
-  if [ NUMBER_ACTION != -1 ]; then
+  if [ $NUMBER_ACTION != -1 ]; then
 
     eventNumberActionApp
 
