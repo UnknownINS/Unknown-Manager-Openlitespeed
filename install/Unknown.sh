@@ -36,9 +36,7 @@ backToMainScreen() {
 }
 
 WebServerScreen(){
-
-    clear
-
+  
     echo ""
 
     textYellow "----------------> WEBSERVER"
