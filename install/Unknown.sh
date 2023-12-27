@@ -29,7 +29,7 @@ defaultAction() {
 }
 
 defaultSubAction(){
-    NUMBER_ACTION=-1
+    NUMBER_ACTION=$1
     SUB_NUMBER_ACTION=-1
     textRed "----------------> PLEASE CHECK AGAIN"
     echo ''
@@ -107,7 +107,7 @@ WebServerScreen(){
 
       15) configVariableOpenLiteSpeed ;;
 
-      *) defaultSubAction ;;
+      *) defaultSubAction 44;;
 
       esac
 
