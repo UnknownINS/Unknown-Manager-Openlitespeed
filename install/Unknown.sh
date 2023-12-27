@@ -36,7 +36,7 @@ backToMainScreen() {
 
 WebServerScreen(){
 
-    reset
+    clear
 
     echo ""
 
@@ -106,7 +106,7 @@ WebServerScreen(){
 
 StartApp() {
 
-  reset
+  clear
 
   echo ""
 
