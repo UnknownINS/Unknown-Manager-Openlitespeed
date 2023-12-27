@@ -4,8 +4,6 @@ source $APP_INSTALL/loader.sh
 
 NUMBER_ACTION=-1
 
-EVENT_ACTION=-1
-
 mkdir -p $UNKNOWN_DIR
 
 mkdir -p $APP_INSTALL
@@ -31,7 +29,6 @@ defaultAction() {
 backToMainScreen() {
   clear
   NUMBER_ACTION=-1
-  EVENT_ACTION=-1
   echo ''
 }
 
