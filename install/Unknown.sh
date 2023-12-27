@@ -159,11 +159,8 @@ StartApp() {
   textMagenta "----------------> ABOUT TOOL"
 
   textGreen "6 ) Uninstall OLS.                              7 ) Update OLS."
-
   echo ''
-
   read -p "----------------> ENTER NUMBER ACTION : " NUMBER_ACTION
-
   echo ""
 
   case $NUMBER_ACTION in
