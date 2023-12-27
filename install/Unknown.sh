@@ -35,14 +35,6 @@ backToMainScreen() {
   echo ''
 }
 
-defaultEventUNK(){
-    clear
-    EVENT_ACTION=$1
-    echo $1
-    textRed "----------------> PLEASE CHECK AGAIN"
-    echo ''
-}
-
 WebServerScreen(){
 
     clear
@@ -107,7 +99,7 @@ WebServerScreen(){
 
       15) configVariableOpenLiteSpeed ;;
 
-      *) defaultEventUNK 44 ;;
+      *) WebServerScreen ;;
 
       esac
 
