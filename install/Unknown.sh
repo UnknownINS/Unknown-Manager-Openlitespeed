@@ -28,11 +28,20 @@ defaultAction() {
   echo ''
 }
 
+defaultSubAction(){
+    NUMBER_ACTION=-1
+    SUB_NUMBER_ACTION=-1
+    textRed "----------------> PLEASE CHECK AGAIN"
+    echo ''
+}
+
+
 backToMainScreen() {
   NUMBER_ACTION=-1
   SUB_NUMBER_ACTION=-1
   echo ''
 }
+
 
 WebServerScreen(){
 
@@ -98,15 +107,13 @@ WebServerScreen(){
 
       15) configVariableOpenLiteSpeed ;;
 
-      *) backToMainScreen ;;
+      *) defaultSubAction ;;
 
       esac
 
 }
 
 StartApp() {
-
-  clear
 
   echo ""
 
