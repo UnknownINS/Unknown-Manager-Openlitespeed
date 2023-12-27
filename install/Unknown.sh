@@ -12,8 +12,6 @@ cd "$UNKNOWN_DIR" || exit
 
 setVariablesSystem
 
-welcome
-
 killApt
 
 exitConsole() {
@@ -35,6 +33,8 @@ backToMainScreen() {
 WebServerScreen(){
 
     clear
+
+    welcome
 
     echo ""
 
@@ -105,6 +105,8 @@ WebServerScreen(){
 ManagerWebSiteScreen(){
   clear
 
+  welcome
+
   echo ""
 
   textYellow "----------------> MANAGER WEBSITE"
@@ -141,6 +143,8 @@ ManagerWebSiteScreen(){
 }
 
 StartApp() {
+
+  welcome
 
   echo ""
 
