@@ -149,11 +149,11 @@ StartApp() {
 
   textYellow "----------------> SELECT TOOL MANAGER"
 
-  textGreen "0 ) Exit App.                                   1 ) WebServer."
+  textGreen "0 ) Exit App.                                   1 ) Manager WebServer."
 
-  textGreen "2 ) Manager WebSite.                            3 ) Tool."
+  textGreen "2 ) Manager WebSite.                            3 ) Extend Tool."
 
-  textGreen "4 ) Hard Drive.                                 5 ) Optimize."
+  textGreen "4 ) Hard Drive.                                 5 ) Optimize WebSite."
 
   echo ''
   textMagenta "----------------> ABOUT TOOL"
