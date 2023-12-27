@@ -35,13 +35,11 @@ defaultSubAction(){
     echo ''
 }
 
-
 backToMainScreen() {
   NUMBER_ACTION=-1
   SUB_NUMBER_ACTION=-1
   echo ''
 }
-
 
 WebServerScreen(){
 
