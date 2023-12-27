@@ -100,7 +100,7 @@ WebServerScreen(){
 
       15) configVariableOpenLiteSpeed ;;
 
-      *) setAction 1 ;;
+      *) WebServerScreen ;;
 
       esac
 
@@ -146,6 +146,23 @@ ManagerWebSiteScreen(){
 
 }
 
+
+eventNumberActionApp(){
+
+  case $NUMBER_ACTION in
+  0) exitConsole ;;
+  1) WebServerScreen ;;
+  2) ManagerWebSiteScreen ;;
+  3)  ;;
+  4)  ;;
+  5)  ;;
+  6) uninstallUnknownOLS ;;
+  7) updateUnknownOLS ;;
+  *) defaultAction ;;
+
+  esac
+}
+
 StartApp() {
 
   welcome
@@ -167,22 +184,17 @@ StartApp() {
   echo ''
   read -p "----------------> ENTER NUMBER ACTION : " NUMBER_ACTION
   echo ""
-
-  case $NUMBER_ACTION in
-  0) exitConsole ;;
-  1) WebServerScreen ;;
-  2) ManagerWebSiteScreen ;;
-  3)  ;;
-  4)  ;;
-  5)  ;;
-  6) uninstallUnknownOLS ;;
-  7) updateUnknownOLS ;;
-  *) defaultAction ;;
-
-  esac
-
+  eventNumberActionApp
 }
 
 while [ $NUMBER_ACTION -ne 0 ]; do
-  StartApp
+
+  if [ NUMBER_ACTION != -1 ]; then
+
+    eventNumberActionApp
+
+    else
+      StartApp
+  fi
+
 done
