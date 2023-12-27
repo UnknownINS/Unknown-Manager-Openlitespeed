@@ -13,6 +13,7 @@ setVariablesSystem
 killApt
 
 case $1 in
+
 1) installWebServer ;;
 
 2) uninstallWebServer ;;

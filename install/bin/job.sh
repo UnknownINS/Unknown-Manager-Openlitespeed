@@ -68,7 +68,7 @@ configAutoJob() {
 
   ALLDOMAIN=$(dir $UNKNOWN_DIR)
 
-  read -p "----------------> Install WP cron terminal (y/n) : " status
+  read -p "----------------> Install WP Cron (y/n) : " status
 
   if [ $status == 'y' ]; then
     if [[ "$cronJobUpdate" =~ "wp-cron" ]]; then

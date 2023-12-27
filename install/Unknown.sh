@@ -4,6 +4,8 @@ source $APP_INSTALL/loader.sh
 
 NUMBER_ACTION=-1
 
+SUB_NUMBER_ACTION=-1
+
 mkdir -p $UNKNOWN_DIR
 
 mkdir -p $APP_INSTALL
@@ -26,11 +28,88 @@ defaultAction() {
   echo ''
 }
 
+backToMainScreen() {
+  NUMBER_ACTION=-1
+  SUB_NUMBER_ACTION=-1
+  echo ''
+}
+
+WebServerScreen(){
+
+    echo ""
+
+    textYellow "----------------> WEBSERVER"
+
+    textGreen "0 ) Back To App.                                1 ) Install WebServer."
+
+    textGreen "2 ) Uninstall WebServer.                        3 ) Config WebServer."
+
+    textGreen "4 ) Insert Phpmyadmin.                          5 ) Config Rclone."
+
+    textGreen "6 ) Backup Local.                               7 ) Update WebServer."
+
+    textGreen "8 ) Mysql Config.                               9 ) Uninstall MariaDb."
+
+    textGreen "10) Backup Google Driver Now.                   11) Install Library WebServer."
+
+    textGreen "12) Restart WebServer.                          13) Reset Password WebAdmin."
+
+    textGreen "14) Reload HTTP/HTTPS Config                    15) Config Variable OpenLiteSpeed"
+
+    echo ''
+
+    read -p "----------------> ENTER NUMBER ACTION : " SUB_NUMBER_ACTION
+
+    echo ""
+
+      case $SUB_NUMBER_ACTION in
+
+      0) backToMainScreen ;;
+
+      1) installWebServer ;;
+
+      2) uninstallWebServer ;;
+
+      3) configWebServer ;;
+
+      4) installPhpmyadmin ;;
+
+      5) configAutoBackup ;;
+
+      6) backupLocal ;;
+
+      7) updateWebserver ;;
+
+      8) MariadbSecure ;;
+
+      9) uninstallMariaDb ;;
+
+      10) backupDriver ;;
+
+      11) installLibraryWebServer ;;
+
+      12) restartWebserver ;;
+
+      13) resetAdminPassword ;;
+
+      14) updateDomainSever ;;
+
+      15) configVariableOpenLiteSpeed ;;
+
+      *) backToMainScreen ;;
+
+      esac
+
+}
+
 StartApp() {
 
   echo ""
 
   textYellow "----------------> WEBSERVER"
+
+  textGreen "44 ) WebSerVer"
+
 
   textGreen "0 ) Exit App.                                   1 ) Install WebServer."
 
@@ -180,6 +259,9 @@ StartApp() {
   42) uninstallUnknownOLS ;;
 
   43) updateUnknownOLS ;;
+
+  44) WebServerScreen ;;
+
 
   *) defaultAction ;;
 

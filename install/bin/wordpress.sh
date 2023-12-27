@@ -417,7 +417,6 @@ toggleWPCRON(){
         else
           textRed "----------------> PLEASE CHECK INPUT TYPE"
       fi
-
 }
 
 disableAllWPCRON(){
