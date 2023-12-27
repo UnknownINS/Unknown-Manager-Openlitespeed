@@ -158,7 +158,7 @@ StartApp() {
   echo ''
   textMagenta "----------------> ABOUT TOOL"
 
-  textGreen "6) Uninstall Unknown OLS.                      7) Update UNKNOWN OLS."
+  textGreen "6) Uninstall OLS.                      7) Update OLS."
 
   echo ''
 
