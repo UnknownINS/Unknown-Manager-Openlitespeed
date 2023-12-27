@@ -4,7 +4,7 @@ source $APP_INSTALL/loader.sh
 
 NUMBER_ACTION=-1
 
-SUB_NUMBER_ACTION=-1
+EVENT_ACTION=-1
 
 mkdir -p $UNKNOWN_DIR
 
@@ -28,21 +28,24 @@ defaultAction() {
   echo ''
 }
 
-defaultSubAction(){
-    NUMBER_ACTION=$1
-    echo "defaultSubAction"
-    echo $NUMBER_ACTION
-    SUB_NUMBER_ACTION=-1
-    textRed "----------------> PLEASE CHECK AGAIN"
-    echo ''
-}
-
 backToMainScreen() {
   clear
   NUMBER_ACTION=-1
-  SUB_NUMBER_ACTION=-1
+  EVENT_ACTION=-1
   echo ''
 }
+
+defaultEventUNK(){
+    NUMBER_ACTION=$1
+    EVENT_ACTION=-1
+    textRed "----------------> PLEASE CHECK AGAIN"
+    echo ''
+    echo "1111"
+    echo $EVENT_ACTION
+    echo "aaaa"
+}
+
+
 
 WebServerScreen(){
 
@@ -70,11 +73,11 @@ WebServerScreen(){
 
     echo ''
 
-    read -p "----------------> ENTER NUMBER ACTION : " SUB_NUMBER_ACTION
+    read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
 
     echo ""
 
-      case $SUB_NUMBER_ACTION in
+      case $EVENT_ACTION in
 
       0) backToMainScreen ;;
 
@@ -108,7 +111,7 @@ WebServerScreen(){
 
       15) configVariableOpenLiteSpeed ;;
 
-      *) defaultSubAction 44 ;;
+      *) defaultEventUNK 44 ;;
 
       esac
 
