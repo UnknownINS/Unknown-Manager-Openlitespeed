@@ -7,7 +7,7 @@ textRed "#                                                                      
 textRed "#                   Welcome to UNKNOWN OLS WEBSERVER                         #"
 textRed "#                                                                            #"
 textRed "#                     Copyright (C)  2023 UNKNOWN.                           #"
-textRed "#                          VERSION 1.0.2.1                                   #"
+textRed "#                          VERSION 2.0.2.1                                   #"
 textRed "#                                                                            #"
 textRed "##############################################################################"
 echo "";

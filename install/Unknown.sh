@@ -35,11 +35,6 @@ setAction(){
 }
 
 WebServerScreen(){
-
-    clear
-
-    welcome
-
     echo ""
 
     textYellow "----------------> WEBSERVER"
@@ -107,10 +102,6 @@ WebServerScreen(){
 }
 
 ManagerWebSiteScreen(){
-  clear
-
-  welcome
-
   echo ""
 
   textYellow "----------------> MANAGER WEBSITE"
@@ -125,11 +116,11 @@ ManagerWebSiteScreen(){
 
     textGreen "8 ) Permission Public Domain."
 
-      echo ''
+    echo ''
 
-      read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
+    read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
 
-      echo ""
+    echo ""
 
       case $EVENT_ACTION in
       0) backToMainScreen ;;
@@ -145,16 +136,79 @@ ManagerWebSiteScreen(){
       esac
 
 }
+ExtendToolScreen(){
+  echo ""
+  textYellow "----------------> Extend Tool"
+
+  textGreen "0 ) Back To App.                               1 ) Install SSL/HTTPS."
+
+  textGreen "2 ) Config Auto Job.                           3 ) Renews SSL/HTTPS."
+
+  textGreen "4 ) Restore Remote.                            5 ) Rename Domain."
+
+  textGreen "6 ) Redirect Domain.                           7 ) Repair DataBase."
+
+  textGreen "8 ) Disable Firewall.                          9 ) Enable Firewall."
+
+  textGreen "10 ) Repair Wordpress.                        11 ) Install NetData."
+
+  textGreen "12 ) Uninstall NetData.                       13 ) Add FTP."
+
+  textGreen "14 ) Delete FTP.                              15 ) Disable/Enable Cron Job"
+
+  echo ''
+  read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
+  echo ""
+  case $EVENT_ACTION in
+      0) backToMainScreen ;;
+      1) installSslForDomain ;;
+      2) configAutoJob ;;
+      3) renewSSLNow ;;
+      4) restoreRemote ;;
+      5) wpRenameDomain ;;
+      6) wpRedirectDomain ;;
+      7) repairDatabases ;;
+      8) disableFirewall ;;
+      9) enableFirewall ;;
+      10) RepairWordpress ;;
+      11) installNetData ;;
+      12) unInstallNetData ;;
+      13) installFTPForDomain ;;
+      14) deleteFTPDomain ;;
+      15) toggleWPCRON ;;
+      *) ExtendToolScreen ;;
+  esac
+
+}
+
+HardDriveScreen(){
+    echo ""
+    textYellow "----------------> Hard Drive"
+
+    textGreen "0 ) Back To App.                               1 ) About System."
+    textGreen "2 ) About Hard Drive."
 
 
-eventNumberActionApp(){
+    echo ''
+    read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
+    echo ""
+    case $EVENT_ACTION in
+        0) backToMainScreen ;;
+        1) checkSystem ;;
+        2) checkUseHardDrive ;;
+        *) HardDriveScreen ;;
+    esac
+
+}
+
+RunAppAction(){
 
   case $NUMBER_ACTION in
   0) exitConsole ;;
   1) WebServerScreen ;;
   2) ManagerWebSiteScreen ;;
-  3)  ;;
-  4)  ;;
+  3) ExtendToolScreen ;;
+  4) HardDriveScreen ;;
   5)  ;;
   6) uninstallUnknownOLS ;;
   7) updateUnknownOLS ;;
@@ -164,35 +218,25 @@ eventNumberActionApp(){
 }
 
 StartApp() {
-
   welcome
-
   echo ""
-
-  textYellow "----------------> SELECT TOOL MANAGER"
-
+  textRed "----------------> SELECT TOOL MANAGER"
   textGreen "0 ) Exit App.                                   1 ) Manager WebServer."
-
   textGreen "2 ) Manager WebSite.                            3 ) Extend Tool."
-
   textGreen "4 ) Hard Drive.                                 5 ) Optimize WebSite."
-
   echo ''
-  textMagenta "----------------> ABOUT TOOL"
-
+  textRed "----------------> ABOUT TOOL"
   textGreen "6 ) Uninstall OLS.                              7 ) Update OLS."
   echo ''
   read -p "----------------> ENTER NUMBER ACTION : " NUMBER_ACTION
   echo ""
-  eventNumberActionApp
+  RunAppAction
 }
 
 while [ $NUMBER_ACTION -ne 0 ]; do
 
   if [ $NUMBER_ACTION != -1 ]; then
-
-    eventNumberActionApp
-
+    RunAppAction
     else
       StartApp
   fi
