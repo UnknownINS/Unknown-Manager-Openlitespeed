@@ -144,7 +144,19 @@ ManagerWebSiteScreen(){
 
 StartApp() {
 
-  clear
+
+  case $NUMBER_ACTION in
+  0) exitConsole ;;
+  1) WebServerScreen ;;
+  2) ManagerWebSiteScreen ;;
+  3) exitConsole ;;
+  4) exitConsole ;;
+  5) exitConsole ;;
+  6) uninstallUnknownOLS ;;
+  7) updateUnknownOLS ;;
+  *) defaultAction ;;
+
+  esac
 
   welcome
 
@@ -166,18 +178,7 @@ StartApp() {
   read -p "----------------> ENTER NUMBER ACTION : " NUMBER_ACTION
   echo ""
 
-  case $NUMBER_ACTION in
-  0) exitConsole ;;
-  1) WebServerScreen ;;
-  2) ManagerWebSiteScreen ;;
-  3) exitConsole ;;
-  4) exitConsole ;;
-  5) exitConsole ;;
-  6) uninstallUnknownOLS ;;
-  7) updateUnknownOLS ;;
-  *) defaultAction ;;
 
-  esac
 
 }
 
