@@ -36,13 +36,11 @@ backToMainScreen() {
 }
 
 defaultEventUNK(){
-    NUMBER_ACTION=$1
-    EVENT_ACTION=-1
+    clear
+    NUMBER_ACTION=-1
+    EVENT_ACTION=$1
     textRed "----------------> PLEASE CHECK AGAIN"
     echo ''
-    echo "1111"
-    echo $EVENT_ACTION
-    echo "aaaa"
 }
 
 
