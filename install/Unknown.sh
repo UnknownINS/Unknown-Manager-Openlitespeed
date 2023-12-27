@@ -29,14 +29,13 @@ defaultAction() {
 }
 
 backToMainScreen() {
-  clear
   NUMBER_ACTION=-1
   EVENT_ACTION=-1
   echo ''
 }
 
 WebServerScreen(){
-  
+
     echo ""
 
     textYellow "----------------> WEBSERVER"
