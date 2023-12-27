@@ -144,7 +144,6 @@ ManagerWebSiteScreen(){
 
 StartApp() {
 
-
   case $NUMBER_ACTION in
   0) exitConsole ;;
   1) WebServerScreen ;;
