@@ -36,6 +36,8 @@ backToMainScreen() {
 
 WebServerScreen(){
 
+    reset
+
     echo ""
 
     textYellow "----------------> WEBSERVER"
@@ -103,6 +105,8 @@ WebServerScreen(){
 }
 
 StartApp() {
+
+  reset
 
   echo ""
 
@@ -261,7 +265,6 @@ StartApp() {
   43) updateUnknownOLS ;;
 
   44) WebServerScreen ;;
-
 
   *) defaultAction ;;
 
