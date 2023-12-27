@@ -30,6 +30,10 @@ backToMainScreen() {
   echo ''
 }
 
+setAction(){
+   NUMBER_ACTION=$1
+}
+
 WebServerScreen(){
 
     clear
@@ -96,7 +100,7 @@ WebServerScreen(){
 
       15) configVariableOpenLiteSpeed ;;
 
-      *) WebServerScreen ;;
+      *) setAction 1 ;;
 
       esac
 
@@ -144,19 +148,6 @@ ManagerWebSiteScreen(){
 
 StartApp() {
 
-  case $NUMBER_ACTION in
-  0) exitConsole ;;
-  1) WebServerScreen ;;
-  2) ManagerWebSiteScreen ;;
-  3) exitConsole ;;
-  4) exitConsole ;;
-  5) exitConsole ;;
-  6) uninstallUnknownOLS ;;
-  7) updateUnknownOLS ;;
-  *) defaultAction ;;
-
-  esac
-
   welcome
 
   echo ""
@@ -177,7 +168,18 @@ StartApp() {
   read -p "----------------> ENTER NUMBER ACTION : " NUMBER_ACTION
   echo ""
 
+  case $NUMBER_ACTION in
+  0) exitConsole ;;
+  1) WebServerScreen ;;
+  2) ManagerWebSiteScreen ;;
+  3)  ;;
+  4)  ;;
+  5)  ;;
+  6) uninstallUnknownOLS ;;
+  7) updateUnknownOLS ;;
+  *) defaultAction ;;
 
+  esac
 
 }
 
