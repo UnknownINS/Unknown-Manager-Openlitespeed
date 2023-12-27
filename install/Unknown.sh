@@ -167,7 +167,6 @@ StartApp() {
   echo ""
 
   case $NUMBER_ACTION in
-
   0) exitConsole ;;
   1) WebServerScreen ;;
   2) ManagerWebSiteScreen ;;
