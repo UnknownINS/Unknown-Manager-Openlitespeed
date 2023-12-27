@@ -144,6 +144,8 @@ ManagerWebSiteScreen(){
 
 StartApp() {
 
+  clear
+
   welcome
 
   echo ""
