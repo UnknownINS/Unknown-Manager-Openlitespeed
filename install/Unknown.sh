@@ -37,13 +37,10 @@ backToMainScreen() {
 
 defaultEventUNK(){
     clear
-    NUMBER_ACTION=-1
     EVENT_ACTION=$1
     textRed "----------------> PLEASE CHECK AGAIN"
     echo ''
 }
-
-
 
 WebServerScreen(){
 
