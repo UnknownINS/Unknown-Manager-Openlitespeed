@@ -36,6 +36,7 @@ defaultSubAction(){
 }
 
 backToMainScreen() {
+  clear
   NUMBER_ACTION=-1
   SUB_NUMBER_ACTION=-1
   echo ''
@@ -105,7 +106,7 @@ WebServerScreen(){
 
       15) configVariableOpenLiteSpeed ;;
 
-      *) defaultSubAction 44;;
+      *) defaultSubAction 44 ;;
 
       esac
 
