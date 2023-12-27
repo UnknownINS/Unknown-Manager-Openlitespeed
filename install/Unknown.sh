@@ -38,6 +38,7 @@ backToMainScreen() {
 defaultEventUNK(){
     clear
     EVENT_ACTION=$1
+    echo $1
     textRed "----------------> PLEASE CHECK AGAIN"
     echo ''
 }
