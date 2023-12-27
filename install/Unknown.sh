@@ -30,9 +30,8 @@ defaultAction() {
 
 defaultSubAction(){
     NUMBER_ACTION=$1
-    echo "bbbb"
-    echo $1
-    echo "aaaa"
+    echo "defaultSubAction"
+    echo $NUMBER_ACTION
     SUB_NUMBER_ACTION=-1
     textRed "----------------> PLEASE CHECK AGAIN"
     echo ''
