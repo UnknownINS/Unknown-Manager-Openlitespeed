@@ -188,7 +188,6 @@ HardDriveScreen(){
     textGreen "0 ) Back To App.                               1 ) About System."
     textGreen "2 ) About Hard Drive."
 
-
     echo ''
     read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
     echo ""
@@ -201,6 +200,22 @@ HardDriveScreen(){
 
 }
 
+OptimizeScreen(){
+  echo ""
+      textYellow "----------------> Optimize WebSite"
+
+      textGreen "0 ) Back To App.                               1 ) Covert Image To WebP."
+
+      echo ''
+      read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
+      echo ""
+      case $EVENT_ACTION in
+          0) backToMainScreen ;;
+          1) optimizeImage ;;
+          *) OptimizeScreen ;;
+      esac
+}
+
 RunAppAction(){
 
   case $NUMBER_ACTION in
@@ -209,18 +224,18 @@ RunAppAction(){
   2) ManagerWebSiteScreen ;;
   3) ExtendToolScreen ;;
   4) HardDriveScreen ;;
-  5)  ;;
+  5) OptimizeScreen ;;
   6) uninstallUnknownOLS ;;
   7) updateUnknownOLS ;;
   *) defaultAction ;;
-
   esac
 }
+
 
 StartApp() {
   welcome
   echo ""
-  textRed "----------------> SELECT TOOL MANAGER"
+  textRed "----------------> TOOL MANAGER"
   textGreen "0 ) Exit App.                                   1 ) Manager WebServer."
   textGreen "2 ) Manager WebSite.                            3 ) Extend Tool."
   textGreen "4 ) Hard Drive.                                 5 ) Optimize WebSite."
@@ -234,11 +249,9 @@ StartApp() {
 }
 
 while [ $NUMBER_ACTION -ne 0 ]; do
-
   if [ $NUMBER_ACTION != -1 ]; then
     RunAppAction
     else
       StartApp
   fi
-
 done
