@@ -25,7 +25,6 @@ case $1 in
 # phpmyadmin
 4) installPhpmyadmin ;;
 
-
 # config auto backup
 5) configAutoBackup ;;
 
