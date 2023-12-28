@@ -35,8 +35,7 @@ setAction(){
 }
 
 WebServerScreen(){
-    clear
-    welcome
+
     echo ""
 
     textYellow "----------------> WEBSERVER MANAGER"
@@ -90,8 +89,6 @@ WebServerScreen(){
 }
 
 ManagerWebSiteScreen(){
-  clear
-  welcome
 
   echo ""
 
@@ -129,8 +126,7 @@ ManagerWebSiteScreen(){
 }
 
 ExtendToolScreen(){
-  clear
-  welcome
+
   echo ""
   textYellow "----------------> Extend Tool"
 
@@ -156,8 +152,6 @@ ExtendToolScreen(){
 }
 
 HardDriveScreen(){
-    clear
-    welcome
 
     echo ""
     textYellow "----------------> Hard Drive"
@@ -178,8 +172,7 @@ HardDriveScreen(){
 }
 
 OptimizeScreen(){
-      clear
-      welcome
+
       echo ""
       textYellow "----------------> Optimize WebSite"
 
@@ -196,8 +189,7 @@ OptimizeScreen(){
 }
 
 BackupAndRestoreScreen(){
-      clear
-      welcome
+
       echo ""
       textYellow "----------------> Backup and Restore"
 
@@ -218,8 +210,7 @@ BackupAndRestoreScreen(){
 
 
 SslScreen(){
-      clear
-      welcome
+
       echo ""
       textYellow "----------------> SSL TOOL"
       textGreen "0 ) Back To App.                               1 ) Install SSL/HTTPS."
@@ -237,8 +228,7 @@ SslScreen(){
 }
 
 CronJobScreen(){
-      clear
-      welcome
+
       echo ""
       textYellow "----------------> CRON JOB TOOL"
       textGreen "0 ) Back To App.                              1 ) Config RClone."
@@ -257,8 +247,7 @@ CronJobScreen(){
 
 
 dataBaseScreen(){
-      clear
-      welcome
+
       echo ""
       textYellow "----------------> Database Manager"
 
@@ -279,8 +268,7 @@ dataBaseScreen(){
 
 
 FTPScreen(){
-      clear
-      welcome
+
       echo ""
       textYellow "----------------> FTP Manager"
 
@@ -300,8 +288,7 @@ FTPScreen(){
 }
 
 WordpressScreen(){
-      clear
-      welcome
+
       echo ""
       textYellow "----------------> Wordpress Manager"
 
