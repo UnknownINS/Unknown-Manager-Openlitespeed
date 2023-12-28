@@ -57,41 +57,6 @@ backupLocal() {
 
 }
 
-backupDriverForDomain(){
-
-  if [ -z "$RCLONE_NAME" ]; then
-      textRed "----------------> RCLONE NOT CONFIG"
-      exit
-    fi
-    verifyAutoBackup
-    verifyMariadb
-    verifyConstainDatabase
-
-    GETDAY=$(date +"%F")
-
-    backupLocal
-
-    textYellow "----------------> START UPLOAD GOOGLE DRIVE"
-
-    rclone --transfers=1 move $BACKUP_DIR "$RCLONE_NAME:$FOLDER_NAME_REMOTE/$GET_IP_NAME" &>/dev/null
-
-      ALLDOMAIN=$(dir $UNKNOWN_DIR)
-
-      cd $UNKNOWN_DIR || exit
-
-      for i in $ALLDOMAIN; do
-
-        if [ $i != "localhost" ]; then
-          rm -rf $BACKUP_DIR/$i/$GETDAY &> /dev/null
-        fi
-
-      done
-
-    textMagenta "----------------> END UPLOAD GOOGLE DRIVE"
-
-
-}
-
 backupDriver() {
 
   if [ -z "$RCLONE_NAME" ]; then
@@ -125,3 +90,4 @@ backupDriver() {
   textMagenta "----------------> END UPLOAD GOOGLE DRIVE"
 
 }
+
