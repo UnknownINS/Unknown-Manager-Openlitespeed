@@ -35,6 +35,7 @@ setAction(){
 }
 
 WebServerScreen(){
+    clear
     welcome
     echo ""
 
@@ -103,7 +104,7 @@ WebServerScreen(){
 }
 
 ManagerWebSiteScreen(){
-
+  clear
   welcome
 
   echo ""
@@ -141,6 +142,7 @@ ManagerWebSiteScreen(){
 
 }
 ExtendToolScreen(){
+  clear
   welcome
   echo ""
   textYellow "----------------> Extend Tool"
@@ -187,6 +189,7 @@ ExtendToolScreen(){
 }
 
 HardDriveScreen(){
+    clear
     welcome
 
     echo ""
@@ -208,7 +211,7 @@ HardDriveScreen(){
 }
 
 OptimizeScreen(){
-
+      clear
       welcome
       echo ""
       textYellow "----------------> Optimize WebSite"
