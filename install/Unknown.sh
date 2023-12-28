@@ -241,7 +241,7 @@ StartApp() {
   textGreen "4 ) Hard Drive System.                          5 ) Manager Optimize."
   echo ''
   textRed "----------------> ABOUT TOOL"
-  textGreen "6 ) Uninstall Unknown OLS.                              7 ) Update Unknown OLS."
+  textGreen "6 ) Uninstall Unknown OLS.                      7 ) Update Unknown OLS."
   echo ''
   read -p "----------------> ENTER NUMBER ACTION : " NUMBER_ACTION
   echo ""
