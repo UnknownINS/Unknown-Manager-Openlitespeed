@@ -66,7 +66,7 @@ configWebServer() {
 
   read -p "----------------> DIRECTORY LOCAL BACKUP ( * ) : " BACKUP_DIR
 
-  read -p "----------------> INPUT NAME AND GROUP ACCOUNT FTP OR ROOT ( * ) : " FTP_NAME
+  read -p "----------------> INPUT ACCOUNT ROOT ( * ) : " FTP_NAME
 
 
 
