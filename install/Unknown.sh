@@ -35,6 +35,7 @@ setAction(){
 }
 
 WebServerScreen(){
+    welcome
     echo ""
 
     textYellow "----------------> WEBSERVER"
@@ -102,6 +103,9 @@ WebServerScreen(){
 }
 
 ManagerWebSiteScreen(){
+
+  welcome
+
   echo ""
 
   textYellow "----------------> MANAGER WEBSITE"
@@ -137,6 +141,7 @@ ManagerWebSiteScreen(){
 
 }
 ExtendToolScreen(){
+  welcome
   echo ""
   textYellow "----------------> Extend Tool"
 
@@ -182,6 +187,8 @@ ExtendToolScreen(){
 }
 
 HardDriveScreen(){
+    welcome
+
     echo ""
     textYellow "----------------> Hard Drive"
 
@@ -201,7 +208,9 @@ HardDriveScreen(){
 }
 
 OptimizeScreen(){
-  echo ""
+
+      welcome
+      echo ""
       textYellow "----------------> Optimize WebSite"
 
       textGreen "0 ) Back To App.                               1 ) Covert Image To WebP."
