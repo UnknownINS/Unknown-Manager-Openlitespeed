@@ -355,7 +355,7 @@ StartApp() {
   textGreen "10) FTP Manager.                                11) Wordpress Tool."
   echo ''
   textRed "----------------> ABOUT TOOL"
-  textGreen "12 ) Uninstall Unknown OLS.                    13 ) Update Unknown OLS."
+  textGreen "12) Uninstall Unknown OLS.                      13) Update Unknown OLS."
   echo ''
   read -p "----------------> ENTER NUMBER ACTION : " NUMBER_ACTION
   echo ""
