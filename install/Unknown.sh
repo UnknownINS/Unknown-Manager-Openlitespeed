@@ -138,16 +138,36 @@ ManagerWebSiteScreen(){
     echo ""
 
       case $EVENT_ACTION in
-      0) backToMainScreen ;;
-      1) wpCreateWebsite ;;
-      2) wpDeleteWebsite ;;
-      3) wpUpdateWebsite ;;
-      4) securityWebServer ;;
-      5) getAllDomain ;;
-      6) chownNobodyDomain ;;
-      7) wpRenameDomain ;;
-      8) wpRedirectDomain ;;
-      *) ManagerWebSiteScreen ;;
+      0)
+        clear
+        backToMainScreen ;;
+      1)
+        clear
+        wpCreateWebsite ;;
+      2)
+        clear
+        wpDeleteWebsite ;;
+      3)
+        clear
+        wpUpdateWebsite ;;
+      4)
+        clear
+        securityWebServer ;;
+      5)
+        clear
+        getAllDomain ;;
+      6)
+        clear
+        chownNobodyDomain ;;
+      7)
+        clear
+        wpRenameDomain ;;
+      8)
+        clear
+        wpRedirectDomain ;;
+      *)
+        clear
+        ManagerWebSiteScreen ;;
       esac
 
 }
@@ -169,12 +189,24 @@ ExtendToolScreen(){
   read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
   echo ""
   case $EVENT_ACTION in
-      0) backToMainScreen ;;
-      1) disableFirewall ;;
-      2) enableFirewall ;;
-      3) installNetData ;;
-      4) unInstallNetData ;;
-      *) ExtendToolScreen ;;
+      0)
+        clear
+        backToMainScreen ;;
+      1)
+        clear
+        disableFirewall ;;
+      2)
+        clear
+        enableFirewall ;;
+      3)
+        clear
+        installNetData ;;
+      4)
+        clear
+        unInstallNetData ;;
+      *)
+        clear
+        ExtendToolScreen ;;
   esac
 
 }
@@ -192,10 +224,18 @@ HardDriveScreen(){
     read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
     echo ""
     case $EVENT_ACTION in
-        0) backToMainScreen ;;
-        1) checkSystem ;;
-        2) checkUseHardDrive ;;
-        *) HardDriveScreen ;;
+        0)
+          clear
+          backToMainScreen ;;
+        1)
+          clear
+          checkSystem ;;
+        2)
+          clear
+          checkUseHardDrive ;;
+        *)
+          clear
+          HardDriveScreen ;;
     esac
 
 }
@@ -212,9 +252,15 @@ OptimizeScreen(){
       read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
       echo ""
       case $EVENT_ACTION in
-          0) backToMainScreen ;;
-          1) optimizeImage ;;
-          *) OptimizeScreen ;;
+          0)
+            clear
+            backToMainScreen ;;
+          1)
+            clear
+            optimizeImage ;;
+          *)
+            clear
+            OptimizeScreen ;;
       esac
 }
 
@@ -231,11 +277,21 @@ BackupAndRestoreScreen(){
       read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
       echo ""
       case $EVENT_ACTION in
-          0) backToMainScreen ;;
-          1) backupLocal ;;
-          2) backupDriver ;;
-          3) restoreRemote ;;
-          *) BackupAndRestoreScreen ;;
+          0)
+            clear
+            backToMainScreen ;;
+          1)
+            clear
+            backupLocal ;;
+          2)
+            clear
+            backupDriver ;;
+          3)
+            clear
+            restoreRemote ;;
+          *)
+            clear
+            BackupAndRestoreScreen ;;
       esac
 }
 
@@ -252,10 +308,18 @@ SslScreen(){
       read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
       echo ""
       case $EVENT_ACTION in
-          0) backToMainScreen ;;
-          1) installSslForDomain ;;
-          2) renewSSLNow ;;
-          *) SslScreen ;;
+          0)
+            clear
+            backToMainScreen ;;
+          1)
+            clear
+            installSslForDomain ;;
+          2)
+            clear
+            renewSSLNow ;;
+          *)
+            clear
+            SslScreen ;;
       esac
 }
 
@@ -271,10 +335,18 @@ CronJobScreen(){
       read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
       echo ""
       case $EVENT_ACTION in
-          0) backToMainScreen ;;
-          1) configAutoBackup ;;
-          2) configAutoJob ;;
-          *) CronJobScreen ;;
+          0)
+            clear
+            backToMainScreen ;;
+          1)
+            clear
+            configAutoBackup ;;
+          2)
+            clear
+            configAutoJob ;;
+          *)
+            clear
+            CronJobScreen ;;
       esac
 }
 
@@ -292,11 +364,21 @@ dataBaseScreen(){
       read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
       echo ""
       case $EVENT_ACTION in
-          0) backToMainScreen ;;
-          1) MariadbSecure ;;
-          2) uninstallMariaDb ;;
-          3) repairDatabases ;;
-          *) dataBaseScreen ;;
+          0)
+            clear
+            backToMainScreen ;;
+          1)
+            clear
+            MariadbSecure ;;
+          2)
+            clear
+            uninstallMariaDb ;;
+          3)
+            clear
+            repairDatabases ;;
+          *)
+            clear
+            dataBaseScreen ;;
       esac
 }
 
@@ -315,10 +397,18 @@ FTPScreen(){
       read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
       echo ""
       case $EVENT_ACTION in
-          0) backToMainScreen ;;
-          1) installFTPForDomain ;;
-          2) deleteFTPDomain ;;
-          *) FTPScreen ;;
+          0)
+            clear
+            backToMainScreen ;;
+          1)
+            clear
+            installFTPForDomain ;;
+          2)
+            clear
+            deleteFTPDomain ;;
+          *)
+            clear
+            FTPScreen ;;
       esac
 }
 
@@ -337,12 +427,24 @@ WordpressScreen(){
       read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
       echo ""
       case $EVENT_ACTION in
-          0) backToMainScreen ;;
-          1) RepairWordpress ;;
-          2) wpResetPassword ;;
-          3) wpGetListUser ;;
-          4) toggleWPCRON ;;
-          *) FTPScreen ;;
+          0)
+            clear
+            backToMainScreen ;;
+          1)
+            clear
+            RepairWordpress ;;
+          2)
+            clear
+            wpResetPassword ;;
+          3)
+            clear
+            wpGetListUser ;;
+          4)
+            clear
+            toggleWPCRON ;;
+          *)
+            clear
+            FTPScreen ;;
       esac
 }
 
