@@ -39,23 +39,19 @@ WebServerScreen(){
     welcome
     echo ""
 
-    textYellow "----------------> WEBSERVER"
+    textYellow "----------------> WEBSERVER MANAGER"
 
     textGreen "0 ) Back To App.                                1 ) Install WebServer."
 
     textGreen "2 ) Uninstall WebServer.                        3 ) Config WebServer."
 
-    textGreen "4 ) Insert Phpmyadmin.                          5 ) Config Rclone."
+    textGreen "4 ) Insert Phpmyadmin.                          5 ) Update WebServer."
 
-    textGreen "6 ) Backup Local.                               7 ) Update WebServer."
+    textGreen "6 ) Install Library WebServer.                  7 ) Restart WebServer."
 
-    textGreen "8 ) Mysql Config.                               9 ) Uninstall MariaDb."
+    textGreen "8 ) Reset Password WebAdmin.                    9 ) Reload HTTP/HTTPS Config."
 
-    textGreen "10) Backup Google Driver Now.                   11) Install Library WebServer."
-
-    textGreen "12) Restart WebServer.                          13) Reset Password WebAdmin."
-
-    textGreen "14) Reload HTTP/HTTPS Config                    15) Config Variable OpenLiteSpeed"
+    textGreen "10) Config Variable OpenLiteSpeed."
 
     echo ''
 
@@ -75,27 +71,17 @@ WebServerScreen(){
 
       4) installPhpmyadmin ;;
 
-      5) configAutoBackup ;;
+      5) updateWebserver ;;
 
-      6) backupLocal ;;
+      6) installLibraryWebServer ;;
 
-      7) updateWebserver ;;
+      7) restartWebserver ;;
 
-      8) MariadbSecure ;;
+      8) resetAdminPassword ;;
 
-      9) uninstallMariaDb ;;
+      9) updateDomainSever ;;
 
-      10) backupDriver ;;
-
-      11) installLibraryWebServer ;;
-
-      12) restartWebserver ;;
-
-      13) resetAdminPassword ;;
-
-      14) updateDomainSever ;;
-
-      15) configVariableOpenLiteSpeed ;;
+      10) configVariableOpenLiteSpeed ;;
 
       *) WebServerScreen ;;
 
@@ -115,11 +101,11 @@ ManagerWebSiteScreen(){
 
     textGreen "2 ) Delete WebSite.                             3 ) Update Website."
 
-    textGreen "4 ) Security Website.                           5 ) Reset password User."
+    textGreen "4 ) Security Website.                           5 ) Show All Domain."
 
-    textGreen "6 ) Show All Domain.                            7 ) Get List User."
+    textGreen "6 ) Nobody Domain.                              7 ) Rename Domain."
 
-    textGreen "8 ) Permission Public Domain."
+    textGreen "8 ) Redirect Domain."
 
     echo ''
 
@@ -133,10 +119,10 @@ ManagerWebSiteScreen(){
       2) wpDeleteWebsite ;;
       3) wpUpdateWebsite ;;
       4) securityWebServer ;;
-      5) wpResetPassword ;;
-      6) getAllDomain ;;
-      7) wpGetListUser ;;
-      8) chownNobodyDomain ;;
+      5) getAllDomain ;;
+      6) chownNobodyDomain ;;
+      7) wpRenameDomain ;;
+      8) wpRedirectDomain ;;
       *) ManagerWebSiteScreen ;;
       esac
 
@@ -148,42 +134,22 @@ ExtendToolScreen(){
   echo ""
   textYellow "----------------> Extend Tool"
 
-  textGreen "0 ) Back To App.                               1 ) Install SSL/HTTPS."
+  textGreen "0 ) Back To App.                               1 ) Disable Firewall."
 
-  textGreen "2 ) Config Auto Job.                           3 ) Renews SSL/HTTPS."
+  textGreen "2 ) Enable Firewall.                           3 ) Install NetData."
 
-  textGreen "4 ) Restore Remote.                            5 ) Rename Domain."
+  textGreen "4 ) Uninstall NetData."
 
-  textGreen "6 ) Redirect Domain.                           7 ) Repair DataBase."
-
-  textGreen "8 ) Disable Firewall.                          9 ) Enable Firewall."
-
-  textGreen "10 ) Repair Wordpress.                        11 ) Install NetData."
-
-  textGreen "12 ) Uninstall NetData.                       13 ) Add FTP."
-
-  textGreen "14 ) Delete FTP.                              15 ) Disable/Enable Cron Job"
 
   echo ''
   read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
   echo ""
   case $EVENT_ACTION in
       0) backToMainScreen ;;
-      1) installSslForDomain ;;
-      2) configAutoJob ;;
-      3) renewSSLNow ;;
-      4) restoreRemote ;;
-      5) wpRenameDomain ;;
-      6) wpRedirectDomain ;;
-      7) repairDatabases ;;
-      8) disableFirewall ;;
-      9) enableFirewall ;;
-      10) RepairWordpress ;;
-      11) installNetData ;;
-      12) unInstallNetData ;;
-      13) installFTPForDomain ;;
-      14) deleteFTPDomain ;;
-      15) toggleWPCRON ;;
+      1) disableFirewall ;;
+      2) enableFirewall ;;
+      3) installNetData ;;
+      4) unInstallNetData ;;
       *) ExtendToolScreen ;;
   esac
 
@@ -229,6 +195,134 @@ OptimizeScreen(){
       esac
 }
 
+BackupAndRestoreScreen(){
+      clear
+      welcome
+      echo ""
+      textYellow "----------------> Backup and Restore"
+
+      textGreen "0 ) Back To App.                               1 ) Backup Local."
+      textGreen "2 ) Backup Google Driver.                      3 ) Restore Remote."
+
+      echo ''
+      read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
+      echo ""
+      case $EVENT_ACTION in
+          0) backToMainScreen ;;
+          1) backupLocal ;;
+          2) backupDriver ;;
+          3) restoreRemote ;;
+          *) BackupAndRestoreScreen ;;
+      esac
+}
+
+
+SslScreen(){
+      clear
+      welcome
+      echo ""
+      textYellow "----------------> SSL TOOL"
+      textGreen "0 ) Back To App.                               1 ) Install SSL/HTTPS."
+      textGreen "2 ) Renews SSL/HTTPS."
+
+      echo ''
+      read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
+      echo ""
+      case $EVENT_ACTION in
+          0) backToMainScreen ;;
+          1) installSslForDomain ;;
+          2) renewSSLNow ;;
+          *) SslScreen ;;
+      esac
+}
+
+CronJobScreen(){
+      clear
+      welcome
+      echo ""
+      textYellow "----------------> CRON JOB TOOL"
+      textGreen "0 ) Back To App.                              1 ) Config RClone."
+      textGreen "2 ) Config Auto Job."
+
+      echo ''
+      read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
+      echo ""
+      case $EVENT_ACTION in
+          0) backToMainScreen ;;
+          1) configAutoBackup ;;
+          2) configAutoJob ;;
+          *) CronJobScreen ;;
+      esac
+}
+
+
+dataBaseScreen(){
+      clear
+      welcome
+      echo ""
+      textYellow "----------------> Database Manager"
+
+      textGreen "0 ) Back To App.                              1 ) Mysql Config."
+      textGreen "2 ) Uninstall MariaDb.                        3 ) Repair DataBase."
+
+      echo ''
+      read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
+      echo ""
+      case $EVENT_ACTION in
+          0) backToMainScreen ;;
+          1) MariadbSecure ;;
+          2) uninstallMariaDb ;;
+          3) repairDatabases ;;
+          *) dataBaseScreen ;;
+      esac
+}
+
+
+FTPScreen(){
+      clear
+      welcome
+      echo ""
+      textYellow "----------------> FTP Manager"
+
+      textGreen "0 ) Back To App.                              1 ) Add FTP."
+
+      textGreen "2 ) Delete FTP."
+
+      echo ''
+      read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
+      echo ""
+      case $EVENT_ACTION in
+          0) backToMainScreen ;;
+          1) installFTPForDomain ;;
+          2) deleteFTPDomain ;;
+          *) FTPScreen ;;
+      esac
+}
+
+WordpressScreen(){
+      clear
+      welcome
+      echo ""
+      textYellow "----------------> Wordpress Manager"
+
+      textGreen "0 ) Back To App.                              1 ) Repair Wordpress."
+      textGreen "2 ) Reset Password User.                      3 ) Get User Wordpress."
+      textGreen "4 ) Disable/Enable Cron Job."
+
+
+      echo ''
+      read -p "----------------> ENTER NUMBER ACTION : " EVENT_ACTION
+      echo ""
+      case $EVENT_ACTION in
+          0) backToMainScreen ;;
+          1) RepairWordpress ;;
+          2) wpResetPassword ;;
+          3) wpGetListUser ;;
+          4) toggleWPCRON ;;
+          *) FTPScreen ;;
+      esac
+}
+
 RunAppAction(){
   case $NUMBER_ACTION in
   0) exitConsole ;;
@@ -237,8 +331,14 @@ RunAppAction(){
   3) ExtendToolScreen ;;
   4) HardDriveScreen ;;
   5) OptimizeScreen ;;
-  6) uninstallUnknownOLS ;;
-  7) updateUnknownOLS ;;
+  6) BackupAndRestoreScreen ;;
+  7) SslScreen ;;
+  8) CronJobScreen ;;
+  9) dataBaseScreen ;;
+  10) FTPScreen ;;
+  11) WordpressScreen ;;
+  12) uninstallUnknownOLS ;;
+  13) updateUnknownOLS ;;
   *) defaultAction ;;
   esac
 }
@@ -250,9 +350,12 @@ StartApp() {
   textGreen "0 ) Exit App.                                   1 ) Manager WebServer."
   textGreen "2 ) Manager WebSite.                            3 ) Extend Tool."
   textGreen "4 ) Hard Drive System.                          5 ) Manager Optimize."
+  textGreen "6 ) Backup and Restore.                         7 ) SSL Tool."
+  textGreen "8 ) Cron Job.                                   9 ) Database Manager."
+  textGreen "10) FTP Manager.                                11) Wordpress Tool."
   echo ''
   textRed "----------------> ABOUT TOOL"
-  textGreen "6 ) Uninstall Unknown OLS.                      7 ) Update Unknown OLS."
+  textGreen "12 ) Uninstall Unknown OLS.                    13 ) Update Unknown OLS."
   echo ''
   read -p "----------------> ENTER NUMBER ACTION : " NUMBER_ACTION
   echo ""
