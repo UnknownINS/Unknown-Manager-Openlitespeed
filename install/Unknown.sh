@@ -229,7 +229,6 @@ OptimizeScreen(){
 }
 
 RunAppAction(){
-
   case $NUMBER_ACTION in
   0) exitConsole ;;
   1) WebServerScreen ;;
@@ -242,7 +241,6 @@ RunAppAction(){
   *) defaultAction ;;
   esac
 }
-
 
 StartApp() {
   welcome
