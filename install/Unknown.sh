@@ -34,8 +34,9 @@ setAction(){
 }
 
 WebServerScreen(){
-    clear
+
     welcome
+
     echo ""
 
     textYellow "----------------> WEBSERVER MANAGER"
@@ -60,29 +61,54 @@ WebServerScreen(){
 
       case $EVENT_ACTION in
 
-      0) backToMainScreen ;;
+      0)
+        clear
 
-      1) installWebServer ;;
+        backToMainScreen ;;
 
-      2) uninstallWebServer ;;
+      1)
+        clear
+        installWebServer ;;
 
-      3) configWebServer ;;
+      2)
+        clear
+        uninstallWebServer ;;
 
-      4) installPhpmyadmin ;;
+      3)
+        clear
+        configWebServer ;;
 
-      5) updateWebserver ;;
+      4)
+        clear
+        installPhpmyadmin ;;
 
-      6) installLibraryWebServer ;;
+      5)
+        clear
+        updateWebserver ;;
 
-      7) restartWebserver ;;
+      6)
+        clear
+        installLibraryWebServer ;;
 
-      8) resetAdminPassword ;;
+      7)
+        clear
+        restartWebserver ;;
 
-      9) updateDomainSever ;;
+      8)
+        clear
+        resetAdminPassword ;;
 
-      10) configVariableOpenLiteSpeed ;;
+      9)
+        clear
+        updateDomainSever ;;
 
-      *) WebServerScreen ;;
+      10)
+        clear
+        configVariableOpenLiteSpeed ;;
+
+      *)
+        clear
+        WebServerScreen ;;
 
       esac
 
