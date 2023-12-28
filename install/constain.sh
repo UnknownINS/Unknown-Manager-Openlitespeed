@@ -15,10 +15,6 @@ export MYSQL_BIN=/usr/bin/mysql
 
 export MYSQL_DUMP=/usr/bin/mysqldump
 
-export BACKUP_DIR=/home/backup
-
-mkdir -p $BACKUP_DIR &>/dev/null
-
 mkdir -p $UNKNOWN_DIR &>/dev/null
 
 export RESTORE_DIR=/home/restore
@@ -41,8 +37,12 @@ export MYSQL_PASSWORD=''
 export RCLONE_NAME=''
 export FOLDER_NAME_REMOTE=''
 export FTP_NAME=''
+export BACKUP_DIR='/home/backup'
 EOF
   fi
+
+mkdir -p $BACKUP_DIR &>/dev/null
+
 }
 
 verifyConstainDatabase() {
@@ -64,10 +64,13 @@ configWebServer() {
 
   read -p "----------------> INPUT FOLDER NAME REMOTE BACKUP : " FOLDER_NAME_REMOTE
 
+  read -p "----------------> DIRECTORY BACKUP ( * ) : " BACKUP_DIR
+
   read -p "----------------> INPUT NAME AND GROUP ACCOUNT FTP OR ROOT ( * ) : " FTP_NAME
 
 
-  if [[ -z "$MYSQL_USER" ]] || [[ -z "$MYSQL_PASSWORD" ]] || [[ -z "$FTP_NAME" ]]; then
+
+  if [[ -z "$MYSQL_USER" ]] || [[ -z "$MYSQL_PASSWORD" ]] || [[ -z "$FTP_NAME" ]] || [[ -z "$BACKUP_DIR" ]]; then
     textRed "----------------> PLEASE CHECK CONFIG AGAIN"
     exit
   fi
@@ -78,6 +81,7 @@ export MYSQL_PASSWORD=$MYSQL_PASSWORD
 export RCLONE_NAME=$RCLONE_NAME
 export FOLDER_NAME_REMOTE=$FOLDER_NAME_REMOTE
 export FTP_NAME=$FTP_NAME
+export BACKUP_DIR=$BACKUP_DIR
 EOF
 
   textMagenta "----------------> CONFIG SUCCESS"
