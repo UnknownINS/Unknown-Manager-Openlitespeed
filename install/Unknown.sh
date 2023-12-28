@@ -35,8 +35,6 @@ setAction(){
 
 WebServerScreen(){
 
-    welcome
-
     echo ""
 
     textYellow "----------------> WEBSERVER MANAGER"
@@ -64,49 +62,37 @@ WebServerScreen(){
       0)
         clear
         backToMainScreen ;;
-
       1)
         clear
         installWebServer ;;
-
       2)
         clear
         uninstallWebServer ;;
-
       3)
         clear
         configWebServer ;;
-
       4)
         clear
         installPhpmyadmin ;;
-
       5)
         clear
         updateWebserver ;;
-
       6)
         clear
         installLibraryWebServer ;;
-
       7)
         clear
         restartWebserver ;;
-
       8)
         clear
         resetAdminPassword ;;
-
       9)
         clear
         updateDomainSever ;;
-
       10)
         clear
         configVariableOpenLiteSpeed ;;
-
       *)
-        clear
         WebServerScreen ;;
 
       esac
@@ -114,8 +100,6 @@ WebServerScreen(){
 }
 
 ManagerWebSiteScreen(){
-  clear
-  welcome
 
   echo ""
 
@@ -166,15 +150,12 @@ ManagerWebSiteScreen(){
         clear
         wpRedirectDomain ;;
       *)
-        clear
         ManagerWebSiteScreen ;;
       esac
 
 }
 
 ExtendToolScreen(){
-  clear
-  welcome
   echo ""
   textYellow "----------------> Extend Tool"
 
@@ -205,15 +186,12 @@ ExtendToolScreen(){
         clear
         unInstallNetData ;;
       *)
-        clear
         ExtendToolScreen ;;
   esac
 
 }
 
 HardDriveScreen(){
-    clear
-    welcome
     echo ""
     textYellow "----------------> Hard Drive"
 
@@ -234,15 +212,12 @@ HardDriveScreen(){
           clear
           checkUseHardDrive ;;
         *)
-          clear
           HardDriveScreen ;;
     esac
 
 }
 
 OptimizeScreen(){
-      clear
-      welcome
       echo ""
       textYellow "----------------> Optimize WebSite"
 
@@ -259,14 +234,11 @@ OptimizeScreen(){
             clear
             optimizeImage ;;
           *)
-            clear
             OptimizeScreen ;;
       esac
 }
 
 BackupAndRestoreScreen(){
-      clear
-      welcome
       echo ""
       textYellow "----------------> Backup and Restore"
 
@@ -290,15 +262,12 @@ BackupAndRestoreScreen(){
             clear
             restoreRemote ;;
           *)
-            clear
             BackupAndRestoreScreen ;;
       esac
 }
 
 
 SslScreen(){
-      clear
-      welcome
       echo ""
       textYellow "----------------> SSL TOOL"
       textGreen "0 ) Back To App.                               1 ) Install SSL/HTTPS."
@@ -318,14 +287,11 @@ SslScreen(){
             clear
             renewSSLNow ;;
           *)
-            clear
             SslScreen ;;
       esac
 }
 
 CronJobScreen(){
-      clear
-      welcome
       echo ""
       textYellow "----------------> CRON JOB TOOL"
       textGreen "0 ) Back To App.                              1 ) Config RClone."
@@ -345,15 +311,12 @@ CronJobScreen(){
             clear
             configAutoJob ;;
           *)
-            clear
             CronJobScreen ;;
       esac
 }
 
 
 dataBaseScreen(){
-      clear
-      welcome
       echo ""
       textYellow "----------------> Database Manager"
 
@@ -377,15 +340,13 @@ dataBaseScreen(){
             clear
             repairDatabases ;;
           *)
-            clear
             dataBaseScreen ;;
       esac
 }
 
 
 FTPScreen(){
-      clear
-      welcome
+
       echo ""
       textYellow "----------------> FTP Manager"
 
@@ -407,14 +368,11 @@ FTPScreen(){
             clear
             deleteFTPDomain ;;
           *)
-            clear
             FTPScreen ;;
       esac
 }
 
 WordpressScreen(){
-      clear
-      welcome
       echo ""
       textYellow "----------------> Wordpress Manager"
 
@@ -443,7 +401,6 @@ WordpressScreen(){
             clear
             toggleWPCRON ;;
           *)
-            clear
             FTPScreen ;;
       esac
 }
