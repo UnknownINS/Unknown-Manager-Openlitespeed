@@ -238,10 +238,10 @@ StartApp() {
   textRed "----------------> TOOL MANAGER"
   textGreen "0 ) Exit App.                                   1 ) Manager WebServer."
   textGreen "2 ) Manager WebSite.                            3 ) Extend Tool."
-  textGreen "4 ) Hard Drive.                                 5 ) Optimize WebSite."
+  textGreen "4 ) Hard Drive System.                          5 ) Manager Optimize."
   echo ''
   textRed "----------------> ABOUT TOOL"
-  textGreen "6 ) Uninstall OLS.                              7 ) Update OLS."
+  textGreen "6 ) Uninstall Unknown OLS.                              7 ) Update Unknown OLS."
   echo ''
   read -p "----------------> ENTER NUMBER ACTION : " NUMBER_ACTION
   echo ""
