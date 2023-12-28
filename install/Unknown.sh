@@ -63,7 +63,6 @@ WebServerScreen(){
 
       0)
         clear
-
         backToMainScreen ;;
 
       1)
@@ -388,7 +387,6 @@ StartApp() {
 
 while [ $NUMBER_ACTION -ne 0 ]; do
   if [ $NUMBER_ACTION != -1 ]; then
-    clear
     RunAppAction
     else
       StartApp
