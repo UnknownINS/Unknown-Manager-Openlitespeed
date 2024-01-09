@@ -31,7 +31,7 @@ wpCreateWebsite() {
   fi
 
   nameDatabase=$(sed "s/\./_/g" <<<"$inputDomain")
-  nameDatabase=$(sed "s/-/_/g" <<<"$inputDomain")
+  nameDatabase=$(sed "s/\-/_/g" <<<"$nameDatabase")
 
   createDatabase $nameDatabase &>/dev/null
 
@@ -164,7 +164,7 @@ wpDeleteWebsite() {
   rm -rf $LSWS_VHOSTS/$inputDomain &>/dev/null
 
   nameDatabase=$(sed "s/\./_/g" <<<"$inputDomain")
-  nameDatabase=$(sed "s/-/_/g" <<<"$inputDomain")
+  nameDatabase=$(sed "s/\-/_/g" <<<"$nameDatabase")
 
   deleteDatabase $nameDatabase &>/dev/null
 
@@ -254,8 +254,10 @@ wpRenameDomain() {
   textYellow "----------------> RENAME DATABASE"
 
   databaseNewDomain=$(sed "s/\./_/g" <<<"$newDomain")
+  databaseNewDomain=$(sed "s/\-/_/g" <<<"$databaseNewDomain")
 
-  databaseOldDomain=$(sed "s/-/_/g" <<<"$oldDomain")
+  databaseOldDomain=$(sed "s/\./_/g" <<<"$oldDomain")
+  databaseOldDomain=$(sed "s/\-/_/g" <<<"$databaseOldDomain")
 
   PRIVATE_SQL_PASSWORD_DOMAIN=$(openssl rand -base64 15);
 
@@ -343,7 +345,7 @@ mkdir -p $UNKNOWN_DIR/$oldDomain/html/
 
 nameDatabase=$(sed "s/\./_/g" <<<"$oldDomain")
 
-nameDatabase=$(sed "s/-/_/g" <<<"$oldDomain")
+nameDatabase=$(sed "s/\-/_/g" <<<"$nameDatabase")
 
 deleteDatabase $nameDatabase &>/dev/null
 
