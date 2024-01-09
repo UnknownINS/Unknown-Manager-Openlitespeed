@@ -29,7 +29,7 @@ wpCreateWebsite() {
     textRed "----------------> PLEASE CHECK DOMAIN AGAIN"
     exit
   fi
-
+  
   nameDatabase=$(sed "s/\.-/_/g" <<<"$inputDomain")
 
   createDatabase $nameDatabase &>/dev/null
